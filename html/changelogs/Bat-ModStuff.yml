@@ -1,0 +1,5 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - qol: "Adds tooltips to Player Panel buttons and better scales default window size."
+  - rscdel: "Killed innocent kittens."
