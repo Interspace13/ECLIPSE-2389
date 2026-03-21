@@ -35,7 +35,7 @@
 	name = "tesla power relay"
 	desc = "A seemingly enigmatic device which connects to nearby APCs wirelessly and draws power from them."
 	w_class = WEIGHT_CLASS_NORMAL
-	extended_desc = "The siphon generates 1 kW of energy, so long as an APC is in the same room, with a cell that has energy.  It will always drain \
+	extended_desc = "The siphon generates 1 kW of energy, so long as an APC is in the same room, with a cell that has energy. It will always drain \
 	from the 'equipment' power channel."
 	icon_state = "power_relay"
 	complexity = 7
