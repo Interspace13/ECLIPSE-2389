@@ -11,7 +11,7 @@
 
 	// Retrieve all persistent data that is not expired
 	var/list/persistent_data = objectsDatabaseGetActiveEntries()
-	log_subsystem_persistence_info("Persistent objects: Retrieved [persistent_data.len] entries for instancing this round.")
+	log_subsystem_persistence_info("Persistent objects: Retrieved [length(persistent_data)] entries for instancing this round.")
 
 	// Instantiate all remaining entries based of their type
 	// Assign persistence related vars found in /obj, apply content and add to live tracking list.
@@ -103,7 +103,7 @@
 	var/result = json_encode(list())
 	try
 		var/list/content = track.persistent_objects_get_content()
-		if(content && content.len)
+		if(content && length(content))
 			result = json_encode(content)
 	catch(var/exception/e)
 		log_subsystem_persistence_error("Error during json serialization for persistent object. Failed to get/encode track content: [e]")
