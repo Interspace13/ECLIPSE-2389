@@ -58,7 +58,7 @@
 
 /singleton/cargo_item/implant_tracker
 	category = "security"
-	name = "Box of tracking implants"
+	name = "box of tracking implants"
 	supplier = "nanotrasen"
 	description = "A full implant kit with tracker implants to keep check on prisoners."
 	price = 600
