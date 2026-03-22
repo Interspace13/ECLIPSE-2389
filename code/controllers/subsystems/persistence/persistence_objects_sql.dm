@@ -16,7 +16,7 @@
 	cleanup_query.SetSuccessCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
 	cleanup_query.ExecuteNoSleep(TRUE)
 
-/datum/controller/subsystem/persistence/proc/objectsDatabaseCleanEntries_CallbackFailure(var/datum/db_query/cleanup_query)
+/datum/controller/subsystem/persistence/proc/objectsDatabaseCleanEntries_CallbackFailure(datum/db_query/cleanup_query)
 	databaseCheckQueryResult(cleanup_query, "objectsDatabaseCleanEntries")
 	qdel(cleanup_query)
 
@@ -56,7 +56,7 @@
 /**
  * Adds a persistent data record to the database.
  */
-/datum/controller/subsystem/persistence/proc/objectsDatabaseAddEntry(/obj/track)
+/datum/controller/subsystem/persistence/proc/objectsDatabaseAddEntry(obj/track)
 	PRIVATE_PROC(TRUE)
 	if(!databaseCheckConnection("objectsDatabaseAddEntry"))
 		return
@@ -86,7 +86,7 @@
 /**
  * Updates a persistent data record in the database.
  */
-/datum/controller/subsystem/persistence/proc/objectsDatabaseUpdateEntry(/obj/track)
+/datum/controller/subsystem/persistence/proc/objectsDatabaseUpdateEntry(obj/track)
 	PRIVATE_PROC(TRUE)
 	if(!databaseCheckConnection("objectsDatabaseUpdateEntry"))
 		return

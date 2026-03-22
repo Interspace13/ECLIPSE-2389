@@ -38,7 +38,7 @@ SUBSYSTEM_DEF(persistence)
  * Helper method to check the SQL query result and log possible errors.
  * RETURN: True if no error occured, false if an error was found.
  */
-/datum/controller/subsystem/persistence/proc/databaseCheckQueryResult(/datum/db_query/query, action)
+/datum/controller/subsystem/persistence/proc/databaseCheckQueryResult(datum/db_query/query, action)
 	PRIVATE_PROC(TRUE)
 	if (query.ErrorMsg())
 		log_subsystem_persistence_error("SQL error during [action]. " + query.ErrorMsg())
