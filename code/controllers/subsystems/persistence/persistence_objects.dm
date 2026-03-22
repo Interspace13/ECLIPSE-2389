@@ -103,7 +103,7 @@
 	var/result = json_encode(list())
 	try
 		var/list/content = track.persistent_objects_get_content()
-		if(content && length(content))
+		if(length(content))
 			result = json_encode(content)
 	catch(var/exception/e)
 		log_subsystem_persistence_error("Error during json serialization for persistent object. Failed to get/encode track content: [e]")
