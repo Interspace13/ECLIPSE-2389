@@ -56,7 +56,7 @@
 /**
  * Adds a persistent data record to the database.
  */
-/datum/controller/subsystem/persistence/proc/objectsDatabaseAddEntry(var/obj/track)
+/datum/controller/subsystem/persistence/proc/objectsDatabaseAddEntry(/obj/track)
 	PRIVATE_PROC(TRUE)
 	if(!databaseCheckConnection("objectsDatabaseAddEntry"))
 		return
@@ -86,7 +86,7 @@
 /**
  * Updates a persistent data record in the database.
  */
-/datum/controller/subsystem/persistence/proc/objectsDatabaseUpdateEntry(var/obj/track)
+/datum/controller/subsystem/persistence/proc/objectsDatabaseUpdateEntry(/obj/track)
 	PRIVATE_PROC(TRUE)
 	if(!databaseCheckConnection("objectsDatabaseUpdateEntry"))
 		return
@@ -115,7 +115,7 @@
 /**
  * Expire a persistent data record in the database by setting it's expiration date to now.
  */
-/datum/controller/subsystem/persistence/proc/objectsDatabaseExpireEntry(var/track_id)
+/datum/controller/subsystem/persistence/proc/objectsDatabaseExpireEntry(track_id)
 	PRIVATE_PROC(TRUE)
 	if(!databaseCheckConnection("objectsDatabaseExpireEntry"))
 		return

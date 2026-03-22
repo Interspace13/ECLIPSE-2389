@@ -27,7 +27,7 @@ SUBSYSTEM_DEF(persistence)
  * PARAMS:
  * 	action = Custom string of the action being performed written to log.
  */
-/datum/controller/subsystem/persistence/proc/databaseCheckConnection(var/action)
+/datum/controller/subsystem/persistence/proc/databaseCheckConnection(action)
 	PRIVATE_PROC(TRUE)
 	if(!SSdbcore.Connect())
 		log_subsystem_persistence_error("SQL error during [action], connection failed.")
@@ -38,7 +38,7 @@ SUBSYSTEM_DEF(persistence)
  * Helper method to check the SQL query result and log possible errors.
  * RETURN: True if no error occured, false if an error was found.
  */
-/datum/controller/subsystem/persistence/proc/databaseCheckQueryResult(var/datum/db_query/query, var/action)
+/datum/controller/subsystem/persistence/proc/databaseCheckQueryResult(/datum/db_query/query, action)
 	PRIVATE_PROC(TRUE)
 	if (query.ErrorMsg())
 		log_subsystem_persistence_error("SQL error during [action]. " + query.ErrorMsg())

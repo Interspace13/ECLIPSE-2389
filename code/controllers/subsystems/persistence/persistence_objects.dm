@@ -98,7 +98,7 @@
  * Safely get JSON persistent content of track.
  * RETURN: JSON formatted content of track or null if an exception occured.
  */
-/datum/controller/subsystem/persistence/proc/objectsGetTrackContent(var/obj/track)
+/datum/controller/subsystem/persistence/proc/objectsGetTrackContent(/obj/track)
 	PRIVATE_PROC(TRUE)
 	var/result = json_encode(list())
 	try
@@ -116,7 +116,7 @@
  *  json = Custom persistent content JSON to be applied.
  *	x,y,z = x-y-z coordinates of object, can be null.
  */
-/datum/controller/subsystem/persistence/proc/objectsApplyTrackContent(var/obj/track, var/json, var/x, var/y, var/z)
+/datum/controller/subsystem/persistence/proc/objectsApplyTrackContent(/obj/track, json, x, y, z)
 	PRIVATE_PROC(TRUE)
 	try
 		track.persistent_objects_apply_content(json_decode(json), x, y, z)
