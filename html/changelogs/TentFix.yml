@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "The tent roofs no longre block clicking on objects inside."
+  - bugfix: "Fixed the invisible pixels on the headphones."
