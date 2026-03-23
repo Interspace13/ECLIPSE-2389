@@ -455,15 +455,15 @@
 	if (d20Roll <= 0)
 		O.name = "shoddy " + initial_name
 	else if (d20Roll <= 5)
-		O.name = "-inferior " + initial_name + "-"
+		O.name = "inferior " + initial_name
 	else if (d20Roll <= 10)
-		O.name = "+cheap " + initial_name + "+"
+		O.name = "cheap " + initial_name
 	else if (d20Roll <= 15)
-		O.name = "*finely-crafted " + initial_name + "*"
+		O.name = "finely-crafted " + initial_name
 	else if (d20Roll <= 20)
-		O.name = "≡superior quality " + initial_name + "≡"
+		O.name = "superior quality " + initial_name
 	else if (d20Roll < 30)
-		O.name = "☼masterful " + initial_name + "☼"
+		O.name = "masterful " + initial_name
 		O.desc = "[O.desc]\n All craftsmanship is of the highest quality."
 	else
 		O.name = "artifact " + initial_name

@@ -20,4 +20,4 @@
 		return
 
 	*cancelled = TRUE
-	to_chat(user, SPAN_WARNING("You must have at least Rank 3 \"Trained\" in the Reactor Systems skill in order to use this machine."))
+	to_chat(user, SPAN_WARNING("There's just so many buttons... You have no idea where to even begin with using this machine."))

@@ -26,7 +26,6 @@
 	if (!parent)
 		return
 
-	RegisterSignal(parent, COMSIG_GUN_SPECIAL_CHECK, PROC_REF(handle_footgun), override = TRUE)
 	RegisterSignal(parent, COMSIG_BEFORE_GUN_FIRE, PROC_REF(handle_accuracy), override = TRUE)
 	RegisterSignal(parent, COMSIG_GUN_TOGGLE_FIRING_MODE, PROC_REF(safety_fumble), override = TRUE)
 
@@ -34,17 +33,9 @@
 	if (!parent)
 		return ..()
 
-	UnregisterSignal(parent, COMSIG_GUN_SPECIAL_CHECK)
 	UnregisterSignal(parent, COMSIG_BEFORE_GUN_FIRE)
 	UnregisterSignal(parent, COMSIG_GUN_TOGGLE_FIRING_MODE)
 	return ..()
-
-/datum/component/skill/firearms/proc/handle_footgun(mob/shooter, footgun)
-	SIGNAL_HANDLER
-	if (skill_level != SKILL_LEVEL_UNFAMILIAR)
-		return
-
-	*footgun = *footgun + footgun_chance
 
 /datum/component/skill/firearms/proc/handle_accuracy(mob/shooter, accuracy_decrease, dispersion_increase)
 	SIGNAL_HANDLER
@@ -68,5 +59,5 @@
 
 	*cancelled = TRUE
 	shooter.visible_message(
-		SPAN_DANGER("<b>\The [shooter] fumbles with \the [shoota]'s safety!</b>"),
-		SPAN_DANGER("<b>You fumble with \the [shoota]'s safety!"))
+		SPAN_DANGER("\The [shooter] fumbles with \the [shoota]'s safety!"),
+		SPAN_DANGER("You fumble with \the [shoota]'s safety!"))

@@ -39,7 +39,7 @@
 /**
  * Returns the maximum level a character can have in this skill depending on education.
  */
-/singleton/skill/proc/get_maximum_level(var/singleton/education/education)
+/singleton/skill/proc/get_maximum_level(singleton/education/education)
 	if(!istype(education))
 		crash_with("SKILL: Invalid [education] fed to get_maximum_level!")
 
@@ -69,7 +69,7 @@
  *
  * It will be called during the process of spawning a player character in.
  */
-/singleton/skill/proc/on_spawn(var/mob/owner, var/skill_level)
+/singleton/skill/proc/on_spawn(mob/owner, skill_level)
 	SHOULD_CALL_PARENT(TRUE)
 	if (!owner || !component_type)
 		return

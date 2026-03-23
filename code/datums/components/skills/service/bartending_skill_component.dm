@@ -41,4 +41,3 @@
 
 	var/datum/moodlet/new_moodlet = morale_comp.load_moodlet(/datum/moodlet/bartender_drink, moodlet_value)
 	new_moodlet.refresh_moodlet() // Reset the duration when they drink it.
-	to_chat(user, SPAN_GOOD("You currently have [moodlet_value] morale points from consuming a skillfully prepared drink."))

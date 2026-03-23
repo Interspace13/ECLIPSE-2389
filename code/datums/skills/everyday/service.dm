@@ -7,9 +7,9 @@
 	component_type = BARTENDING_SKILL_COMPONENT
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "Drinks you produce have no effects.",
-		SKILL_LEVEL_FAMILIAR = "Drinks you produce are slightly higher quality, and give a +10 morale bonus.",
-		SKILL_LEVEL_TRAINED = "Drinks you produce are of moderately higher quality, and give a +15 morale bonus.",
-		SKILL_LEVEL_PROFESSIONAL = "Drinks you produce are of a significantly higher quality, and give a +20 morale bonus."
+		SKILL_LEVEL_FAMILIAR = "Drinks you produce are slightly higher quality.",
+		SKILL_LEVEL_TRAINED = "Drinks you produce are of moderately higher quality.",
+		SKILL_LEVEL_PROFESSIONAL = "Drinks you produce are of a significantly higher quality."
 	)
 
 /singleton/skill/cooking

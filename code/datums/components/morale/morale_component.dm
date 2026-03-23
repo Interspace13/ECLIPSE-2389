@@ -98,7 +98,7 @@
 	RegisterSignal(parent, COMSIG_MECH_TOGGLE_POWER, PROC_REF(handle_mech_toggle_power), override = TRUE)
 
 /datum/component/morale/Destroy()
-	QDEL_NULL_LIST_FORCE(moodlets)
+	QDEL_LIST_FORCE(moodlets)
 	if (!parent)
 		return ..()
 

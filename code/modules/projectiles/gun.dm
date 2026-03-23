@@ -332,12 +332,7 @@
 			return FALSE
 		if(A.species && !A.species.can_use_guns())
 			return FALSE
-
-	// Handling "Clumsiness" by signal.
-	// If for whatever reason you're re-adding clowns to this repo, you need to make a clumsy component and add it to the clown.
-	var/footgun_chance = 0
-	SEND_SIGNAL(user, COMSIG_GUN_SPECIAL_CHECK, &footgun_chance)
-	if(footgun_chance > 0 && prob(footgun_chance))
+	if((M.is_clumsy()) && prob(40)) //Clumsy handling
 		var/obj/P = consume_next_projectile()
 		if(P)
 			if(process_projectile(P, user, user, pick(BP_L_FOOT, BP_R_FOOT)))
