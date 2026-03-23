@@ -545,12 +545,12 @@
 	automatic rifle. Laser weapons are usually used by high-ranking soldiers or special operatives. Regardless of advances in the small arms field, artillery is the Republican army’s \
 	main weapon and pride."
 
-	load_method = MAGAZINE|SPEEDLOADER
+	load_method = MAGAZINE
 	caliber = "6.8mm"
 	ammo_type = /obj/item/ammo_casing/a68
-	allowed_magazines = list(/obj/item/ammo_magazine/a68, /obj/item/ammo_magazine/boltaction/adhomai)
+	allowed_magazines = list(/obj/item/ammo_magazine/a68)
 	magazine_type = /obj/item/ammo_magazine/a68
-	max_shells = 25
+	max_shells = 0
 
 	worn_x_dimension = 48 //Uses 48x32 gun sprite
 
