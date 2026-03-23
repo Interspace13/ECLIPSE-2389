@@ -621,7 +621,7 @@
 	knife_x_offset = 23
 	knife_y_offset = 14
 
-obj/item/gun/projectile/automatic/rifle/adhomian/dpra/update_icon()
+/obj/item/gun/projectile/automatic/rifle/adhomian/dpra/update_icon()
 	item_state = (ammo_magazine)? "mrrazhak" : "mrrazhak_nomag"
 	..() //Placed here so in-hand sprite reflects no magazine properly.
 	icon_state = (ammo_magazine)? "mrrazhak" : "mrrazhak_nomag"
