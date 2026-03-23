@@ -303,15 +303,15 @@
 	penetrating = FALSE
 
 /obj/projectile/bullet/rifle/a68
-	name = "R33 Tamparii bullet"
+	name = "Z33 Tamparii bullet"
 	damage = 40
-	armor_penetration = 17
+	armor_penetration = 12
 	penetrating = FALSE
 
 /obj/projectile/bullet/rifle/a68/ap
-	name = "R33s Tamparii bullet"
-	damage = 30
-	armor_penetration = 30
+	name = "Z33s Tamparii bullet"
+	damage = 40
+	armor_penetration = 16
 	penetrating = TRUE
 
 /obj/projectile/bullet/rifle/a145
@@ -324,7 +324,7 @@
 	maim_rate = 3
 	anti_materiel_potential = 2
 
-/obj/projectile/rifle/kumar_super
+/obj/projectile/bullet/rifle/kumar_super
 	damage = 40
 	armor_penetration = 30
 	penetrating = TRUE
