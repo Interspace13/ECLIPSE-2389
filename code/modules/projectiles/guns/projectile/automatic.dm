@@ -548,9 +548,9 @@
 	load_method = MAGAZINE
 	caliber = "6.8mm"
 	ammo_type = /obj/item/ammo_casing/a68
-	allowed_magazines = list(/obj/item/ammo_magazine/a68)
+	allowed_magazines = list(/obj/item/ammo_magazine/a68, /obj/item/ammo_magazine/boltaction/adhomai)
 	magazine_type = /obj/item/ammo_magazine/a68
-	max_shells = 0
+	max_shells = 0 //Used to be 25, this stops it being double loaded to 50 rounds, a better fix would be to load the bullets into the magazine
 
 	worn_x_dimension = 48 //Uses 48x32 gun sprite
 
@@ -572,6 +572,9 @@
 	if(istype(attacking_item, /obj/item/ammo_magazine/boltaction) && !ammo_magazine)
 		to_chat(user, SPAN_WARNING("\The [src] cannot be reloaded without a magazine!"))
 		return
+	if(istype(attacking_item, /obj/item/ammo_magazine/boltaction) && ammo_magazine)
+		to_chat(user, SPAN_WARNING("\The [src] has had it's loading gate blocked by the magazine, it cannot be reloaded with a stripper clip!"))
+		return
 	..()
 
 /obj/item/gun/projectile/automatic/rifle/dpra
@@ -585,12 +588,12 @@
 
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 
-	load_method = MAGAZINE|SPEEDLOADER
+	load_method = MAGAZINE
 	caliber = "6.8mm"
 	ammo_type = /obj/item/ammo_casing/a68
 	allowed_magazines = list(/obj/item/ammo_magazine/a68)
 	magazine_type = /obj/item/ammo_magazine/a68
-	max_shells = 25
+	max_shells = 0
 
 	worn_x_dimension = 48 //Uses 48x32 gun sprite
 
