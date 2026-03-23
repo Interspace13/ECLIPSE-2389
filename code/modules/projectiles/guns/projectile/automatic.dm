@@ -568,31 +568,34 @@
 	..() //Placed here so in-hand sprite reflects no magazine properly.
 	icon_state = (ammo_magazine)? "tsarrayut" : "tsarrayut_nomag"
 
+/obj/item/gun/projectile/automatic/rifle/proc/stripper_load(var/obj/item/ammo_magazine/magazine, var/obj/item/ammo_magazine/boltaction/stripper, var/mob/user)
+	if(stripper.caliber != magazine.caliber)
+		to_chat(user, SPAN_WARNING("\The [stripper] isn't compatible with the [src]!"))
+		return
+	if(stripper.stored_ammo.len <= 0)
+		to_chat(user, SPAN_WARNING("\The [stripper] is empty!"))
+		return
+	if(magazine.stored_ammo.len >= magazine.max_ammo)
+		to_chat(user, SPAN_WARNING("\The [src] is full!"))
+		return
+	while(magazine.stored_ammo.len < magazine.max_ammo && stripper.stored_ammo.len > 0)
+		var/obj/item/ammo_casing/C = stripper.stored_ammo[1]
+		magazine.stored_ammo.Add(C)
+		stripper.stored_ammo.Remove(C)
+	src.update_icon()
+	stripper.update_icon()
+	playsound(src, 'sound/weapons/reload_clip.ogg', 30)
+
 /obj/item/gun/projectile/automatic/rifle/adhomian/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/ammo_magazine/boltaction) && !ammo_magazine)
 		to_chat(user, SPAN_WARNING("\The [src] cannot be reloaded without a magazine!"))
 		return
 	else if(istype(attacking_item, /obj/item/ammo_magazine/boltaction))
-		var/obj/item/ammo_magazine/stripper = attacking_item
-		if(stripper.caliber != ammo_magazine.caliber)
-			to_chat(user, SPAN_WARNING("\The [stripper] isn't compatible with the [src]!"))
-			return
-		if(stripper.stored_ammo.len <= 0)
-			to_chat(user, SPAN_WARNING("\The [stripper] is empty!"))
-			return
-		if(ammo_magazine.stored_ammo.len >= ammo_magazine.max_ammo)
-			to_chat(user, SPAN_WARNING("\The [src] is full!"))
-			return
-		while(ammo_magazine.stored_ammo.len < ammo_magazine.max_ammo && stripper.stored_ammo.len > 0)
-			var/obj/item/ammo_casing/C = stripper.stored_ammo[1]
-			ammo_magazine.stored_ammo.Add(C)
-			stripper.stored_ammo.Remove(C)
-		ammo_magazine.update_icon()
-		stripper.update_icon()
-		playsound(user, 'sound/weapons/reload_bullet.ogg', 20)
+		var/obj/item/ammo_magazine/stripper_clip = attacking_item
+		src.stripper_load(ammo_magazine, stripper_clip, user)
 	..()
 
-/obj/item/gun/projectile/automatic/rifle/adhomian/dpra
+/obj/item/gun/projectile/automatic/rifle/dpra
 	name = "adhomian assault rifle"
 	desc = "The Mrrazhak Model-1 is the newest Al'mariist automatic rifle. The Mrrazhak is notorious for its simple and reliable design; it can be fabricated and assembled without the \
 	need of a specialized industry or a highly trained workforce."
@@ -621,10 +624,19 @@
 	knife_x_offset = 23
 	knife_y_offset = 14
 
-/obj/item/gun/projectile/automatic/rifle/adhomian/dpra/update_icon()
+/obj/item/gun/projectile/automatic/rifle/dpra/update_icon()
 	item_state = (ammo_magazine)? "mrrazhak" : "mrrazhak_nomag"
 	..() //Placed here so in-hand sprite reflects no magazine properly.
 	icon_state = (ammo_magazine)? "mrrazhak" : "mrrazhak_nomag"
+
+/obj/item/gun/projectile/automatic/rifle/dpra/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/ammo_magazine/boltaction) && !ammo_magazine)
+		to_chat(user, SPAN_WARNING("\The [src] cannot be reloaded without a magazine!"))
+		return
+	else if(istype(attacking_item, /obj/item/ammo_magazine/boltaction))
+		var/obj/item/ammo_magazine/stripper = attacking_item
+		src.stripper_load(ammo_magazine, stripper, user)
+	..()
 
 /obj/item/gun/projectile/automatic/tommygun
 	name = "submachine gun"
