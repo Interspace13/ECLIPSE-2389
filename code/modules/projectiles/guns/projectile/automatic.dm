@@ -545,12 +545,12 @@
 	automatic rifle. Laser weapons are usually used by high-ranking soldiers or special operatives. Regardless of advances in the small arms field, artillery is the Republican army’s \
 	main weapon and pride."
 
-	load_method = MAGAZINE|SPEEDLOADER
+	load_method = MAGAZINE //| SPEEDLOADER
 	caliber = "6.8mm"
 	ammo_type = /obj/item/ammo_casing/a68
 	allowed_magazines = list(/obj/item/ammo_magazine/a68, /obj/item/ammo_magazine/boltaction/adhomai)
 	magazine_type = /obj/item/ammo_magazine/a68
-	max_shells = 25
+	max_shells = 0
 
 	worn_x_dimension = 48 //Uses 48x32 gun sprite
 
@@ -572,9 +572,27 @@
 	if(istype(attacking_item, /obj/item/ammo_magazine/boltaction) && !ammo_magazine)
 		to_chat(user, SPAN_WARNING("\The [src] cannot be reloaded without a magazine!"))
 		return
+	else if(istype(attacking_item, /obj/item/ammo_magazine/boltaction))
+		var/obj/item/ammo_magazine/stripper = attacking_item
+		if(stripper.caliber != ammo_magazine.caliber)
+			to_chat(user, SPAN_WARNING("\The [stripper] isn't compatible with the [src]!"))
+			return
+		if(stripper.stored_ammo.len <= 0)
+			to_chat(user, SPAN_WARNING("\The [stripper] is empty!"))
+			return
+		if(ammo_magazine.stored_ammo.len >= ammo_magazine.max_ammo)
+			to_chat(user, SPAN_WARNING("\The [src] is full!"))
+			return
+		while(ammo_magazine.stored_ammo.len < ammo_magazine.max_ammo && stripper.stored_ammo.len > 0)
+			var/obj/item/ammo_casing/C = stripper.stored_ammo[1]
+			ammo_magazine.stored_ammo.Add(C)
+			stripper.stored_ammo.Remove(C)
+		ammo_magazine.update_icon()
+		stripper.update_icon()
+		playsound(user, 'sound/weapons/reload_bullet.ogg', 20)
 	..()
 
-/obj/item/gun/projectile/automatic/rifle/dpra
+/obj/item/gun/projectile/automatic/rifle/adhomian/dpra
 	name = "adhomian assault rifle"
 	desc = "The Mrrazhak Model-1 is the newest Al'mariist automatic rifle. The Mrrazhak is notorious for its simple and reliable design; it can be fabricated and assembled without the \
 	need of a specialized industry or a highly trained workforce."
@@ -585,12 +603,12 @@
 
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 
-	load_method = MAGAZINE|SPEEDLOADER
+	load_method = MAGAZINE//|SPEEDLOADER
 	caliber = "6.8mm"
 	ammo_type = /obj/item/ammo_casing/a68
 	allowed_magazines = list(/obj/item/ammo_magazine/a68)
 	magazine_type = /obj/item/ammo_magazine/a68
-	max_shells = 25
+	max_shells = 0
 
 	worn_x_dimension = 48 //Uses 48x32 gun sprite
 
@@ -603,7 +621,7 @@
 	knife_x_offset = 23
 	knife_y_offset = 14
 
-/obj/item/gun/projectile/automatic/rifle/dpra/update_icon()
+obj/item/gun/projectile/automatic/rifle/adhomian/dpra/update_icon()
 	item_state = (ammo_magazine)? "mrrazhak" : "mrrazhak_nomag"
 	..() //Placed here so in-hand sprite reflects no magazine properly.
 	icon_state = (ammo_magazine)? "mrrazhak" : "mrrazhak_nomag"
