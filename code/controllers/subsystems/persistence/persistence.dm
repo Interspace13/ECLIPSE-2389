@@ -27,7 +27,7 @@ SUBSYSTEM_DEF(persistence)
  * PARAMS:
  * 	action = Custom string of the action being performed written to log.
  */
-/datum/controller/subsystem/persistence/proc/databaseCheckConnection(action)
+/datum/controller/subsystem/persistence/proc/databaseCheckConnection(action = "unlabeled action")
 	PRIVATE_PROC(TRUE)
 	if(!SSdbcore.Connect())
 		log_subsystem_persistence_error("SQL error during [action], connection failed.")
