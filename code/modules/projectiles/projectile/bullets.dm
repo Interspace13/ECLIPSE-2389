@@ -310,8 +310,8 @@
 
 /obj/projectile/bullet/rifle/a68/ap
 	name = "Z33s Tamparii bullet"
-	damage = 40
-	armor_penetration = 16
+	damage = 30
+	armor_penetration = 30
 	penetrating = TRUE
 
 /obj/projectile/bullet/rifle/a145

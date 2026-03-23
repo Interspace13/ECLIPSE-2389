@@ -213,7 +213,7 @@
 	name = "Tsarrayut'yan automatic rifle"
 	supplier = "zharkov"
 	description = "An Adhomian assault rifle from the People's Republic of Adhomai."
-	price = 1450
+	price = 1650
 	items = list(
 		/obj/item/gun/projectile/automatic/rifle/adhomian
 	)
