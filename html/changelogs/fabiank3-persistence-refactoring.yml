@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - code_imp: "Overhauled the current persistence subsystem for upcoming additions. No changes to current mechanics."
