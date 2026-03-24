@@ -102,7 +102,7 @@
 	turret_sprite_set = "xray"
 
 /obj/item/gun/energy/mousegun
-	name = "\improper NT Pesti-Shock gun"
+	name = "\improper Arodentia Pesti-Shock gun"
 	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/pestishock.dmi'
 	icon_state = "pestishock"
@@ -138,7 +138,7 @@
 		return TRUE
 
 /obj/item/gun/energy/mousegun/xenofauna
-	name = "\improper NT Zap-Blast xenofauna gun"
+	name = "\improper Xenovermino Zap-Blast xenofauna gun"
 	desc = "The NT \"Xenovermino\" Zap-Blast is a highly sophisticated and probably safe beamgun designed to deal with hostile xenofauna."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/xenogun.dmi'
 	icon_state = "xenogun"

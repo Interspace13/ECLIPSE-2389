@@ -90,9 +90,9 @@
 		icon_state = "coltauto-e"
 
 /obj/item/gun/projectile/sec
-	name = "\improper NT Mk58 pistol"
+	name = "\improper Mk58 pistol"
 	desc = "A NanoTrasen-designed .45 sidearm, found among law enforcement and security forces."
-	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. It uses .45 rounds."
+	desc_extended = "The Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. It uses .45 rounds."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/secgun.dmi'
 	icon_state = "secgun"
 	item_state = "secgun"
@@ -124,9 +124,9 @@
 	magazine_type = /obj/item/ammo_magazine/c45m/flash
 
 /obj/item/gun/projectile/sec/wood
-	name = "custom NT Mk58 pistol"
+	name = "custom Mk58 pistol"
 	desc = "A NanoTrasen-designed .45 sidearm, found among law enforcement and security forces. It has a wooden grip."
-	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. This one has a faux wooden grip. It uses .45 rounds."
+	desc_extended = "The Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. This one has a faux wooden grip. It uses .45 rounds."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/secgun_wood.dmi'
 	icon_state = "secgunwood"
 	item_state = "secgunwood"
@@ -139,9 +139,9 @@
 		icon_state = "secgunwood-e"
 
 /obj/item/gun/projectile/automatic/x9
-	name = "\improper NT Mk58-A machine pistol"
+	name = "\improper Mk58-A machine pistol"
 	desc = "A NanoTrasen-designed .45 sidearm, modified for fully-automatic fire. Issued to select security and law enforcement groups."
-	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security \
+	desc_extended = "The Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security \
 	forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. \
 	A trademark of NanoTrasen security forces. This one has been modified for fully-automatic fire from the factory and sports a collapsible shoulder stock for better control. It uses .45 rounds."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/x9.dmi'
@@ -170,7 +170,7 @@
 		icon_state = "secgunauto-e"
 
 /obj/item/gun/projectile/tanto
-	name = "\improper NT Mk1-A Tanto machine pistol"
+	name = "\improper Mk1-A Tanto machine pistol"
 	desc = "An automatic variant of the NanoTrasen Mk1 Everyman handgun that has been built to accept detachable magazines, negating one of the original \
 	weapon's biggest shortcomings. It is marketed towards lower-echelon security companies as a machine pistol named the Tanto, and features a burst-fire selector \
 	and sturdier barrel with heatshield to better take advantage of the higher capacity."
@@ -314,9 +314,9 @@
 	magazine_type = /obj/item/ammo_magazine/mc9mm/flash
 
 /obj/item/gun/projectile/pistol/detective
-	name = "\improper NT Mk21 Blackjack pistol"
+	name = "\improper Mk21 Blackjack pistol"
 	desc = "A compact NanoTrasen designed sidearm, popular with law enforcement personnel for concealed carry purposes. It has a faux wooden grip."
-	desc_extended = "The NT Mk21 Blackjack is a ballistic sidearm developed and produced by NanoTrasen. Unlike the related Mk58, the Blackjack is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk21 is compact and chambered in 9mm caliber. With all the bells and whistles of a modern, quality police pistol, the Blackjack's main drawback is the notoriously nippy recoil - 9mm in such a small package can be unpleasant for the average shooter."
+	desc_extended = "The Mk21 Blackjack is a ballistic sidearm developed and produced by NanoTrasen. Unlike the related Mk58, the Blackjack is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk21 is compact and chambered in 9mm caliber. With all the bells and whistles of a modern, quality police pistol, the Blackjack's main drawback is the notoriously nippy recoil - 9mm in such a small package can be unpleasant for the average shooter."
 	magazine_type = /obj/item/ammo_magazine/mc9mm
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/detgun.dmi'
 	icon_state = "detgun"
@@ -379,7 +379,7 @@
 	. = ..()
 
 /obj/item/gun/projectile/leyon
-	name = "\improper NT Mk1 Everyman pistol"
+	name = "\improper Mk1 Everyman pistol"
 	desc = "NanoTrasen's first marketed firearm design, the Mk1, better known as the Everyman, was an instant hit - though it is a crude, \
 	stripper clip-fed design with a very small capacity, the Everyman is absurdly inexpensive and famously reliable, and is now one of the most \
 	common weapons found in the Orion Spur."

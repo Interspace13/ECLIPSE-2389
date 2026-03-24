@@ -1,5 +1,5 @@
 /obj/item/gun/energy/gun
-	name = "\improper NT EC-4 energy carbine"
+	name = "\improper EC-4 energy carbine"
 	desc = "A NanoTrasen designed energy-based carbine with two settings: Stun and kill."
 	desc_extended = "The NT EC-4 is an energy carbine developed and produced by NanoTrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/ecarbine.dmi'
@@ -123,9 +123,9 @@
 	update_mode()
 
 /obj/item/gun/energy/pistol
-	name = "\improper NT EP-3 energy pistol"
+	name = "\improper EP-3 energy pistol"
 	desc = "A NanoTrasen energy-based pistol gun with two settings: Stun and kill."
-	desc_extended = "The NT EP-3 is an energy sidearm developed and produced by NanoTrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
+	desc_extended = "The EP-3 is an energy sidearm developed and produced by NanoTrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/epistol.dmi'
 	icon_state = "epistolstun100"
 	item_state = "epistolstun100"

@@ -11,9 +11,9 @@
 	fakecaliber = ".45"
 
 /obj/item/gun/bang/sec
-	name = "\improper NT Mk58 pistol"
+	name = "\improper Mk58 pistol"
 	desc = "A NanoTrasen-designed .45 sidearm, found among law enforcement and security forces."
-	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. It uses .45 rounds."
+	desc_extended = "The Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. It uses .45 rounds."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/secgun.dmi'
 	icon_state = "secgun"
 	item_state = "secgun"
@@ -26,18 +26,18 @@
 	fakecaliber = ".45 signal"
 
 /obj/item/gun/bang/sec/wood
-	name = "custom NT Mk58 pistol"
+	name = "custom Mk58 pistol"
 	desc = "A NanoTrasen-designed .45 sidearm, found among law enforcement and security forces. It has a wooden grip."
-	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. This one has a faux wooden grip. It uses .45 rounds."
+	desc_extended = "The Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. This one has a faux wooden grip. It uses .45 rounds."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/secgun_wood.dmi'
 	icon_state = "secgunwood"
 	item_state = "secgunwood"
 	fakecaliber = ".45"
 
 /obj/item/gun/bang/x9
-	name = "\improper NT Mk58-A machine pistol"
+	name = "\improper Mk58-A machine pistol"
 	desc = "A NanoTrasen-designed .45 sidearm, modified for fully-automatic fire. Issued to select security and law enforcement groups."
-	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security \
+	desc_extended = "The Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security \
 	forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. \
 	A trademark of NanoTrasen security forces. This one has been modified for fully-automatic fire from the factory and sports a collapsible shoulder stock for better control. It uses .45 rounds."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/x9.dmi'
@@ -48,7 +48,7 @@
 	fakecaliber = ".45"
 
 /obj/item/gun/bang/tanto
-	name = "\improper NT Mk1-A Tanto machine pistol"
+	name = "\improper Mk1-A Tanto machine pistol"
 	desc = "An automatic variant of the NanoTrasen Mk1 Everyman handgun that has been built to accept detachable magazines, negating one of the original \
 	weapon's biggest shortcomings. It is marketed towards lower-echelon security companies as a machine pistol named the Tanto, and features a burst-fire selector \
 	and sturdier barrel with heatshield to better take advantage of the higher capacity."

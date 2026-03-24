@@ -321,7 +321,7 @@
 	..()
 
 /obj/item/gun/projectile/gauss
-	name = "\improper NT NGS-01 gauss thumper"
+	name = "\improper NGS-01 gauss thumper"
 	desc = "An outdated model of gauss weapon which sees sparing use in modern times."
 	desc_extended = "Designed by NanoTrasen in 2398, the NGS-01 was an offshoot of the venerable HeS-05 gauss rifle. After purchasing \
 	the defunct Henricus company’s designs, work began on an upgrade. Trading in the depleted uranium rounds for tungsten that was more \

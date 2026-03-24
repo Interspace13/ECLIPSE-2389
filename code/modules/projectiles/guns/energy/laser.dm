@@ -44,9 +44,9 @@
 	. += "Unlike most energy weapons, this weapon recharges itself."
 
 /obj/item/gun/energy/xray
-	name = "\improper NT XG-1 X-Ray laser pistol"
+	name = "\improper XG-1 X-Ray laser pistol"
 	desc = "A NanoTrasen designed high-power laser sidearm capable of expelling concentrated X-Ray blasts."
-	desc_extended = "The NT XG-1 is a laser sidearm developed and produced by NanoTrasen. A recent invention, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover. It is compact with relatively high capacity to other sidearms."
+	desc_extended = "The XG-1 is a laser sidearm developed and produced by NanoTrasen. A recent invention, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover. It is compact with relatively high capacity to other sidearms."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/xray.dmi'
 	icon_state = "xray"
 	item_state = "xray"
@@ -71,9 +71,9 @@
 	can_turret = FALSE
 
 /obj/item/gun/energy/laser/shotgun
-	name = "\improper NT QB-2 laser shotgun"
+	name = "\improper QB-2 laser shotgun"
 	desc = "A NanoTrasen designed laser weapon, designed to split a single amplified beam four times."
-	desc_extended = "The NT QB-2 is a laser weapon developed and produced by NanoTrasen. Designed to fill in the niche that ballistic shotguns do, but in the form of laser weaponry. It is equipped with a special crystal lens that splits a single laser beam into four."
+	desc_extended = "The QB-2 is a laser weapon developed and produced by NanoTrasen. Designed to fill in the niche that ballistic shotguns do, but in the form of laser weaponry. It is equipped with a special crystal lens that splits a single laser beam into four."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/lasershotgun.dmi'
 	icon_state = "lasershotgun"
 	item_state = "lasershotgun"
@@ -100,7 +100,7 @@
 	turret_sprite_set = "laser"
 
 /obj/item/gun/energy/laser/shotgun/research
-	name = "\improper NT QB-2E laser shotgun"
+	name = "\improper QB-2E laser shotgun"
 	desc = "A NanoTrasen designed laser weapon, designed to split a single amplified beam four times. This one is marked for expeditionary use."
 	pin = /obj/item/firing_pin/away_site
 

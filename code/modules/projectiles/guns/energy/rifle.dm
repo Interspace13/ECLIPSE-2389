@@ -1,7 +1,7 @@
 /obj/item/gun/energy/rifle
-	name = "\improper NT ER-2 energy rifle"
+	name = "\improper ER-2 energy rifle"
 	desc = "A NanoTrasen designed energy-based rifle with two settings: Stun and Kill."
-	desc_extended = "The NT ER-2 is an energy rifle developed and produced by NanoTrasen. Widely produced and sold across the galaxy. Designed to both stun and kill with concentrated energy blasts of varying strengths based on the fire mode, focused through a crystal lens. Considered to be a dual-purpose rifle with prolonged combat capability."
+	desc_extended = "The ER-2 is an energy rifle developed and produced by NanoTrasen. Widely produced and sold across the galaxy. Designed to both stun and kill with concentrated energy blasts of varying strengths based on the fire mode, focused through a crystal lens. Considered to be a dual-purpose rifle with prolonged combat capability."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/erifle.dmi'
 	icon_state = "eriflestun"
 	item_state = "eriflestun"
@@ -38,9 +38,9 @@
 		)
 
 /obj/item/gun/energy/rifle/laser
-	name = "\improper NT LR-6 laser rifle"
+	name = "\improper LR-6 laser rifle"
 	desc = "A NanoTrasen designed laser weapon, designed to kill with concentrated energy blasts."
-	desc_extended = "The NT LR-6 is a laser rifle developed and produced by NanoTrasen. Designed to kill with concentrated energy blasts focused through a crystal lens. It is considered to be the template of other standard laser weaponry."
+	desc_extended = "The LR-6 is a laser rifle developed and produced by NanoTrasen. Designed to kill with concentrated energy blasts focused through a crystal lens. It is considered to be the template of other standard laser weaponry."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/laserrifle.dmi'
 	icon_state = "laserrifle"
 	item_state = "laserrifle"
@@ -60,8 +60,8 @@
 	modifystate = null
 
 /obj/item/gun/energy/rifle/laser/practice
-	name = "\improper NT LR-6P practice laser rifle"
-	desc = "A modified version of the NT LR-6. It fires less concentrated laser beams that are visible, but ultimately harmless, designed for target practice."
+	name = "\improper LR-6P practice laser rifle"
+	desc = "A modified version of the LR-6. It fires less concentrated laser beams that are visible, but ultimately harmless, designed for target practice."
 	projectile_type = /obj/projectile/beam/practice
 
 
@@ -143,9 +143,9 @@
 	it has a secondary armor-piercing mode, which does less damage but has extremely high armor piercing."
 
 /obj/item/gun/energy/rifle/laser/heavy
-	name = "\improper NT LC-4 laser cannon"
+	name = "\improper LC-4 laser cannon"
 	desc = "A NanoTrasen designed laser cannon capable of acting as a powerful support weapon."
-	desc_extended = "The NT LC-4 is a laser cannon developed and produced by NanoTrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
+	desc_extended = "The LC-4 is a laser cannon developed and produced by NanoTrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/lasercannon.dmi'
 	icon_state = "lasercannon100"
 	item_state = "lasercannon100"
@@ -180,9 +180,9 @@
 	max_shots = 15
 
 /obj/item/gun/energy/rifle/laser/xray
-	name = "\improper NT XR-1 X-Ray laser rifle"
+	name = "\improper XR-1 X-Ray laser rifle"
 	desc = "A NanoTrasen designed high-power laser rifle capable of expelling concentrated X-Ray blasts."
-	desc_extended = "The NT XR-1 is a laser firearm developed and produced by NanoTrasen. A recent innovation, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover, all the while having a large ammo capacity."
+	desc_extended = "The XR-1 is a laser firearm developed and produced by NanoTrasen. A recent innovation, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover, all the while having a large ammo capacity."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/xrifle.dmi'
 	icon_state = "xrifle"
 	item_state = "xrifle"
@@ -226,8 +226,8 @@
 		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
 
 /obj/item/gun/energy/rifle/ionrifle
-	name = "\improper NT Mk70 EW ion rifle"
-	desc = "The NT Mk70 EW \"Halicon\" is a man portable anti-armor weapon designed to disable mechanical threats, produced by NanoTrasen."
+	name = "\improper Mk70 EW ion rifle"
+	desc = "The Mk70 EW \"Halicon\" is a man portable anti-armor weapon designed to disable mechanical threats, produced by NanoTrasen."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/ionrifle.dmi'
 	icon_state = "ionrifle"
 	item_state = "ionrifle"
