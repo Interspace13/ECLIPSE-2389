@@ -1,7 +1,7 @@
 SUBSYSTEM_DEF(mob_ai)
 	name = "Mobs - AI"
 #ifdef UNIT_TEST
-	flags = SS_NO_FIRE | SS_NO_INIT| SS_BACKGROUND
+	flags = SS_NO_FIRE | SS_NO_INIT | SS_BACKGROUND
 #else
 	flags = SS_POST_FIRE_TIMING | SS_BACKGROUND | SS_NO_INIT
 #endif
