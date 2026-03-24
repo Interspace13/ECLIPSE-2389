@@ -434,7 +434,7 @@
 	item_state = "taj_cop_suit_rural"
 
 /obj/item/clothing/suit/storage/toggle/tajaran/pra_submarine
-	name = "PRA Submariner Coat"
+	name = "\improper PRA submariner coat"
 	desc = "A black leather coat with a Zshram fur lining and collar found in use by the People's Republic of Adhomai's submarine service."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "pra_submarine_coat"
