@@ -588,7 +588,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/adhomian/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/ammo_magazine/boltaction) && !ammo_magazine)
-		to_chat(user, SPAN_WARNING("\The [src] cannot be reloaded without a magazine!"))
+		to_chat(user, SPAN_WARNING("\The [src] cannot be reloaded without a magazine!")
 		return
 	else if(istype(attacking_item, /obj/item/ammo_magazine/boltaction))
 		var/obj/item/ammo_magazine/stripper_clip = attacking_item
