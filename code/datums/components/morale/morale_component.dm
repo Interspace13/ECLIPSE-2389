@@ -160,8 +160,8 @@
 
 	*cancelled = TRUE
 	shooter.visible_message(
-		SPAN_DANGER("<b>\The [shooter] fumbles with \the [shoota]'s safety in a blind panic!</b>"),
-		SPAN_DANGER("<b>You fumble with \the [shoota]'s safety in a blind panic!"))
+		SPAN_DANGER("\The [shooter] fumbles with \the [shoota]'s safety in a blind panic!"),
+		SPAN_DANGER("You fumble with \the [shoota]'s safety in a blind panic!"))
 
 /datum/component/morale/proc/handle_harm_attack(mob/attacker, mob/defender, attacker_skill_level, miss_chance, rand_damage, block_chance)
 	SIGNAL_HANDLER
@@ -194,8 +194,8 @@
 
 	if (morale_points < 0 && prob(floor(panic_chance_ceiling * -morale_ratio)))
 		user.visible_message(
-			SPAN_DANGER("<b>\The [user] fumbles with their mech's controls in a blind panic!</b>"),
-			SPAN_DANGER("<b>You fumble with your mech's controls in a blind panic!</b>"))
+			SPAN_DANGER("\The [user] fumbles with their mech's controls in a blind panic!"),
+			SPAN_DANGER("You fumble with your mech's controls in a blind panic!"))
 		*direction = pick(GLOB.cardinals)
 
 	if (direction == NORTH)
@@ -210,8 +210,8 @@
 
 	if (morale_points < 0 && prob(floor(panic_chance_ceiling * -morale_ratio)))
 		user.visible_message(
-			SPAN_DANGER("<b>\The [user] fumbles with their mech's controls in a blind panic!</b>"),
-			SPAN_DANGER("<b>You fumble with your mech's controls in a blind panic!</b>"))
+			SPAN_DANGER("\The [user] fumbles with their mech's controls in a blind panic!"),
+			SPAN_DANGER("You fumble with your mech's controls in a blind panic!"))
 		*direction = angle2dir(dir2angle(direction) + 180)
 
 	*delay_modifier = *delay_modifier - 0.5 * morale_ratio

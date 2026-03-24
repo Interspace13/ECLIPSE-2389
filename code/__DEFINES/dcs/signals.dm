@@ -101,8 +101,6 @@
 
 #define COMSIG_GUN_TOGGLE_FIRING_MODE "gun_toggle_firing_mode"
 
-#define COMSIG_GUN_SPECIAL_CHECK "gun_special_check"
-
 #define COMSIG_BEFORE_GUN_FIRE "before_gun_fire"
 
 // Mech signals
