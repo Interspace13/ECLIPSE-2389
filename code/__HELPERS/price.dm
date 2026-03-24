@@ -24,7 +24,7 @@
 		var/list/split_input = splittext(line, ";")
 
 		// category;name;price
-		if(split_input.len >= 3)
+		if(length(split_input) >= 3)
 			var/category = trim(split_input[1])
 			var/name = trim(split_input[2])
 			var/price_text = trim(split_input[3])
@@ -52,7 +52,7 @@
 			continue
 
 		// name;price
-		if(split_input.len >= 2)
+		if(length(split_input) >= 2)
 			var/name = trim(split_input[1])
 			var/price_text = trim(split_input[2])
 

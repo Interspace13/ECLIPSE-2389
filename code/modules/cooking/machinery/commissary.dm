@@ -185,7 +185,7 @@
 	var/datum/component/quikpay_shop/qp_shop = src.GetComponent(/datum/component/quikpay_shop)
 	if(!qp_shop)
 		return
-	qp_shop.interact_with_ui(user)
+	qp_shop.ui_interact(user)
 
 /obj/machinery/commissary_wall_shop
 	name = "self-serve shop teller"
@@ -231,7 +231,7 @@
 	var/datum/component/quikpay_shop/orderterminal/qp_shop = src.GetComponent(/datum/component/quikpay_shop/orderterminal)
 	if(!qp_shop)
 		return
-	qp_shop.interact_with_ui(user)
+	qp_shop.ui_interact(user)
 
 /obj/machinery/commissary_wall_shop/CtrlClick(mob/user)
 	var/obj/item/card/id/I = user.GetIdCard()

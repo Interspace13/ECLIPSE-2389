@@ -205,10 +205,6 @@
 	owner.balloon_alert(user, "device set!")
 	return TRUE
 
-// Print the prices to a paper
-/datum/component/quikpay_shop/proc/print_price(mob/user, var/spawn_loc)
-	return print_price_to_paper(shop_name, items, spawn_loc, user)
-
 // Handles receipt creation
 /datum/component/quikpay_shop/proc/buying_receipt(mob/user)
 	receipt = ""
@@ -225,10 +221,6 @@
 		sum += item_price * item_amount
 
 	receipt += "</ul><HR>Total:</b> [sum]电<br>"
-
-// Open the tgui
-/datum/component/quikpay_shop/proc/interact_with_ui(mob/living/user)
-	ui_interact(user)
 
 /datum/component/quikpay_shop/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -363,7 +355,7 @@
 			if(!editmode)
 				owner.balloon_alert(usr, "device locked!")
 				return FALSE
-			print_price(usr)
+			print_price_to_paper(shop_name, items, owner.loc, usr)
 			. = TRUE
 
 // Clear the order from the selection

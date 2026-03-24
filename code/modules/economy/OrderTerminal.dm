@@ -60,7 +60,7 @@
 	var/datum/component/quikpay_shop/orderterminal/food/qp_shop = src.GetComponent(/datum/component/quikpay_shop/orderterminal/food)
 	if(!qp_shop)
 		return
-	qp_shop.interact_with_ui(user)
+	qp_shop.ui_interact(user)
 
 /obj/machinery/orderterminal/attackby(obj/item/attacking_item, mob/user)
 	if(stat & NOPOWER)

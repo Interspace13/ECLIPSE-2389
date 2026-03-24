@@ -57,7 +57,7 @@
 	var/datum/component/quikpay_shop/quikpay/qp_shop = src.GetComponent(/datum/component/quikpay_shop/quikpay)
 	if(!qp_shop)
 		return
-	qp_shop.interact_with_ui(user)
+	qp_shop.ui_interact(user)
 
 /obj/item/quikpay/afterattack(atom/target, mob/user, proximity)
 	if (!proximity) return
