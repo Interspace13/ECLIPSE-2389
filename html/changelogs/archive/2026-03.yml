@@ -316,3 +316,31 @@
   ASmallCuteCat:
   - balance: Slightly reduced the damage and armor penetration of the Husked Creatures
       found at the Quarantined Outpost away site.
+2026-03-24:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Renames Engineer alt title 'Reactor Technician' to 'Reactor Operator'.
+  - qol: Makes it clear in-game that especially dangerous away sites are dangerous.
+  Fenodyree:
+  - bugfix: Fixes ion projectiles not EMPing the area around them.
+  GeneralCamo:
+  - rscadd: Ported screen alerts from CM-13.
+  - rscadd: Added screen alerts for buckling, being cuffed, and being on fire.
+  SimpleMaroon:
+  - imageadd: Changed the human variant of the Ve'katak Phalanx facial plate on-mob.
+  - rscadd: On the recommendation of the Pyramidicial Chapter of Luceism which was
+      informed of the SCCV Horizon's future arrival to Assunzione, the Stellar Corporate
+      Conglomerate has integrated a Luceian Chapel setting into its holodecks!
+  TheGreyWolf:
+  - rscadd: Added a tea set box to the loadout costing 2 points. It contain 1 tin
+      of tea, 1 teapot and 4 empty cups.
+  - rscadd: Reduced the cost of loadout cigs to 1 point.
+  - rscadd: Reduced the size of tea tins.
+  Tomixcomics:
+  - qol: Changed the kitchen produce boxes to include a few more things that would
+      be useful for chefs (in small quantities, we're not trying to replace Botany
+      here).
+  - spellcheck: Fixed a small typo in the description of caramelized steak bites.
+  kermit:
+  - bugfix: Integrated circuits actually draw significant amounts of power.
+  - bugfix: Reagent pumps can pump while in a held assembly.
+  - bugfix: Tickers work as advertised, take 2.
