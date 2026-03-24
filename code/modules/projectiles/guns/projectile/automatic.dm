@@ -631,7 +631,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/dpra/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/ammo_magazine/boltaction) && !ammo_magazine)
-		balloon_alert(user, "needs a magazine!"))
+		balloon_alert(user, "needs a magazine!")
 		return
 	else if(istype(attacking_item, /obj/item/ammo_magazine/boltaction))
 		var/obj/item/ammo_magazine/stripper = attacking_item
