@@ -163,7 +163,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 /obj/item/ammo_magazine/c45m/dominia
 	name = "dominian service pistol magazine (.45)"
 	desc = "A magazine specifically designed for a Dominian service pistol."
-	icon = 'icons/obj/guns/dominia_pistol.dmi'
+	icon = 'icons/obj/guns/faction/dominian_empire/dominia_pistol.dmi'
 	icon_state = "dom_pistol_mag"
 	max_ammo = 11
 
@@ -457,7 +457,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 /obj/item/ammo_magazine/a556/dlmg
 	name = "MPR-24/5 light machine gun magazine (5.56mm)"
 	max_ammo = 50
-	icon = 'icons/obj/guns/dominia_lmg.dmi'
+	icon = 'icons/obj/guns/faction/dominian_empire/dominia_lmg.dmi'
 	icon_state = "dom_lmg_mag"
 
 /obj/item/ammo_magazine/a65
@@ -536,7 +536,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 
 /obj/item/ammo_magazine/c762/dominia
 	name = "mpr-24/5 carbine magazine (7.62mm)"
-	icon = 'icons/obj/guns/dominia_carbine.dmi'
+	icon = 'icons/obj/guns/faction/dominian_empire/dominia_carbine.dmi'
 	icon_state = "dom_carbine_mag"
 
 /obj/item/ammo_magazine/boltaction
@@ -660,7 +660,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 /obj/item/ammo_magazine/xanan_shotgun
 	name = "magazine"
 	desc = "A magazine for the dNAC-12 combat shotgun."
-	icon = 'icons/obj/guns/xanu_shotgun_mags.dmi'
+	icon = 'icons/obj/guns/faction/dna_defense/xanu_shotgun_mags.dmi'
 	icon_state = "xanu_shell_magazine"
 	caliber = "shotgun"
 	insert_sound = SFX_RELOAD_RIFLE_SLIDE

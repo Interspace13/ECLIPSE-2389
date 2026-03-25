@@ -177,7 +177,7 @@
 		/obj/random/telecrystals = 0.1,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.1,
 		/obj/random/melee = 0.3,
-		/obj/item/gun/energy/lawgiver = 0.1,
+		/obj/item/gun/energy/acp = 0.1,
 		/obj/item/gun/projectile/automatic/terminator = 0.1,
 		/obj/item/personal_shield = 0.4,
 		/obj/random/safe_rig = 0.4,
@@ -191,7 +191,7 @@
 		/obj/item/clothing/glasses/thermal = 0.5,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
 		/obj/random/sword = 0.5,
-		/obj/item/gun/energy/lawgiver = 0.5,
+		/obj/item/gun/energy/acp = 0.5,
 		/obj/item/melee/energy/axe = 0.5,
 		/obj/item/gun/projectile/automatic/terminator = 0.5,
 		/obj/item/rig/military = 0.5,
@@ -238,7 +238,7 @@
 		/obj/item/storage/toolbox/infiltration = 0.3,
 		/obj/random/melee/highvalue = 0.3,
 		/obj/item/gun/projectile/shotgun/pump/combat = 0.2,
-		/obj/item/gun/energy/lawgiver = 0.1,
+		/obj/item/gun/energy/acp = 0.1,
 		/obj/item/gun/projectile/automatic/terminator = 0.1,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.1
 	)
