@@ -1,25 +1,41 @@
 /datum/component/quikpay_shop
+	/// The id associated with the quikpay system. Automatically assigned.
 	var/machine_id = ""
+	/// The Items for sale, containing name and price
 	var/list/items = list()
+	/// The items in the purchase basket, containing name, price and amount
 	var/list/buying = list()
+	/// The input field for new item names
 	var/new_item = ""
+	/// The input field for new item prices
 	var/new_price = 0
+	/// The input field for new item categories
 	var/new_category = ""
+	/// The transaction total for a purchase, 0 when there is no transaction ongoing
 	var/sum = 0
+	/// If the shop can be changed or not, to add new items or change destination account
 	var/editmode = FALSE
+	/// Receipt printing info
 	var/receipt = ""
+	/// The account to receive funds from card transactions
 	var/destinationact = "Operations"
+	/// The credits within the shop object
 	var/credit = 100
+	/// The name used for the shop
 	var/shop_name = "Commissary"
+	/// The owner object, also known as parent. Defined to easily do obj specific procs
 	var/obj/owner
+	/// If it is possible to pay with physical credits or only card
 	var/can_use_credits = TRUE
-	var/stamp = "Idris Quik-Pay Register"
+	/// The the longer version of the shop name
+	var/shop_long_name = "Idris Quik-Pay Register"
+	/// The access types that can configure the shop
 	var/req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO)
 
 /datum/component/quikpay_shop/quikpay
 	shop_name = "Quik-Pay"
 	destinationact = "Service"
-	stamp = "Quik-Pay device"
+	shop_long_name = "Quik-Pay device"
 	can_use_credits = FALSE
 
 /// Add an item by clicking on it with the quikpay
@@ -35,12 +51,12 @@
 	var/price_guess = 0
 	var/category_guess = ""
 
-	price_guess = text2num(tgui_input_text(user, "Set price for [name_guess]:", "[stamp]", 0, 10))
+	price_guess = text2num(tgui_input_text(user, "Set price for [name_guess]:", "[shop_long_name]", 0, 10))
 	if(isnull(price_guess) || price_guess == 0)
 		return
 	price_guess = max(0.01, round(price_guess, 0.01))
 
-	category_guess = tgui_input_text(user, "Set category for [name_guess]:", "[stamp]", "Uncategorized", 32)
+	category_guess = tgui_input_text(user, "Set category for [name_guess]:", "[shop_long_name]", "Uncategorized", 32)
 	if(isnull(category_guess) || !length(category_guess))
 		category_guess = "Uncategorized"
 
@@ -56,7 +72,7 @@
 
 /datum/component/quikpay_shop/Initialize(access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO), destination = "Operations")
 	. = ..()
-	machine_id = "[station_name()] [stamp] #[SSeconomy.num_financial_terminals++]"
+	machine_id = "[station_name()] [shop_long_name] #[SSeconomy.num_financial_terminals++]"
 	if(!isobj(parent))
 		return
 	req_one_access = access
@@ -208,7 +224,7 @@
 /datum/component/quikpay_shop/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "QuikPay", "[stamp]", 550, 550)
+		ui = new(user, src, "QuikPay", "[shop_long_name]", 550, 550)
 		ui.open()
 
 /datum/component/quikpay_shop/ui_data(mob/user)
@@ -358,21 +374,21 @@
 
 /datum/component/quikpay_shop/orderterminal
 	shop_name = "Commissary"
-	stamp = "Self-serve Shop Teller"
+	shop_long_name = "Self-serve Shop Teller"
 	can_use_credits = FALSE
 
 /datum/component/quikpay_shop/orderterminal/food
 	var/ticket = ""
 	var/ticket_number = 1
 	shop_name = "Service terminal"
-	stamp = "Idris Food Terminal"
+	shop_long_name = "Idris Food Terminal"
 
 /datum/component/quikpay_shop/orderterminal/food/buying_receipt(mob/user)
 	ticket = ""
 	receipt = ""
 	sum = 0
-	receipt += "<center><font size=\"4\"><b>[stamp] Receipt</b></font></br><img src = idrislogo.png></center><hr>"
-	ticket += "<center><font size=\"4\"><b>[stamp] Ticket</b></font></br><img src = idrislogo.png></center><hr>"
+	receipt += "<center><font size=\"4\"><b>[shop_long_name] Receipt</b></font></br><img src = idrislogo.png></center><hr>"
+	ticket += "<center><font size=\"4\"><b>[shop_long_name] Ticket</b></font></br><img src = idrislogo.png></center><hr>"
 	for(var/list/bought_item in buying)
 		var/item_name = bought_item["name"]
 		var/item_amount = bought_item["amount"]
