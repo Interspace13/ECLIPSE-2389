@@ -171,6 +171,15 @@
 	label = null
 	illustration = null
 
+/obj/item/storage/box/blank/teabox
+	max_storage_space = 12
+	can_hold = list(
+		/obj/item/storage/box/unique/tea,
+		/obj/item/reagent_containers/glass/beaker/teapot,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang
+		)
+
 /obj/item/storage/box/survival
 	name = "emergency survival box"
 	desc = "A faithful box that will remain with you, no matter where you go, and probably save you."
@@ -279,10 +288,10 @@
 	foldable = null
 	chewable = FALSE
 
-/obj/item/storage/box/ammo/tungstenslugs
-	name = "box of compact tungsten slugs"
-	desc = "A box with several compact tungsten slugs, aimed for use in gauss carbines."
-	starts_with = list(/obj/item/ammo_casing/gauss/carbine = 4)
+/obj/item/storage/box/ammo/duslugs
+	name = "box of depleted uranium slugs"
+	desc = "A box with several depleted uranium slugs, aimed for use in older gauss rifles."
+	starts_with = list(/obj/item/ammo_casing/gauss/old = 4)
 
 /obj/item/storage/box/ammo/sniperammo
 	name = "box of 14.5mm shells"
@@ -1613,6 +1622,7 @@
 		/obj/item/reagent_containers/food/snacks/grown/konyang_tea = 12
 	)
 	foldable = null
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/storage/box/unique/tea/tieguanyin
 	name = "tieguanyin cha-tin"
@@ -1813,3 +1823,14 @@
 	starts_with = list(
 		/obj/item/cane/crutch/forearm = 2
 	)
+
+/obj/item/storage/box/unique/freezer/organcooler/mind_blanker
+	name = "mind blanker cooler"
+	desc = "A cooling box for mind blankers, which can be surgically implanted to protect the patient from unwanted psionic interference."
+	color = COLOR_PURPLE_GRAY
+	illustration = "implant"
+	starts_with = list(/obj/item/organ/internal/augment/bioaug/mind_blanker = 1)
+	can_hold = list(
+		/obj/item/organ/internal/augment/bioaug/mind_blanker
+	)
+	storage_slots = 4

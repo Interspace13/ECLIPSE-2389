@@ -1,18 +1,5 @@
 //Weapons//
 
-/singleton/cargo_item/disruptorpistol
-	category = "weaponry"
-	name = "disruptor pistol"
-	supplier = "nanotrasen"
-	description = "A nanotrasen designed blaster pistol with two settings: stun and lethal."
-	price = 500
-	items = list(
-		/obj/item/gun/energy/disruptorpistol
-	)
-	access = ACCESS_ARMORY
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
 /singleton/cargo_item/tasergun
 	category = "weaponry"
 	name = "taser gun"
@@ -145,7 +132,7 @@
 	description = "The HI L.W.A.P. is an older design of Hephaestus Industries. A designated marksman rifle capable of shooting powerful ionized bolts."
 	price = 2100
 	items = list(
-		/obj/item/gun/energy/sniperrifle
+		/obj/item/gun/energy/rifle/laser/sniper
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
@@ -546,14 +533,14 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/compacttungstenslug
+/singleton/cargo_item/duslug
 	category = "weaponry"
-	name = "compact tungsten gauss slugs"
+	name = "depleted uranium gauss slugs"
 	supplier = "virgo"
-	description = "A box with several compact tungsten slugs, aimed for use in gauss carbines."
+	description = "A box with several depleted uranium slugs, aimed for use in older gauss rifles."
 	price = 125
 	items = list(
-		/obj/item/storage/box/ammo/tungstenslugs
+		/obj/item/storage/box/ammo/duslugs
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
