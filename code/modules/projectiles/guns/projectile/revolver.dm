@@ -348,7 +348,7 @@
 	desc_extended = "The C45 is a .45 chambered revolver designed and manufactured by Zavodskoi Interstellar for use among security forces across the Spur. \
 	Compact and minimalist, the C45 is prized for its form factor, low maintenance, and extremely long longevity. \
 	Its low capacity sees it used primarily as a trusty back-up for personnel needing protection, but without the volume or firepower of a bulky automatic pistol."
-	icon = 'icons/obj/guns/sec_revolver.dmi'
+	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/sec_revolver.dmi'
 	icon_state = "sec_revolver"
 	item_state = "sec_revolver"
 	w_class = WEIGHT_CLASS_NORMAL
