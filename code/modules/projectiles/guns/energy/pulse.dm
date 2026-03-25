@@ -1,4 +1,3 @@
-
 /obj/item/gun/energy/rifle/pulse
 	name = "\improper PL-10 pulse rifle"
 	desc = "A top-of-the-line, heavy-duty, multifaceted energy rifle with three firing modes. The gold standard for NanoTrasen's heavier security specialists."
@@ -36,7 +35,6 @@
 
 /obj/item/gun/energy/rifle/pulse/destroyer/toggle_firing_mode(mob/living/user)
 	to_chat(user, SPAN_WARNING("[src.name] has three settings, and they are all DESTROY."))
-
 
 /obj/item/gun/energy/pulse
 	name = "\improper PL-4 pulse carbine"

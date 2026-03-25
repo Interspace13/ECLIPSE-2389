@@ -83,7 +83,7 @@
 	fakecaliber = ".50"
 
 /obj/item/gun/bang/pistol
-	name = "\improper Z.I. Moonlight pistol"
+	name = "\improper Moonlight pistol"
 	desc = "An extremely popular compact handgun, used throughout human space."
 	desc_extended = "The Zavodskoi Interstellar Moonlight 9mm can be found in the hands of just about anyone imaginable - special operatives, common criminals, police officers, the average Joe - on account of the time-tested design, low price point, reliability, and ease of concealment. Having a threaded barrel helps, too, and it isn't uncommon to see the Moonlight as a prop in spy films, suppressed."
 	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/pistol.dmi'

@@ -130,8 +130,8 @@
 
 
 /obj/item/gun/projectile/automatic/wt550
-	name = "\improper Z.I. 550 Saber machine pistol"
-	desc = "The Z.I. 550 Saber is a cheap self-defense weapon, mass-produced by Zavodskoi Interstellar for paramilitary and private use."
+	name = "\improper 550 Saber machine pistol"
+	desc = "The 550 Saber is a cheap self-defense weapon, mass-produced by Zavodskoi Interstellar for paramilitary and private use."
 	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/wt550.dmi'
 	icon_state = "wt550"
 	item_state = "wt550"
@@ -292,8 +292,8 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	icon_state = (ammo_magazine)? "bcarbine" : "bcarbine-empty"
 
 /obj/item/gun/projectile/automatic/rifle/carbine/civcarbine
-	name = "\improper Z.I. Terrier bullpup carbine"
-	desc = "A variant of the ZI Bulldog assault carbine, the ZI Terrier is a slimmer and lighter version, only capable of accepting smaller magazines. \
+	name = "\improper Terrier bullpup carbine"
+	desc = "A variant of the Bulldog assault carbine, the ZI Terrier is a slimmer and lighter version, only capable of accepting smaller magazines. \
 	It also lacks the integrated grenade launcher and burst fire of the Bulldog."
 	desc_extended = "It makes you feel like a corporate goon when you hold it."
 	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/crew_rifle.dmi'
@@ -349,8 +349,8 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	icon_state = (ammo_magazine)? "acr" : "acr-empty"
 
 /obj/item/gun/projectile/automatic/rifle/z8
-	name = "\improper Z.I. Bulldog bullpup assault carbine"
-	desc = "The ZI Bulldog bullpup assault carbine, Zavodskoi Industries' answer to any problem that can be solved by an assault rifle."
+	name = "\improper Bulldog bullpup assault carbine"
+	desc = "The Bulldog bullpup assault carbine, Zavodskoi Industries' answer to any problem that can be solved by an assault rifle."
 	desc_extended = "It makes you feel like a corporate commando when you hold it."
 	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/carbine.dmi'
 	icon_state = "carbine"
@@ -885,8 +885,8 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	icon_state = (ammo_magazine)? "dom_lmg" : "dom_lmg-empty"
 
 /obj/item/gun/projectile/automatic/rifle/shotgun
-	name = "Z.I. Mastiff assault shotgun"
-	desc = "Designed by Zavodskoi Interstellar to be the end-all-be-all for boarding attempts, the Z.I. Mastiff wasn't as successful as outlooks claimed."
+	name = "Mastiff assault shotgun"
+	desc = "Designed by Zavodskoi Interstellar to be the end-all-be-all for boarding attempts, the Mastiff wasn't as successful as outlooks claimed."
 	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/assaultshotgun.dmi'
 	icon_state = "assaultshotgun"
 	item_state = "assaultshotgun"

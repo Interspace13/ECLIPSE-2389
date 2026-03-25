@@ -231,8 +231,8 @@
 		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
 
 /obj/item/gun/projectile/automatic/rifle/w556
-	name = "\improper Z.I. Greyhound marksman rifle"
-	desc = "The Z.I. Greyhound, the designated marksman rifle variant of Zavodskoi's Z.I. Bulldog carbine. Features a longer, heavier barrel \
+	name = "\improper Greyhound marksman rifle"
+	desc = "The Greyhound, the designated marksman rifle variant of Zavodskoi's Bulldog carbine. Features a longer, heavier barrel \
 	with a low-power fixed-magnification optic. A vertical grip has been attached under the forend, to help offset the change in balance \
 	and improve handling."
 	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/w556.dmi'

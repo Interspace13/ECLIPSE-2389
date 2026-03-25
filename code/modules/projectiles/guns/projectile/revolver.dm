@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/revolver
-	name = "\improper Z.I. Mark II revolver"
+	name = "\improper Mark II revolver"
 	desc = "The revised Mark II Zavodskoi Interstellar revolver, utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon, with a beautiful cedar grip and a transparent plastic cover (so as to not splinter your hands while firing)."
 	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/revolver.dmi'
 	icon_state = "revolver"
@@ -58,7 +58,7 @@
 	magazine_type = /obj/item/ammo_magazine/a454
 
 /obj/item/gun/projectile/revolver/mateba/captain
-	name = "\improper Z.I. Protektor autorevolver"
+	name = "\improper Protektor autorevolver"
 	desc = "A ludicrously powerful .454 autorevolver with equally ludicrous recoil which is issued by the SCC to the administrators of critical facilities and vessels. While revolvers may be a thing of the past, the stopping power displayed by this weapon is second to none."
 	desc_extended = "A Zavodskoi Interstellar design from the mid 2450s intended for export to the Eridani Corporate Federation and the Republic of Biesel, the Protektor \
 	revolver was never designed with practicality in mind. The .454 rounds fired from this weapon are liable to snap the wrist of an unprepared shooter and \
