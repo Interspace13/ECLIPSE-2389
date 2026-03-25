@@ -578,7 +578,9 @@
 	if(length(magazine.stored_ammo) >= magazine.max_ammo)
 		to_chat(user, SPAN_WARNING("\The [src] is full!"))
 		return
-	while(length(magazine.stored_ammo) < magazine.max_ammo && length(stripper.stored_ammo))
+	for(var/i = (length(magazine.stored_ammo) + 1) to magazine.max_ammo)
+		if(!length(stripper.stored_ammo))
+			break
 		var/obj/item/ammo_casing/C = stripper.stored_ammo[1]
 		magazine.stored_ammo.Add(C)
 		stripper.stored_ammo.Remove(C)
