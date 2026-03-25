@@ -77,6 +77,9 @@
 	/// If the drive is energized
 	var/energized = FALSE
 
+	/// If the drive is set for a jump, which unlocks the jump computer and allows a jump to be initiated
+	var/primed = FALSE
+
 	/// The looping sound that plays when the drive is energized
 	var/datum/looping_sound/bluespace_drive/energized_looping_sound
 
@@ -88,7 +91,6 @@
 
 	/// Our bluespace jump event
 	var/datum/event/bluespace_jump/bluespace_jump_event
-
 
 /obj/machinery/bluespacedrive/Initialize()
 	..()
@@ -124,8 +126,6 @@
 		#endif
 
 		return
-
-
 
 /obj/machinery/bluespacedrive/Destroy()
 	QDEL_NULL(internal_gas)
@@ -277,6 +277,11 @@
 	update_icon()
 	update_light()
 
+// Toggles whether the drive is primed or not (so whether the jump computer can initiate a jump or not)
+/obj/machinery/bluespacedrive/proc/toggle_primed()
+	primed = !primed
+	// not much going on here right now but mb a cool effect can go with it
+
 /**
  * Purges the drive charge
  *
@@ -313,7 +318,6 @@
 		return
 
 	src.rotation = rotation
-
 
 /*############################
 	JUMP SEQUENCE PROCS
@@ -415,6 +419,7 @@
 	deactivate_bluespace_jump_event()
 
 	initiate_jump_timer_id = null
+	primed = FALSE
 	purge_charge(forced = FALSE)
 	update_icon()
 
@@ -533,6 +538,7 @@
 	data["jumping"] = linked_bluespace_drive.initiate_jump_timer_id ? TRUE : FALSE
 	data["jump_power"] = linked_bluespace_drive.power_from_gas / (10 KILO)
 	data["fuel_gas"] = linked_bluespace_drive.fuel_gas.total_moles
+	data["primed"] = linked_bluespace_drive.primed
 
 	return data
 
@@ -545,6 +551,9 @@
 
 		if("toggle_energized")
 			linked_bluespace_drive.toggle_energized()
+
+		if("toggle_primed")
+			linked_bluespace_drive.toggle_primed()
 
 		if("purge_charge")
 			linked_bluespace_drive.purge_charge(forced = TRUE)
@@ -628,6 +637,7 @@
 	data["jumping"] = linked_bluespace_drive.initiate_jump_timer_id ? TRUE : FALSE
 	data["jump_power"] = linked_bluespace_drive.power_from_gas / (10 KILO)
 	data["fuel_gas"] = linked_bluespace_drive.fuel_gas.total_moles
+	data["primed"] = linked_bluespace_drive.primed
 
 	return data
 
@@ -644,12 +654,14 @@
 		if("set_rotation")
 			linked_bluespace_drive.set_rotation(params["rotation"])
 
+		if("toggle_primed")
+			linked_bluespace_drive.toggle_primed()
+
 		if("jump")
 			var/success = linked_bluespace_drive.initiate_jump()
 			if(!success)
 				visible_message(SPAN_NOTICE("\The [src] buzzes, flashing \"Unable to acquire bluespace path: Destination unreachable, same as current position \
 											or jump already in progress\"!"))
-
 
 /obj/machinery/computer/bluespacedrivejump/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -832,9 +844,9 @@
 			<li>Operate the inner shield generators to turn them on. <span style="color:red;">Move away from them as soon as activated, the shield can and will repel you too!</span></li>
 			<li>Unlock with your ID card and activate the outer shield generators, if non-specialized personnel is present, lock them back after activation.</li>
 			<li>Operate the control console, energize the drive and observe the gasses being fed into it.</li>
-			<li>Once gas injections are complete, inform the Bridge that a jump can be performed.</li>
-			<li><b><span style="color:red;">Announce the jump and ensure no personnel is outside the ship!</span></b></li>
+			<li>Once gas injections are complete, the drive can be primed which will unlock the jump computer.</li>
 			<li>The Bridge can now set the rotation and engage the jump. Tthe drive will take approximately 30 seconds to energize the field, then it will jump automatically.</li>
+			<li><b><span style="color:red;">Announce the jump and ensure no personnel is outside the ship!</span></b></li>
 			<li>De-energize the drive in the control console.</li>
 			<li>Disable the secondary circuit SMES output to disable the emitters, and wait for the inner shield generators to discharge and the shield to extinguish.</li>
 			<li>Disable the outer shield generators.</li>

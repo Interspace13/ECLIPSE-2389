@@ -9,6 +9,7 @@ export type BluespaceDriveControlData = {
   jumping: BooleanLike;
   jump_power: number;
   fuel_gas: number;
+  primed: BooleanLike;
 };
 
 export const BluespaceDriveControl = (props, context) => {
@@ -38,6 +39,16 @@ export const BluespaceDriveControl = (props, context) => {
           </LabeledControls>
         </Section>
         <Section title="Drive Status">
+          <LabeledControls>
+            <LabeledControls.Item>
+              <Button
+                name="Prime"
+                content={data.primed ? 'Primed' : 'Not Primed'}
+                color={data.primed ? 'green' : 'red'}
+                onClick={() => act('toggle_primed')}
+              />
+            </LabeledControls.Item>
+          </LabeledControls>
           <LabeledList>
             <LabeledList.Item label="Jump Distance">
               {data.jump_power}

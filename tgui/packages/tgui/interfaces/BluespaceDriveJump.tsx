@@ -5,6 +5,7 @@ import {
   LabeledControls,
   Section,
   LabeledList,
+  NoticeBox,
 } from '../components';
 import { Window } from '../layouts';
 import { BooleanLike } from '../../common/react';
@@ -15,6 +16,7 @@ export type BluespaceDriveJumpData = {
   jumping: BooleanLike;
   jump_power: number;
   fuel_gas: number;
+  primed: BooleanLike;
 };
 
 export const BluespaceDriveJump = (props, context) => {
@@ -23,6 +25,20 @@ export const BluespaceDriveJump = (props, context) => {
     <Window width="382" height="277" theme="nanotrasen">
       <Window.Content>
         <Section title="Jump Computer">
+          {!data.primed ? (
+            <NoticeBox>
+              Bluespace drive awaiting final priming{' '}
+              <Button
+                content="Override"
+                color="red"
+                icon="circle-exclamation"
+                disabled={data.primed}
+                onClick={() => act('toggle_primed')}
+              />
+            </NoticeBox>
+          ) : (
+            ''
+          )}
           <LabeledControls>
             <LabeledControls.Item>
               <Knob
@@ -43,7 +59,7 @@ export const BluespaceDriveJump = (props, context) => {
                 name="Jump"
                 content="Jump"
                 color="green"
-                disabled={!data.charge || data.jumping}
+                disabled={!data.charge || data.jumping || !data.primed}
                 onClick={() => act('jump')}
               />
             </LabeledControls.Item>
