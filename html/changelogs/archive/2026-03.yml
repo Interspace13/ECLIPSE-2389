@@ -292,3 +292,62 @@
   MynameAsJeff:
   - rscadd: Fixes several errors on the Ranger Gunboat. Everything actually works
       as intended, now!
+2026-03-19:
+  Hellfirejag:
+  - rscadd: Added a new Loner Jumpstarter to antag uplinks, which costs 20tc.
+  - balance: Reduced cost of standard Psionic Jumpstarter to 15tc.
+  - rscadd: Loner now also starts with Awaken and Drain powers.
+  kermit:
+  - rscadd: Circuitry tickers now actually use seconds as advertised. Made the intervals
+      more significant. Adds a Custom Ticker.
+  - rscadd: Circuity medical analysers scan for health data relevant to Brainmed and
+      not Painmed. 6 years late.
+  - rscadd: Adds a face scanner circuit. Takes a reference; returns some visual characteristics
+      (eg. height, age, face flavourtext). Upgraded printer only.
+  - rscadd: Adds a flasher circuit. Same complexity/powerusage/etc as the shocker.
+      Non-stunning/non-weakening. Upgraded printer only.
+  - rscadd: Adds an Alden-Saraspova anomaly counter circuit. Only scans minerals in-view.
+      Upgraded printer only.
+  - rscadd: Adds a bluespace portal circuit. Consumes bluespace crystals. Inferior
+      to just using the telescience lab, but portable/miniaturised. Upgraded printer
+      only.
+  - bugfix: Fixes the atmospheric sensor circuits all being named 'oxygen sensor'.
+2026-03-20:
+  ASmallCuteCat:
+  - balance: Slightly reduced the damage and armor penetration of the Husked Creatures
+      found at the Quarantined Outpost away site.
+2026-03-24:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Renames Engineer alt title 'Reactor Technician' to 'Reactor Operator'.
+  - qol: Makes it clear in-game that especially dangerous away sites are dangerous.
+  Fenodyree:
+  - bugfix: Fixes ion projectiles not EMPing the area around them.
+  GeneralCamo:
+  - rscadd: Ported screen alerts from CM-13.
+  - rscadd: Added screen alerts for buckling, being cuffed, and being on fire.
+  SimpleMaroon:
+  - imageadd: Changed the human variant of the Ve'katak Phalanx facial plate on-mob.
+  - rscadd: On the recommendation of the Pyramidicial Chapter of Luceism which was
+      informed of the SCCV Horizon's future arrival to Assunzione, the Stellar Corporate
+      Conglomerate has integrated a Luceian Chapel setting into its holodecks!
+  TheGreyWolf:
+  - rscadd: Added a tea set box to the loadout costing 2 points. It contain 1 tin
+      of tea, 1 teapot and 4 empty cups.
+  - rscadd: Reduced the cost of loadout cigs to 1 point.
+  - rscadd: Reduced the size of tea tins.
+  Tomixcomics:
+  - qol: Changed the kitchen produce boxes to include a few more things that would
+      be useful for chefs (in small quantities, we're not trying to replace Botany
+      here).
+  - spellcheck: Fixed a small typo in the description of caramelized steak bites.
+  kermit:
+  - bugfix: Integrated circuits actually draw significant amounts of power.
+  - bugfix: Reagent pumps can pump while in a held assembly.
+  - bugfix: Tickers work as advertised, take 2.
+2026-03-25:
+  ArbiterAmbrose:
+  - rscadd: Added two Xanan Passcards by Ill-fated.
+  - imageadd: Added two Xanan Passcard Sprites by Ill-fated.
+  FabianK3:
+  - code_imp: Overhauled the current persistence subsystem for upcoming additions.
+      No changes to current mechanics.
