@@ -88,8 +88,8 @@
 	var/text = "category;name;price<BR>"
 
 	for(var/list/L in items)
-		var/item_category = L["category"]
-		var/item_name = L["name"]
+		var/item_category = sanitize_tg(L["category"])
+		var/item_name = sanitize_tg(L["name"])
 		var/item_price = L["price"]
 
 		if(!length(item_category))
