@@ -343,7 +343,7 @@
 	max_shells = 6
 
 /obj/item/gun/projectile/revolver/security
-	name = "Z.I. C45 revolver"
+	name = "C45 revolver"
 	desc = "A reliable .45 caliber revolver designed by Zavodskoi."
 	icon = 'icons/obj/guns/sec_revolver.dmi'
 	icon_state = "sec_revolver"

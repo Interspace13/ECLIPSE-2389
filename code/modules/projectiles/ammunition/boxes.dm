@@ -66,6 +66,10 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	name = "speed loader (.45 flash)"
 	ammo_type = /obj/item/ammo_casing/c45/flash
 
+/obj/item/ammo_magazine/c45/revolver/practice
+	name = "speed loader (.45 practice)"
+	ammo_type = /obj/item/ammo_casing/c45/practice
+
 // End of Revolvos //
 
 // Pistols and handguns //

@@ -76,6 +76,10 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/ammunition)
 	name = "magazine (.45, flash, pistol)"
 	path = /obj/item/ammo_magazine/c45m/flash
 
+/singleton/fabricator_recipe/ammunition/magazine_practice
+	name = "magazine (.45, practice, pistol)"
+	path = /obj/item/ammo_magazine/c45m/practice
+
 /singleton/fabricator_recipe/ammunition/revolver_fourty_five
 	name = "speedloader (.45, revolver)"
 	path = /obj/item/ammo_magazine/c45/revolver
@@ -88,6 +92,10 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/ammunition)
 /singleton/fabricator_recipe/ammunition/revolver_flash
 	name = "speedloader (.45, flash, revolver)"
 	path = /obj/item/ammo_magazine/c45/revolver/flash
+
+/singleton/fabricator_recipe/ammunition/revolver_practice
+	name = "speedloader (.45, practice, revolver)"
+	path = /obj/item/ammo_magazine/c45/revolver/practice
 
 /singleton/fabricator_recipe/ammunition/magazine_fourty_five/extended
 	name = "magazine (.45, extended, pistol)"
