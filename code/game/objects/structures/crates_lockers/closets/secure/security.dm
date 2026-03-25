@@ -379,7 +379,7 @@
 	new /obj/item/clothing/head/caphat/bridge_crew/alt(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
-	new /obj/item/gun/energy/disruptorpistol/miniature(src)
+	new /obj/item/gun/projectile/sec(src)
 	new /obj/item/radio/headset/headset_com(src)
 	new /obj/item/radio/headset/headset_com/alt(src)
 	new /obj/item/radio/off(src)

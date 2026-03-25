@@ -1,18 +1,5 @@
 //Weapons//
 
-/singleton/cargo_item/disruptorpistol
-	category = "weaponry"
-	name = "disruptor pistol"
-	supplier = "nanotrasen"
-	description = "A nanotrasen designed blaster pistol with two settings: stun and lethal."
-	price = 500
-	items = list(
-		/obj/item/gun/energy/disruptorpistol
-	)
-	access = ACCESS_ARMORY
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
 /singleton/cargo_item/tasergun
 	category = "weaponry"
 	name = "taser gun"

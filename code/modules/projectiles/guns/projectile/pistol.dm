@@ -138,6 +138,9 @@
 	else
 		icon_state = "secgunwood-e"
 
+/obj/item/gun/projectile/sec/wood/lethal
+	magazine_type = /obj/item/ammo_magazine/c45m
+
 /obj/item/gun/projectile/automatic/x9
 	name = "automatic .45 pistol"
 	desc = "A NanoTrasen-designed sidearm, modified for fully-automatic fire. Issued to select security and law enforcement groups."

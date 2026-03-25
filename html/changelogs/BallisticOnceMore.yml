@@ -9,3 +9,4 @@ changes:
   - rscadd: "Added .45 revolver speedloaders to the armory."
   - rscadd: "Added practice rounds to the autolathe."
   - balance: "Reduced the effectiveness of rubber bullets."
+  - rscdel: "Removed all disruptors, replacing them with ballistics and for the elyran ERT with plasma pistols."
