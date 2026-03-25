@@ -392,7 +392,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "greatblade0"
 	item_state = "greatblade0"
-	active_force = 33
+	active_force = 44
 	armor_penetration = 30
 	active_throwforce = 20
 	active_w_class = WEIGHT_CLASS_HUGE
@@ -401,6 +401,7 @@
 	throw_speed = 5
 	throw_range = 10
 	w_class = WEIGHT_CLASS_BULKY
+	slot_flags = SLOT_BACK, SLOT_BELT
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
