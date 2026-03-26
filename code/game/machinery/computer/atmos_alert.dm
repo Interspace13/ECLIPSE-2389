@@ -69,16 +69,5 @@ GLOBAL_LIST_EMPTY(minor_air_alarms)
 			for(var/datum/alarm_source/alarm_source in alarm.sources)
 				var/obj/machinery/alarm/air_alarm = alarm_source.source
 				if(istype(air_alarm))
-					var/list/new_ref = list("atmos_reset" = 1)
-					air_alarm.Topic(href, new_ref, state = GLOB.air_alarm_topic)
+					air_alarm.alarm_reset()
 		return 1
-
-
-GLOBAL_DATUM_INIT(air_alarm_topic, /datum/ui_state/air_alarm_topic, new())
-
-/datum/ui_state/air_alarm_topic/href_list(var/mob/user)
-	var/list/extra_href = list()
-	extra_href["remote_connection"] = 1
-	extra_href["remote_access"] = 1
-
-	return extra_href
