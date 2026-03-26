@@ -59,7 +59,7 @@
 
 	//If nothing has been done with the device yet
 	if(!selected_report && !interviewee_id)
-		if(GLOB.config.sql_ccia_logs)
+		if(GLOB.config.sql_ccia_logs && SSdbcore.Connect())
 			//Get the active cases from the database and display them
 			var/list/reports = list()
 			var/datum/db_query/report_query = SSdbcore.NewQuery("SELECT id, report_date, title, public_topic, internal_topic, game_id, status FROM ss13_ccia_reports WHERE status IN ('in progress', 'approved') AND deleted_at IS NULL")

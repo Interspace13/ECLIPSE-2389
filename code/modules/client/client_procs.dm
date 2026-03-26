@@ -550,19 +550,16 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 // Returns null if no DB connection can be established, or -1 if the requested key was not found in the database
 
 /proc/get_player_age(key)
-	if(!SSdbcore.Connect())
+	if(!establish_db_connection(GLOB.dbcon))
 		return null
 
-	var/datum/db_query/query = SSdbcore.NewQuery("SELECT datediff(Now(),firstseen) as age FROM ss13_player WHERE ckey = :ckey",list("ckey"=ckey(key)))
-	query.Execute()
-	var/age = -1
+	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age FROM ss13_player WHERE ckey = :ckey:")
+	query.Execute(list("ckey"=ckey(key)))
 
 	if(query.NextRow())
-		age = text2num(query.item[1])
-		qdel(query)
-		return age
-	qdel(query)
-	return age
+		return text2num(query.item[1])
+	else
+		return -1
 
 /client/proc/log_client_to_db()
 	set waitfor = FALSE
@@ -570,12 +567,12 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	if (IsGuestKey(src.key))
 		return
 
-	if(!SSdbcore.Connect())
+	if(!establish_db_connection(GLOB.dbcon))
 		return
 
-	var/datum/db_query/query = SSdbcore.NewQuery("SELECT datediff(Now(),firstseen) as age, whitelist_status, account_join_date, DATEDIFF(NOW(), account_join_date), ckey_is_external FROM ss13_player WHERE ckey = :ckey",list("ckey"=ckey(key)))
+	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age, whitelist_status, account_join_date, DATEDIFF(NOW(), account_join_date), ckey_is_external FROM ss13_player WHERE ckey = :ckey:")
 
-	if(!query.Execute())
+	if(!query.Execute(list("ckey"=ckey(key))))
 		return
 
 	var/found = 0
@@ -593,29 +590,25 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 			if (!account_join_date)
 				account_age = -1
 			else
-				var/datum/db_query/query_datediff = SSdbcore.NewQuery("SELECT DATEDIFF(NOW(), :joindate)",list("joindate"=account_join_date))
+				var/DBQuery/query_datediff = GLOB.dbcon.NewQuery("SELECT DATEDIFF(NOW(), [account_join_date])")
 				if (!query_datediff.Execute())
-					qdel(query_datediff)
 					return
 				if (query_datediff.NextRow())
 					account_age = text2num(query_datediff.item[1])
-				qdel(query_datediff)
 
-	var/datum/db_query/query_ip = SSdbcore.NewQuery("SELECT ckey FROM ss13_player WHERE ip = :address",list("address"=address))
+	var/DBQuery/query_ip = GLOB.dbcon.NewQuery("SELECT ckey FROM ss13_player WHERE ip = '[address]'")
 	query_ip.Execute()
 	related_accounts_ip = ""
 	while(query_ip.NextRow())
 		related_accounts_ip += "[query_ip.item[1]], "
 		break
-	qdel(query_ip)
 
-	var/datum/db_query/query_cid = SSdbcore.NewQuery("SELECT ckey FROM ss13_player WHERE computerid = :computerid",list("computerid"=computer_id))
+	var/DBQuery/query_cid = GLOB.dbcon.NewQuery("SELECT ckey FROM ss13_player WHERE computerid = '[computer_id]'")
 	query_cid.Execute()
 	related_accounts_cid = ""
 	while(query_cid.NextRow())
 		related_accounts_cid += "[query_cid.item[1]], "
 		break
-	qdel(query_cid)
 
 	var/admin_rank = "Player"
 	if(src.holder)
@@ -623,14 +616,12 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 
 	if(found)
 		//Player already identified previously, we need to just update the 'lastseen', 'ip', 'computer_id', 'byond_version' and 'byond_build' variables
-		var/datum/db_query/query_update = SSdbcore.NewQuery("UPDATE ss13_player SET lastseen = Now(), ip = :ip, computerid = :computerid, lastadminrank = :lastadminrank, account_join_date = :account_join_date, byond_version = :byond_version, byond_build = :byond_build WHERE ckey = :ckey",list("ckey"=ckey(key),"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
-		query_update.Execute()
-		qdel(query_update)
+		var/DBQuery/query_update = GLOB.dbcon.NewQuery("UPDATE ss13_player SET lastseen = Now(), ip = :ip:, computerid = :computerid:, lastadminrank = :lastadminrank:, account_join_date = :account_join_date:, byond_version = :byond_version:, byond_build = :byond_build: WHERE ckey = :ckey:")
+		query_update.Execute(list("ckey"=ckey(key),"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
 	else if (!GLOB.config.access_deny_new_players)
 		//New player!! Need to insert all the stuff
-		var/datum/db_query/query_insert = SSdbcore.NewQuery("INSERT INTO ss13_player (ckey, ckey_is_external, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date, byond_version, byond_build) VALUES (:ckey, :ckey_is_external, Now(), Now(), :ip, :computerid, :lastadminrank, :account_join_date, :byond_version, :byond_build)",list("ckey"=ckey(key), "ckey_is_external"=src.ckey_is_external,"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
-		query_insert.Execute()
-		qdel(query_insert)
+		var/DBQuery/query_insert = GLOB.dbcon.NewQuery("INSERT INTO ss13_player (ckey, ckey_is_external, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date, byond_version, byond_build) VALUES (:ckey:, :ckey_is_external:, Now(), Now(), :ip:, :computerid:, :lastadminrank:, :account_join_date:, :byond_version:, :byond_build:)")
+		query_insert.Execute(list("ckey"=ckey(key), "ckey_is_external"=src.ckey_is_external,"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
 	else
 		// Flag as -1 to know we have to kiiick them.
 		player_age = -1
@@ -800,16 +791,15 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	if (!SSdbcore.Connect())
 		return
 
-	var/datum/db_query/select_query = SSdbcore.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey AND deleted_at IS NULL",list("ckey" = ckey))
-	select_query.Execute()
+	var/datum/db_query/select_query = SSdbcore.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey AND deleted_at IS NULL", list("ckey" = ckey))
+	select_query.SetSuccessCallback(CALLBACK(src, PROC_REF(_gather_linking_requests_cb)))
+	select_query.SetFailCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
+	select_query.ExecuteNoSleep()
 
-	if (select_query.NextRow())
-		if (text2num(select_query.item[1]) > 0)
-			return "You have [select_query.item[1]] account linking requests pending review. Click <a href='byond://?JSlink=linking;notification=:src_ref'>here</a> to see them!"
-
-	qdel(select_query)
-
-	return null
+/client/proc/_gather_linking_requests_cb(datum/db_query/query)
+	if (query.NextRow() && text2num(query.item[1]) > 0)
+		prefs?.new_notification("info", "You have [query.item[1]] account linking requests pending review. Click <a href='byond://?JSlink=linking;notification=:src_ref'>here</a> to see them!", callback_src = src, callback_proc = "check_linking_requests")
+	qdel(query)
 
 /client/proc/process_webint_link(var/route, var/attributes)
 	if (!route)
@@ -871,21 +861,17 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		ip_intel = res.intel
 
 /client/proc/findJoinDate()
-	var/datum/http_request/req = http_create_request(RUSTG_HTTP_METHOD_GET,"http://byond.com/members/[ckey]?format=text")
-
-	req.begin_async()
-	UNTIL(req.is_complete())
-
-	var/datum/http_response/resp = req.into_response()
-
-	if(resp.errored)
-		LOG_DEBUG("ACCESS CONTROL: Failed to connect to byond age check for [ckey] - Error: [resp.error]")
+	var/list/http = world.Export("http://byond.com/members/[ckey]?format=text")
+	if(!http)
+		LOG_DEBUG("ACCESS CONTROL: Failed to connect to byond age check for [ckey]")
 		return
-	var/regex/R = regex("joined = \"(\\d{4}-\\d{2}-\\d{2})\"")
-	if(R.Find(resp.body))
-		. = R.group[1]
-	else
-		CRASH("Age check regex failed for [src.ckey]")
+	var/F = file2text(http["CONTENT"])
+	if(F)
+		var/regex/R = regex("joined = \"(\\d{4}-\\d{2}-\\d{2})\"")
+		if(R.Find(F))
+			. = R.group[1]
+		else
+			CRASH("Age check regex failed for [src.ckey]")
 
 /client/Click(atom/object, atom/location, control, params)
 	SEND_SIGNAL(src, COMSIG_CLIENT_CLICK, object, location, control, params, usr)

@@ -162,7 +162,7 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 	if (status != TICKET_CLOSED)
 		return
 
-	if (!establish_db_connection(GLOB.dbcon))
+	if (!SSdbcore.Connect())
 		return
 
 	var/datum/db_query/query = SSdbcore.NewQuery({"INSERT INTO ss13_tickets
@@ -182,6 +182,7 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 		),
 		TRUE
 	)
+	query.SetSuccessCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
 	query.Execute()
 
 /datum/ticket/proc/append_message(m_from, m_to, msg)

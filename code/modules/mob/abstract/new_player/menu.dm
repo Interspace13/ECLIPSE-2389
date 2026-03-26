@@ -410,14 +410,15 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 	if(SSdbcore.Connect())
 		var/mob/M = hud.mymob
 		var/isadmin = M && M.client && M.client.holder
-		var/datum/db_query/query = SSdbcore.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = :ckey) AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = :ckey)",list("ckey"=M.ckey))
-		query.Execute()
-		var/newpoll = query.NextRow()
+		var/datum/db_query/query = SSdbcore.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = :ckey) AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = :ckey)", list("ckey" = M.ckey))
+		query.SetSuccessCallback(CALLBACK(src, PROC_REF(_polls_check_cb)))
+		query.SetFailCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
+		query.ExecuteNoSleep()
 
-		if(newpoll)
-			new_polls = TRUE
-
-		qdel(query)
+/atom/movable/screen/new_player/selection/polls/proc/_polls_check_cb(datum/db_query/query)
+	if (query.NextRow())
+		new_polls = TRUE
+	qdel(query)
 
 /atom/movable/screen/new_player/selection/polls/Click()
 	var/mob/abstract/new_player/player = usr

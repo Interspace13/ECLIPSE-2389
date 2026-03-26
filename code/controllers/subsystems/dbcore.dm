@@ -308,6 +308,8 @@ SUBSYSTEM_DEF(dbcore)
 
 /// Check if we have established a DB Connection
 /datum/controller/subsystem/dbcore/proc/IsConnected()
+	PRIVATE_PROC(TRUE)
+
 	if(!GLOB.config.sql_enabled)
 		return FALSE
 	if (!connection)
