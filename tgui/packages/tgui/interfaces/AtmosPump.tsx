@@ -40,7 +40,7 @@ export const AtmosPump = (props, context) => {
   } = data;
 
   return (
-    <Window width={320} height={220}>
+    <Window width={320} height={255}>
       <Window.Content>
         <Section>
           <LabeledList>
