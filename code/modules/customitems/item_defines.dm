@@ -1365,7 +1365,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A black leather coat with a Zshram fur collar found in use by the People's Republic of Adhomai's submarine service. \
 	This coat is missing the left sleeve past the shoulder, along with holes and rips throughout. Care has been taken to hem the \
 	edges of the holes, rips, and remains of the left sleeve. Rredouane's sword has been stenciled onto the back of the coat in white paint."
-	icon = "icons/obj/custom_items/kalkii_coat.dmi"
-	icon_override = "icons/obj/custom_items/kalkii_coat.dmi"
+	icon = 'icons/obj/custom_items/kalkii_coat.dmi'
+	icon_override = 'icons/obj/custom_items/kalkii_coat.dmi'
 	icon_state = "kalkii_coat"
 	item_state = "kalkii_coat"
