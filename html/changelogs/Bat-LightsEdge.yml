@@ -1,0 +1,8 @@
+author: Batrachophrenoboocosmomachia, Sammy, Fyni
+delete-after: True
+changes:
+  - rscadd: "Adds additional configuration data to the Light's Edge sector."
+  - soundadd: "Adds a Welcome AI voiceline for the Light's Edge sector."
+  - imageadd: "Adds Light's Edge sector skybox."
+  - imageadd: "Adds Light's Edge sector state to the Stargazer."
+  - balance: "Slightly decreases default light brightness, slightly increases night mode light range."
