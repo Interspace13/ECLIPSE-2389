@@ -871,13 +871,16 @@ pixel_x = 10;
 		if("command")
 			var/device_id = params["id_tag"]
 			var/command = params["command"]
+			var/list/signal = list()
 			switch(command)
 				if("set_external_pressure")
 					var/input_pressure = tgui_input_number(usr, "What pressure would you like the system to maintain?", "Pressure Controls")
 					if(isnum(input_pressure))
-						send_signal(device_id, list(command = input_pressure))
+						signal[command] = input_pressure
+						send_signal(device_id, signal)
 				if("reset_external_pressure")
-					send_signal(device_id, list(command = ONE_ATMOSPHERE))
+					signal[command] = ONE_ATMOSPHERE
+					send_signal(device_id, signal)
 				if("power",
 					"adjust_external_pressure",
 					"checks",
@@ -889,13 +892,14 @@ pixel_x = 10;
 					"n2o_scrub",
 					"panic_siphon",
 					"scrubbing")
-					send_signal(device_id, list(command = text2num(params["val"])))
+					signal[command] = text2num(params["val"])
+					send_signal(device_id, signal)
 				if("set_threshold")
 					var/env = params["env"]
 					var/threshold = text2num(params["threshold"])
 					var/list/selected = TLV[env]
 					var/list/threshold_names = list("lower bound", "low warning", "high warning", "upper bound")
-					var/newval = tgui_input_number(usr, "Enter [threshold_names[threshold]] for [env].", "Alarm Triggers", selected[threshold])
+					var/newval = tgui_input_number(usr, "Enter [threshold_names[threshold]] for [env]. Use -1 to disable.", "Alarm Triggers", selected[threshold], min_value = -1)
 					if(isnull(newval))
 						return TRUE
 					if(newval < 0)
