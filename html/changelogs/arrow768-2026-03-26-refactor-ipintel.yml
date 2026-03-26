@@ -1,0 +1,10 @@
+author: arrow768
+delete-after: True
+changes:
+  - refactor: "Refactors IPIntel (XKeyScore) to use the SShttp subsystem for async HTTP requests instead of world.Export."
+  - refactor: "Moves IPIntel logic into the SSipintel subsystem as proper subsystem procs."
+  - code_imp: "IPIntel database queries now use SSdbcore with parameterized queries instead of GLOB.dbcon string interpolation."
+  - config: "Adds a dedicated IPIntel subsystem log (subsystems/ipintel.log) controlled by log_subsystems_ipintel in logging.json."
+  - code_imp: "Refactors BYOND account age lookup (findJoinDate) to use async RUSTG HTTP instead of world.Export."
+  - code_imp: "Refactors client login DB logging (log_client_to_db) to use SSdbcore with parameterized queries."
+  - code_imp: "Removes unused get_player_age proc."
