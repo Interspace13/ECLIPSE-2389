@@ -8,7 +8,7 @@
 	/// The jobs this education type allows you to access.
 	var/list/jobs
 	/// The given skills for this education type. Linked list of skill type to level.
-	var/list/skills
+	var/list/skills = list()
 	/// Species that CANNOT take this education, if necessary. This is a list of names, must match what's in the species pref variable.
 	/// Empty list means no restrictions.
 	var/list/species_restriction

@@ -144,14 +144,13 @@
 	var/base_maximum_level = skill.get_maximum_level(education)
 	var/remaining_skill_points = calculate_remaining_skill_points(GET_SINGLETON(skill.category))
 
-	for(var/skill_level = 0 to base_maximum_level)
+	for(var/skill_level = SKILL_LEVEL_UNFAMILIAR, skill_level <= base_maximum_level, skill_level++)
 		. = skill_level
 
-		var/skill_cost = skill.get_cost(skill_level + 1)
+		var/skill_cost = skill.get_cost(skill_level)
 		if(skill_cost > remaining_skill_points)
 			break
 
-		skill_level++
 		remaining_skill_points -= skill_cost
 
 /**
@@ -217,10 +216,11 @@
 		if(skill.category != skill_category.type)
 			continue
 
-		if(skill.type in education.skills)
+		var/skill_level = pref.skills[skill.type]
+		if(skill_level <= education.skills[skill.type])
 			continue
 
-		. += skill.get_cost(pref.skills[skill.type])
+		. += skill.get_cost(skill_level)
 
 /datum/category_item/player_setup_item/skills/OnTopic(href, href_list, user)
 	if(href_list["skillinfo"])
