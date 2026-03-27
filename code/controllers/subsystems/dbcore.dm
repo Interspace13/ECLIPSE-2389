@@ -491,7 +491,7 @@ SUBSYSTEM_DEF(dbcore)
 	if(status == DB_QUERY_STARTED)
 		CRASH("Attempted to start a new query while waiting on the old one")
 
-	if(!SSdbcore.IsConnected())
+	if(!SSdbcore.Connect())
 		last_error = "No connection!"
 		return FALSE
 
@@ -530,7 +530,7 @@ SUBSYSTEM_DEF(dbcore)
 	if(status == DB_QUERY_STARTED)
 		CRASH("Attempted to start a new query while waiting on the old one")
 
-	if(!SSdbcore.IsConnected())
+	if(!SSdbcore.Connect())
 		last_error = "No connection!"
 		return FALSE
 
