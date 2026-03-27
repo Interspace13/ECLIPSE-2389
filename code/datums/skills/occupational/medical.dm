@@ -34,7 +34,11 @@
 			+ " - Fixing Arterial Bleeding<br>" \
 			+ " - Amputating a limb.",
 		SKILL_LEVEL_TRAINED = "You have years of formal training and experience with surgery. This is equivalent to a fully licensed surgeon.<br>" \
-			+ "You can perform the following procedures in addition to all procedures allowed by the previous level:<br>" \
+			+ "You can perform the following procedures:<br>" \
+			+ " - Opening or Closing incisions.<br>" \
+			+ " - Clamp bleeders.<br>" \
+			+ " - Fixing Arterial Bleeding<br>" \
+			+ " - Amputating a limb." \
 			+ " - Repairing broken bones or muscle tendons.<br>" \
 			+ " - Sawing and retracting a ribcage.<br>" \
 			+ " - Facial Reconstructions only on organic humanoids, not synthetics.<br>" \
@@ -42,7 +46,17 @@
 			+ " - Re-attach (organic) limbs. Robotic limbs require the Robotics skill instead.<br>" \
 			+ " - Repair non-necrotic organs other than the brain, or mechanical prosthetics.<br>",
 		SKILL_LEVEL_PROFESSIONAL = "You are a world class surgeon with decades worth of training and experience.<br>" \
-			+ "In addition to all previous procedures, you can also perform these procedures:<br>" \
+			+ "You can perform the following procedures:<br>" \
+			+ " - Opening or Closing incisions.<br>" \
+			+ " - Clamp bleeders.<br>" \
+			+ " - Fixing Arterial Bleeding<br>" \
+			+ " - Amputating a limb." \
+			+ " - Repairing broken bones or muscle tendons.<br>" \
+			+ " - Sawing and retracting a ribcage.<br>" \
+			+ " - Facial Reconstructions only on organic humanoids, not synthetics.<br>" \
+			+ " - Remove or Insert implants.<br>" \
+			+ " - Re-attach (organic) limbs. Robotic limbs require the Robotics skill instead.<br>" \
+			+ " - Repair non-necrotic organs other than the brain, or mechanical prosthetics.<br>" \
 			+ " - Repair and debride necrotic organs.<br>" \
 			+ " - Repair damaged brains."
 	)

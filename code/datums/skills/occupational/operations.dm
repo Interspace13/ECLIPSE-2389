@@ -23,7 +23,11 @@
 			+ " - Repairing external damage to mechanical limbs.<br>" \
 			+ " - Cutting someone out of a hardsuit.",
 		SKILL_LEVEL_TRAINED = "You have years of formal training or experience on repairing and maintaining synthetics equivalent to a Bachelor's degree in Robotics.<br>" \
-			+ "You can perform the following procedures in addition to all procedures allowed by the previous level:<br>" \
+			+ "You can perform the following procedures:<br>" \
+			+ " - Opening or closing external maintenance panels to make superficial repairs.<br>" \
+			+ " - Repairing basic damage with a welder or cables.<br>" \
+			+ " - Repairing external damage to mechanical limbs.<br>" \
+			+ " - Cutting someone out of a hardsuit." \
 			+ " - Fully opening or closing mechanical parts to access internal systems, allowing repairs to any amount of damage.<br>" \
 			+ " - Repairing, removing, or adding mechanical organs.<br>" \
 			+ " - Facial Reconstructions performed on Shell IPCs.<br>" \
@@ -31,7 +35,19 @@
 			+ " - Re-attach (organic) limbs. Robotic limbs require the Robotics skill instead.<br>" \
 			+ " - Perform all forms of internal repairs to IPCs.<br>" \
 			+ " - Prepare an MMI for cyborgification.",
-		SKILL_LEVEL_PROFESSIONAL = "Not currently implemented, functions exactly as per Trained."
+		SKILL_LEVEL_PROFESSIONAL = "Not currently implemented, functions exactly as per Trained.<br>" \
+			+ "You can perform the following procedures:<br>" \
+			+ " - Opening or closing external maintenance panels to make superficial repairs.<br>" \
+			+ " - Repairing basic damage with a welder or cables.<br>" \
+			+ " - Repairing external damage to mechanical limbs.<br>" \
+			+ " - Cutting someone out of a hardsuit." \
+			+ " - Fully opening or closing mechanical parts to access internal systems, allowing repairs to any amount of damage.<br>" \
+			+ " - Repairing, removing, or adding mechanical organs.<br>" \
+			+ " - Facial Reconstructions performed on Shell IPCs.<br>" \
+			+ " - Attaching mechanical limbs (including to organics).<br>" \
+			+ " - Re-attach (organic) limbs. Robotic limbs require the Robotics skill instead.<br>" \
+			+ " - Perform all forms of internal repairs to IPCs.<br>" \
+			+ " - Prepare an MMI for cyborgification."
 	)
 
 /singleton/skill/pilot_spacecraft

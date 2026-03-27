@@ -26,8 +26,6 @@
 	var/category
 	/// The sub-category of this skill. Used to better sort skills.
 	var/subcategory
-	/// The modifier for how difficult the skill is. Each level costs this much * the level.
-	var/skill_difficulty_modifier = SKILL_DIFFICULTY_MODIFIER_MEDIUM
 	/**
 	 * Required skills are always included in the user's saved skills preference, even if it's at the lowest rank.
 	 * This is needed for skills that rely on components.
@@ -35,6 +33,13 @@
 	var/required = FALSE
 	/// The component datum that this skill will add during character spawning
 	var/component_type = null
+	/// Map of skill levels to level costs. How many skill points it takes to purchase this rank in a skill.
+	var/alist/skill_cost_map = alist(
+		SKILL_LEVEL_UNFAMILIAR = 0,
+		SKILL_LEVEL_FAMILIAR = 2,
+		SKILL_LEVEL_TRAINED = 3,
+		SKILL_LEVEL_PROFESSIONAL = 4
+	)
 
 /**
  * Returns the maximum level a character can have in this skill depending on education.
@@ -43,24 +48,13 @@
 	if(!istype(education))
 		crash_with("SKILL: Invalid [education] fed to get_maximum_level!")
 
-	// If there is no uneducated skill cap, it means we can always pick the maximum level.
-	if(!uneducated_skill_cap)
-		return maximum_level
-
-	// Otherwise, we need to check the education...
-	if(type in education.skills)
-		return education.skills[type]
-
-
-	return uneducated_skill_cap
+	return (!uneducated_skill_cap || education.skills[type]) ? maximum_level : uneducated_skill_cap
 
 /**
  * Returns the cost of this skill, modified by its difficulty modifier.
  */
 /singleton/skill/proc/get_cost(level)
-	if(level == SKILL_LEVEL_UNFAMILIAR) //thanks byond for not supporting index 0
-		return 0
-	return skill_difficulty_modifier * level
+	return skill_cost_map[level]
 
 /**
  * ECS hook for Skills, based on a one-shot-on-spawn pattern common to traits/disabilities/loadouts, etc.
