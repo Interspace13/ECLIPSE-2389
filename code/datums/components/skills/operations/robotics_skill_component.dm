@@ -1,3 +1,7 @@
+/**
+ * Component used for the Robotics skill. Like the Surgery skill, this component is used to determine which surgical procedures a character is allowed to perform on IPCs.
+ * This skill does not apply to surgeries performed on "Organics", but it can allow for repairs to prosthetic limbs.
+ */
 /datum/component/skill/robotics
 
 /datum/component/skill/robotics/Initialize()

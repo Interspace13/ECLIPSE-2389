@@ -1,6 +1,6 @@
 /**
  * Component used for the Firearms skill. Mobs with this component will have their weapon handling characteristics modified by their skill rank
- * but only if this component is present.
+ * but only if this component is present. Essentially it provides a penalty to gun accuracy at ranks below the "Skill Diff", and a bonus for ranks above it.
  */
 /datum/component/skill/firearms
 	/**
