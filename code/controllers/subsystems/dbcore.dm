@@ -5,6 +5,7 @@ SUBSYSTEM_DEF(dbcore)
 	wait = 10 // Not seconds because we're running on SS_TICKER
 	runlevels = RUNLEVEL_LOBBY|RUNLEVELS_DEFAULT
 	init_order = INIT_ORDER_DBCORE
+	init_stage = INITSTAGE_FIRST
 	priority = FIRE_PRIORITY_DATABASE
 
 
