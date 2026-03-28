@@ -2183,6 +2183,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/trusted-types@npm:^2.0.7":
+  version: 2.0.7
+  resolution: "@types/trusted-types@npm:2.0.7"
+  checksum: 8e4202766a65877efcf5d5a41b7dd458480b36195e580a3b1085ad21e948bc417d55d6f8af1fd2a7ad008015d4117d5fdfe432731157da3c68678487174e4ba3
+  languageName: node
+  linkType: hard
+
 "@types/webpack-env@npm:^1.18.0":
   version: 1.18.0
   resolution: "@types/webpack-env@npm:1.18.0"
@@ -4017,10 +4024,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dompurify@npm:^2.5.4":
-  version: 2.5.6
-  resolution: "dompurify@npm:2.5.6"
-  checksum: 1d329fe79928aa86c61539b758bdbc53df58dd90bdc5b74032a2a3a22a436e84178d8f6ad8b022c8f6fac46b26d6e7e553c0cd131a37ed5105bbed6bf87be226
+"dompurify@npm:^3.3.2":
+  version: 3.3.3
+  resolution: "dompurify@npm:3.3.3"
+  dependencies:
+    "@types/trusted-types": ^2.0.7
+  dependenciesMeta:
+    "@types/trusted-types":
+      optional: true
+  checksum: 2ba5b40129259836f1e6c98e99d16608d34c7f4ad6ba457ac8c932f0e2c8e0e7c27561d25fcabf97e695eec57fd5eef1c065b324a542e5125631d4f768af2736
   languageName: node
   linkType: hard
 
@@ -9239,7 +9251,7 @@ resolve@^2.0.0-next.3:
   resolution: "tgui-panel@workspace:packages/tgui-panel"
   dependencies:
     common: "workspace:*"
-    dompurify: ^2.5.4
+    dompurify: ^3.3.2
     inferno: ^7.4.8
     tgui: "workspace:*"
     tgui-dev-server: "workspace:*"
@@ -9323,7 +9335,7 @@ resolve@^2.0.0-next.3:
     "@types/marked": ^4.0.8
     common: "workspace:*"
     dateformat: ^4.5.1
-    dompurify: ^2.5.4
+    dompurify: ^3.3.2
     es-toolkit: ^1.39.3
     highlight.js: ^11.5.1
     inferno: ^7.4.8
