@@ -253,14 +253,14 @@
 		client_details)
 	expire_query.SetSuccessCallback(CALLBACK(src, PROC_REF(_warnings_expire_cb)))
 	expire_query.SetFailCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
-	expire_query.ExecuteNoSleep()
+	expire_query.ExecuteNoSleep(TRUE)
 
 	var/datum/db_query/count_query = SSdbcore.NewQuery(
 		"SELECT id FROM ss13_warnings WHERE (visible = 1 AND acknowledged = 0 AND expired = 0) AND (ckey = :ckey OR computerid = :computer_id OR ip = :address)",
 		client_details)
 	count_query.SetSuccessCallback(CALLBACK(src, PROC_REF(_warnings_count_cb)))
 	count_query.SetFailCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
-	count_query.ExecuteNoSleep()
+	count_query.ExecuteNoSleep(TRUE)
 
 /client/proc/_warnings_expire_cb(datum/db_query/query)
 	var/count_expire = 0
@@ -271,7 +271,7 @@
 			list("warning_id" = warning_id))
 		update_query.SetSuccessCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
 		update_query.SetFailCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
-		update_query.ExecuteNoSleep()
+		update_query.ExecuteNoSleep(TRUE)
 		count_expire++
 	qdel(query)
 	if (count_expire)

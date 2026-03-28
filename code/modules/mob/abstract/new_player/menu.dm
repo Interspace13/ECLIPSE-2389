@@ -413,7 +413,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 		var/datum/db_query/query = SSdbcore.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = :ckey) AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = :ckey) LIMIT 0,1", list("ckey" = M.ckey))
 		query.SetSuccessCallback(CALLBACK(src, PROC_REF(_polls_check_cb)))
 		query.SetFailCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
-		query.ExecuteNoSleep()
+		query.ExecuteNoSleep(TRUE)
 
 /atom/movable/screen/new_player/selection/polls/proc/_polls_check_cb(datum/db_query/query)
 	if (query.NextRow())

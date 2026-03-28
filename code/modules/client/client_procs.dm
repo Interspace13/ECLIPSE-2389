@@ -794,7 +794,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	var/datum/db_query/select_query = SSdbcore.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey AND deleted_at IS NULL", list("ckey" = ckey))
 	select_query.SetSuccessCallback(CALLBACK(src, PROC_REF(_gather_linking_requests_cb)))
 	select_query.SetFailCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
-	select_query.ExecuteNoSleep()
+	select_query.ExecuteNoSleep(TRUE)
 
 /client/proc/_gather_linking_requests_cb(datum/db_query/query)
 	if (query.NextRow() && text2num(query.item[1]) > 0)

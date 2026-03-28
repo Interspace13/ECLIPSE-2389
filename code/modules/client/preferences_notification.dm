@@ -156,7 +156,7 @@
 		list("ckey" = user.ckey))
 	query.SetSuccessCallback(CALLBACK(src, PROC_REF(_add_active_notifications_cb), user))
 	query.SetFailCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
-	query.ExecuteNoSleep()
+	query.ExecuteNoSleep(TRUE)
 
 /datum/preferences/proc/_add_active_notifications_cb(var/client/user, datum/db_query/query)
 	var/chat_notification = 0
@@ -186,7 +186,7 @@
 				list("id" = query.item[3]))
 			ackquery.SetSuccessCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
 			ackquery.SetFailCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
-			ackquery.ExecuteNoSleep()
+			ackquery.ExecuteNoSleep(TRUE)
 	qdel(query)
 	if (panel_notification)
 		new_notification("warning", "You have <b>[notification_count] unread notifications!</b> Click <a href='byond://?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!")
@@ -215,7 +215,7 @@
 		list("ckey" = user.ckey))
 	actions_query.SetSuccessCallback(CALLBACK(src, PROC_REF(_count_ccia_actions_cb)))
 	actions_query.SetFailCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
-	actions_query.ExecuteNoSleep()
+	actions_query.ExecuteNoSleep(TRUE)
 
 /datum/preferences/proc/_count_ccia_actions_cb(datum/db_query/query)
 	if (query.NextRow())
