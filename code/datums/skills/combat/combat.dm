@@ -1,6 +1,21 @@
+/*
+	All of the combat skills in this file are meant to be presented to the players as a "Bonus" to certain aspects of combat. However,
+	factually they are actually a penalty to combat skills for anyone not in Security. This lets us have better balancing levers against antags,
+	giving non-security leeway in being allowed to fight antags since they will be mechanically far weaker than actual security. Players can then be encouraged,
+	rather than discouraged from picking a rifle up off the floor to fight mercs, since they get hit with a huge accuracy penalty when using it for not being security.
+
+	Players are much happier anyways if you tell them something provides a bonus if they invest in it, even if the baseline before the bonus was less than what they had before.
+	A lot like the "Rested Experience Effect" in video game design.
+
+	As a general rule of thumb, having rank 3 in a combat skill is equivalent to "Vanilla" stats. No penalties, no bonuses.
+	Rank 1 and 2 give penalties to combat characteristics. Rank 4; which isn't accessible to crew and will come in a later PR via implants/modifiers,
+	instead provides a bonus to combat characteristics. All 3 combat skills and their relevant checks are also influenced by the Morale component,
+	which provides up to an equivalent +/- 0.5 ranks in combat skills depending on how much positive or negative morale has been accumulated.
+																																				*/
 /singleton/skill/unarmed_combat
 	name = "Unarmed Combat"
-	description = "Unarmed combat represents your training in hand-to-hand combat, or without a weapon. It also influences your ability to resist actions like disarms or martial arts."
+	description = "Unarmed combat represents your training in hand-to-hand combat, or without a weapon. It also influences your ability to resist actions like disarms or martial arts. " \
+		+ "Higher ranks in Unarmed Combat provide bonuses when attacking with your fists, as well as bonuses to defending against others unarmed attacks and disarms."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	skill_level_map = list(
 		"Untrained",
@@ -30,9 +45,11 @@
 	required = TRUE
 	component_type = UNARMED_COMBAT_SKILL_COMPONENT
 
+/// Currently just a simple percent modifier to melee weapon damage. -20% at rank 1, -10% at rank 2, 0% at rank 3, +10% at rank 4.
 /singleton/skill/armed_combat
 	name = "Armed Combat"
-	description = "Armed Combat influences your effectiveness when fighting with any melee weapon."
+	description = "Armed Combat influences your effectiveness when fighting with any melee weapon. Your rank in this skill increases the damage dealt with melee weapons."
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category = /singleton/skill_category/combat
 	subcategory = SKILL_SUBCATEGORY_MELEE
 	component_type = ARMED_COMBAT_SKILL_COMPONENT
