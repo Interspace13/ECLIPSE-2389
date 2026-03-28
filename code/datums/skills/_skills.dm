@@ -37,8 +37,8 @@
 	var/alist/skill_cost_map = alist(
 		SKILL_LEVEL_UNFAMILIAR = 0,
 		SKILL_LEVEL_FAMILIAR = 2,
-		SKILL_LEVEL_TRAINED = 3,
-		SKILL_LEVEL_PROFESSIONAL = 4
+		SKILL_LEVEL_TRAINED = 4,
+		SKILL_LEVEL_PROFESSIONAL = 8
 	)
 
 /**
@@ -48,7 +48,16 @@
 	if(!istype(education))
 		crash_with("SKILL: Invalid [education] fed to get_maximum_level!")
 
-	return (!uneducated_skill_cap || education.skills[type]) ? maximum_level : uneducated_skill_cap
+	// If there is no uneducated skill cap, it means we can always pick the maximum level.
+	if(!uneducated_skill_cap)
+		return maximum_level
+
+	// Otherwise, we need to check the education...
+	if(type in education.skills)
+		return education.skills[type]
+
+
+	return uneducated_skill_cap
 
 /**
  * Returns the cost of this skill, modified by its difficulty modifier.

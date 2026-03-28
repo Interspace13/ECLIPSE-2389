@@ -12,7 +12,8 @@
 		/singleton/skill/surgery = SKILL_LEVEL_TRAINED,
 		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/anatomy = SKILL_LEVEL_FAMILIAR,
-		/singleton/skill/forensics = SKILL_LEVEL_PROFESSIONAL
+		/singleton/skill/forensics = SKILL_LEVEL_PROFESSIONAL,
+		/singleton/skill/firearms = SKILL_LEVEL_FAMILIAR
 	)
 
 /singleton/education/military_basic
@@ -63,28 +64,3 @@
 		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR /* Police are also trained in basic first aid. */
 	)
 
-/singleton/education/military_aviator
-	name = "Combat Aviator"
-	description = "You have formal training in piloting military spacecraft, along with a fast tracked form of basic training."
-	minimum_character_age = list(
-		SPECIES_HUMAN = 30,
-		SPECIES_SKRELL = 60,
-		SPECIES_SKRELL_AXIORI = 60
-	)
-	skills = list(
-		/singleton/skill/pilot_spacecraft = SKILL_LEVEL_TRAINED,
-		/singleton/skill/firearms = SKILL_LEVEL_TRAINED
-	)
-
-/singleton/education/military_tanker
-	name = "Mech Tanker"
-	description = "You are a graduate of the spur's modern day equivalent to Tanker School, and can call yourself a Mech-warrior."
-	minimum_character_age = list(
-		SPECIES_HUMAN = 25,
-		SPECIES_SKRELL = 60,
-		SPECIES_SKRELL_AXIORI = 60
-	)
-	skills = list(
-		/singleton/skill/pilot_mechs = SKILL_LEVEL_TRAINED,
-		/singleton/skill/firearms = SKILL_LEVEL_TRAINED, /* Actually needed for firing mech guns oddly enough. */
-	)
