@@ -8,8 +8,8 @@ ALTER TABLE ss13_persistent_objects MODIFY COLUMN content MEDIUMTEXT NULL;
 CREATE TABLE ss13_persistent_type_definitions (
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	type VARCHAR(128) NOT NULL UNIQUE,
-	description varchar(128) NOT NULL,
-	definition_type INT NOT NULL -- '0' for GENERIC, '1' for HISTORY
+	description varchar(256) NOT NULL,
+	definition_type INT NOT NULL -- '1' for GENERIC, '2' for HISTORY
 );
 
 CREATE TABLE ss13_persistent_generics (
