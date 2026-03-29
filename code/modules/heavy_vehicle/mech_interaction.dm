@@ -599,6 +599,7 @@
 		return
 
 	hatch_closed = !hatch_closed
+	playsound(loc, hatch_closed ? 'sound/effects/metal_close.ogg' : 'sound/effects/air_seal.ogg', 75, 1)
 	to_chat(user, SPAN_NOTICE("You [hatch_closed ? "close" : "open"] the [body.hatch_descriptor]."))
 	hud_open.update_icon()
 	update_icon()

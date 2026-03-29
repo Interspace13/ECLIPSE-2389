@@ -6,3 +6,4 @@ changes:
   - balance: "Nerfed Superheavy mech arms to be more in line with other Superheavy mech components."
   - rscadd: "Mech arms and legs now have a chance to create electrical sparks when utilized while damaged. This provides visual and audible feedback for a mech being damaged."
   - rscadd: "Ejecting from a mech or opening its canopy now has a chance to fail loudly based on how much damage its center torso has taken."
+  - rscadd: "Added sound effects to mechs for opening and closing hatches, toggling the hatch lock, and for toggling the mech's air supply."
