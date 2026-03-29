@@ -298,15 +298,28 @@
 	maptext_x = owner.hatch_closed ? 4 : 3
 
 /atom/movable/screen/mecha/toggle/hatch_open/toggled(var/notify_user = TRUE)
+	var/obj/item/mech_component/chassis/body = owner.body
+	if(!body) // Edge case for the mech SOMEHOW not having a body. Players shouldn't ever see this. A mech without a body should be in the process of exploding.
+		notify_user(usr, SPAN_WARNING("What hatch? There's nothing left to open. If you're seeing this, please submit a bug report to our github issue tracker and tell us how!"))
+		return FALSE
+
 	if(owner.hatch_locked && owner.hatch_closed)
 		notify_user(usr, SPAN_WARNING("You cannot open the hatch while it is locked."))
-		return
+		return FALSE
+
+	if(owner.hatch_closed && body.total_damage > 1 && prob((body.total_damage / body.max_damage) * body.ejection_fail_chance))
+		to_chat(usr, SPAN_WARNING("You pull the hatch release. The hatch bolts hiss and clang with a deafening screech, but the hatch fails to open!"))
+		spark(owner, 6, GLOB.alldirs)
+		playsound(owner.loc, 'sound/effects/metalhit.ogg', 75, 1)
+		return FALSE
+
 	toggled = !toggled
 	owner.hatch_closed = toggled
 	if(notify_user)
 		notify_user(usr, SPAN_NOTICE("The [owner.body.hatch_descriptor] is now [owner.hatch_closed ? "closed" : "open" ]."))
 	update_icon()
 	owner.update_icon()
+	return TRUE
 
 // This is basically just a holder for the updates the mech does.
 /atom/movable/screen/mecha/health
