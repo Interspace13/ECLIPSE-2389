@@ -1,0 +1,4 @@
+author: Kano
+delete-after: True
+changes:
+  - rscadd: "Expanded wiring guidelines to include legal multi-z wires."
