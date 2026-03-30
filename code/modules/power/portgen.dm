@@ -21,7 +21,7 @@
 	. += "Upgraded <b>capacitors</b> will increase maximum power output."
 
 /obj/machinery/power/portgen/feedback_hints(mob/user, distance, is_adjacent)
-	. = ..()
+	. += ..()
 	if(active)
 		. += "The generator is on."
 	else
