@@ -39,12 +39,12 @@ export const LibraryPublicComputer = (props, context) => {
   const [category, setCategory] = useLocalState(
     context,
     'category',
-    data.search_category
+    data.search_category,
   );
   const [hasSearched, setHasSearched] = useLocalState(
     context,
     'hasSearched',
-    false
+    false,
   );
 
   return (

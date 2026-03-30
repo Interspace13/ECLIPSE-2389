@@ -179,9 +179,7 @@ const InventoryTab = (props, context) => {
                   color="bad"
                   icon="trash"
                   content="Delete"
-                  onClick={() =>
-                    act('delete_inventory_book', { ref: b.ref })
-                  }
+                  onClick={() => act('delete_inventory_book', { ref: b.ref })}
                 />
               </Table.Cell>
             </Table.Row>
@@ -255,12 +253,12 @@ const CheckOutTab = (props, context) => {
   const [showBookPicker, setShowBookPicker] = useLocalState(
     context,
     'co_book_picker',
-    false
+    false,
   );
   const [showRecipientPicker, setShowRecipientPicker] = useLocalState(
     context,
     'co_recip_picker',
-    false
+    false,
   );
 
   return (
@@ -375,12 +373,10 @@ const CheckOutTab = (props, context) => {
             onClick={() => act('decrease_checkout_period')}
           />
           <Box inline mx={1}>
-            {data.checkout_period_minutes} minute{data.checkout_period_minutes !== 1 && 's'}
+            {data.checkout_period_minutes} minute
+            {data.checkout_period_minutes !== 1 && 's'}
           </Box>
-          <Button
-            icon="plus"
-            onClick={() => act('increase_checkout_period')}
-          />
+          <Button icon="plus" onClick={() => act('increase_checkout_period')} />
         </LabeledList.Item>
       </LabeledList>
       <Box mt={1}>
@@ -411,13 +407,13 @@ const ArchiveTab = (props, context) => {
   const [searchInput, setSearchInput] = useLocalState(
     context,
     'archive_search_input',
-    data.archive_search
+    data.archive_search,
   );
   const [isbnInput, setIsbnInput] = useLocalState(context, 'isbn_input', '');
 
   const totalPages = Math.max(
     1,
-    Math.ceil(data.archive_total / data.archive_page_size)
+    Math.ceil(data.archive_total / data.archive_page_size),
   );
 
   const commitSearch = (value: string) => {
@@ -531,95 +527,99 @@ const ArchiveTab = (props, context) => {
           <Stack.Item>Loading archive...</Stack.Item>
         </Stack>
       )}
-      {!data.archive_loading && !data.archive_error && data.archive_total > 0 && (
-        <>
-          <Box
-            style={{
-              overflowY: 'auto',
-              maxHeight: '460px',
-              borderBottom: '1px solid rgba(255,255,255,0.1)',
-            }}
-          >
-            <Table>
-              <Table.Row header>
-                <SortHeader field="author" label="Author" />
-                <SortHeader field="title" label="Title" />
-                <SortHeader field="category" label="Category" />
-                <Table.Cell collapsing />
-              </Table.Row>
-              {data.archive_results.map((entry) => (
-                <Table.Row key={entry.id}>
-                  <Table.Cell
-                    style={{
-                      maxWidth: '160px',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                      whiteSpace: 'nowrap',
-                    }}
-                    title={entry.author}
-                  >
-                    {entry.author}
-                  </Table.Cell>
-                  <Table.Cell
-                    style={{
-                      maxWidth: '220px',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                      whiteSpace: 'nowrap',
-                    }}
-                    title={entry.title}
-                  >
-                    {entry.title}
-                  </Table.Cell>
-                  <Table.Cell>{entry.category}</Table.Cell>
-                  <Table.Cell collapsing>
-                    <Button
-                      content="Order"
-                      disabled={!!data.bible_on_cooldown}
-                      onClick={() => act('order_book', { id: entry.id })}
-                    />
-                  </Table.Cell>
+      {!data.archive_loading &&
+        !data.archive_error &&
+        data.archive_total > 0 && (
+          <>
+            <Box
+              style={{
+                overflowY: 'auto',
+                maxHeight: '460px',
+                borderBottom: '1px solid rgba(255,255,255,0.1)',
+              }}
+            >
+              <Table>
+                <Table.Row header>
+                  <SortHeader field="author" label="Author" />
+                  <SortHeader field="title" label="Title" />
+                  <SortHeader field="category" label="Category" />
+                  <Table.Cell collapsing />
                 </Table.Row>
-              ))}
-            </Table>
-          </Box>
-          <Stack mt={1} align="center">
-            <Stack.Item>
-              <Button
-                icon="chevron-left"
-                disabled={!!data.archive_loading || data.archive_page <= 1}
-                onClick={() =>
-                  act('archive_go_to_page', { page: data.archive_page - 1 })
-                }
-              />
-            </Stack.Item>
-            <Stack.Item grow textAlign="center">
-              Page {data.archive_page} of {totalPages}
-              {' — '}
-              {data.archive_total} result{data.archive_total !== 1 && 's'}
-              {!!data.archive_search && ` for "${data.archive_search}"`}
-            </Stack.Item>
-            <Stack.Item>
-              <Button
-                icon="chevron-right"
-                disabled={
-                  !!data.archive_loading || data.archive_page >= totalPages
-                }
-                onClick={() =>
-                  act('archive_go_to_page', { page: data.archive_page + 1 })
-                }
-              />
-            </Stack.Item>
-          </Stack>
-        </>
-      )}
-      {!data.archive_loading && !data.archive_error && data.archive_total === 0 && (
-        <NoticeBox mt={1}>
-          {data.archive_search
-            ? `No books match "${data.archive_search}".`
-            : 'No archive data loaded. Click Refresh to load books.'}
-        </NoticeBox>
-      )}
+                {data.archive_results.map((entry) => (
+                  <Table.Row key={entry.id}>
+                    <Table.Cell
+                      style={{
+                        maxWidth: '160px',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
+                      }}
+                      title={entry.author}
+                    >
+                      {entry.author}
+                    </Table.Cell>
+                    <Table.Cell
+                      style={{
+                        maxWidth: '220px',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
+                      }}
+                      title={entry.title}
+                    >
+                      {entry.title}
+                    </Table.Cell>
+                    <Table.Cell>{entry.category}</Table.Cell>
+                    <Table.Cell collapsing>
+                      <Button
+                        content="Order"
+                        disabled={!!data.bible_on_cooldown}
+                        onClick={() => act('order_book', { id: entry.id })}
+                      />
+                    </Table.Cell>
+                  </Table.Row>
+                ))}
+              </Table>
+            </Box>
+            <Stack mt={1} align="center">
+              <Stack.Item>
+                <Button
+                  icon="chevron-left"
+                  disabled={!!data.archive_loading || data.archive_page <= 1}
+                  onClick={() =>
+                    act('archive_go_to_page', { page: data.archive_page - 1 })
+                  }
+                />
+              </Stack.Item>
+              <Stack.Item grow textAlign="center">
+                Page {data.archive_page} of {totalPages}
+                {' — '}
+                {data.archive_total} result{data.archive_total !== 1 && 's'}
+                {!!data.archive_search && ` for "${data.archive_search}"`}
+              </Stack.Item>
+              <Stack.Item>
+                <Button
+                  icon="chevron-right"
+                  disabled={
+                    !!data.archive_loading || data.archive_page >= totalPages
+                  }
+                  onClick={() =>
+                    act('archive_go_to_page', { page: data.archive_page + 1 })
+                  }
+                />
+              </Stack.Item>
+            </Stack>
+          </>
+        )}
+      {!data.archive_loading &&
+        !data.archive_error &&
+        data.archive_total === 0 && (
+          <NoticeBox mt={1}>
+            {data.archive_search
+              ? `No books match "${data.archive_search}".`
+              : 'No archive data loaded. Click Refresh to load books.'}
+          </NoticeBox>
+        )}
     </Section>
   );
 };
@@ -635,7 +635,10 @@ const UploadTab = (props, context) => {
           <Stack align="center">
             <Stack.Item grow>
               <Icon name="check-circle" mr={1} />
-              Uploaded: <Box inline bold>{data.last_uploaded_title}</Box>
+              Uploaded:{' '}
+              <Box inline bold>
+                {data.last_uploaded_title}
+              </Box>
             </Stack.Item>
             <Stack.Item>
               <Button
@@ -673,18 +676,14 @@ const UploadTab = (props, context) => {
             <LabeledList.Item label="Author">
               <Input
                 value={scanner.author || ''}
-                onInput={(e, val) =>
-                  act('set_upload_author', { value: val })
-                }
+                onInput={(e, val) => act('set_upload_author', { value: val })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Category">
               <Dropdown
                 options={UPLOAD_CATEGORIES}
                 selected={data.upload_category}
-                onSelected={(val) =>
-                  act('set_upload_category', { value: val })
-                }
+                onSelected={(val) => act('set_upload_category', { value: val })}
               />
             </LabeledList.Item>
           </LabeledList>
@@ -734,8 +733,8 @@ const VaultTab = (props, context) => {
   return (
     <Section title="Forbidden Lore Vault v1.3">
       <Box>
-        Are you absolutely sure you want to proceed? EldritchTomes Inc. takes
-        no responsibility for loss of sanity resulting from this action.
+        Are you absolutely sure you want to proceed? EldritchTomes Inc. takes no
+        responsibility for loss of sanity resulting from this action.
       </Box>
       <Box mt={1}>
         <Button

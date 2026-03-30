@@ -33,10 +33,10 @@ export const LibraryScanner = (props, context) => {
             <>
               <Box color="good">Data stored in memory.</Box>
               <Box mt={1}>
-                <b>Title:</b> {data.book_title}
+                <Box inline bold>Title:</Box> {data.book_title}
               </Box>
               <Box>
-                <b>Author:</b> {data.book_author || 'Anonymous'}
+                <Box inline bold>Author:</Box> {data.book_author || 'Anonymous'}
               </Box>
             </>
           ) : (
