@@ -31,6 +31,7 @@ export type LibraryComputerData = {
   archive_page_size: number;
   upload_category: string;
   buffer_book: string | null;
+  last_uploaded_title: string | null;
   inventory: InventoryBook[];
   checkouts: CheckoutEntry[];
   scanner: ScannerState;
@@ -548,8 +549,28 @@ const ArchiveTab = (props, context) => {
               </Table.Row>
               {data.archive_results.map((entry) => (
                 <Table.Row key={entry.id}>
-                  <Table.Cell>{entry.author}</Table.Cell>
-                  <Table.Cell>{entry.title}</Table.Cell>
+                  <Table.Cell
+                    style={{
+                      maxWidth: '160px',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      whiteSpace: 'nowrap',
+                    }}
+                    title={entry.author}
+                  >
+                    {entry.author}
+                  </Table.Cell>
+                  <Table.Cell
+                    style={{
+                      maxWidth: '220px',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      whiteSpace: 'nowrap',
+                    }}
+                    title={entry.title}
+                  >
+                    {entry.title}
+                  </Table.Cell>
                   <Table.Cell>{entry.category}</Table.Cell>
                   <Table.Cell collapsing>
                     <Button
@@ -609,12 +630,42 @@ const UploadTab = (props, context) => {
 
   return (
     <Section title="Upload New Title">
+      {!!data.last_uploaded_title && (
+        <NoticeBox>
+          <Stack align="center">
+            <Stack.Item grow>
+              <Icon name="check-circle" mr={1} />
+              Uploaded: <Box inline bold>{data.last_uploaded_title}</Box>
+            </Stack.Item>
+            <Stack.Item>
+              <Button
+                icon="times"
+                content="Clear Scanner"
+                onClick={() => act('clear_scanner_cache')}
+              />
+            </Stack.Item>
+          </Stack>
+        </NoticeBox>
+      )}
       {!scanner.found ? (
         <NoticeBox danger>
           No scanner found within wireless network range.
         </NoticeBox>
       ) : !scanner.title ? (
-        <NoticeBox>No data found in scanner memory.</NoticeBox>
+        <NoticeBox>
+          <Stack align="center">
+            <Stack.Item grow>No data found in scanner memory.</Stack.Item>
+            {!!data.last_uploaded_title && (
+              <Stack.Item>
+                <Button
+                  icon="times"
+                  content="Clear Scanner"
+                  onClick={() => act('clear_scanner_cache')}
+                />
+              </Stack.Item>
+            )}
+          </Stack>
+        </NoticeBox>
       ) : (
         <>
           <LabeledList>
@@ -644,6 +695,12 @@ const UploadTab = (props, context) => {
               color="good"
               onClick={() => act('upload_book')}
             />
+            <Button
+              icon="times"
+              content="Clear Scanner"
+              ml={1}
+              onClick={() => act('clear_scanner_cache')}
+            />
           </Box>
         </>
       )}
@@ -672,7 +729,7 @@ const BibleTab = (props, context) => {
 };
 
 const VaultTab = (props, context) => {
-  const { act } = useBackend<LibraryComputerData>(context);
+  const { act, data } = useBackend<LibraryComputerData>(context);
 
   return (
     <Section title="Forbidden Lore Vault v1.3">
@@ -685,9 +742,15 @@ const VaultTab = (props, context) => {
           color="bad"
           icon="skull"
           content="Yes."
+          disabled={!!data.bible_on_cooldown}
           onClick={() => act('arcane_confirm')}
         />
       </Box>
+      {!!data.bible_on_cooldown && (
+        <Box mt={1} color="average">
+          Printer cooling down. Please wait a moment.
+        </Box>
+      )}
     </Section>
   );
 };

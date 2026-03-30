@@ -18,7 +18,6 @@
 	icon_state = "computer"
 	anchored = TRUE
 	density = TRUE
-	var/arcane_checkout = FALSE
 	var/upload_category = "Fiction"
 	/// Active book checkouts
 	var/list/datum/borrowbook/checkouts = list()
@@ -29,6 +28,8 @@
 	var/bible_on_cooldown = FALSE
 	var/is_public = FALSE
 	var/buffer_book // Set by barcode scanner mode 1
+	/// Title of the last successfully uploaded book, shown in the UI as confirmation
+	var/last_uploaded_title
 	var/datum/weakref/scanner_ref // Weakref to the nearest anchored book scanner
 	/// Current page of archive results (one page = 20 entries)
 	var/list/archive_results = list()
@@ -45,11 +46,6 @@
 	. = ..()
 	if(.)
 		return TRUE
-	if(arcane_checkout)
-		arcane_checkout = FALSE
-		new /obj/item/book/tome(get_turf(src))
-		to_chat(user, SPAN_WARNING("Your sanity barely endures the seconds spent in the vault's browsing window. The only thing to remind you of this when you stop browsing is a dusty old tome sitting on the desk. You don't really remember printing it."))
-		user.visible_message(SPAN_NOTICE("\The [user] stares at the blank screen for a few moments, [user.get_pronoun("his")] expression frozen in fear. When [user.get_pronoun("he")] finally awakens from it, [user.get_pronoun("he")] looks a lot older."), range = 2)
 	ui_interact(user)
 
 /obj/machinery/librarycomp/ui_interact(mob/user, datum/tgui/ui)
@@ -85,6 +81,7 @@
 	data["archive_page_size"] = 20
 	data["upload_category"] = upload_category
 	data["buffer_book"] = buffer_book
+	data["last_uploaded_title"] = last_uploaded_title
 
 	var/list/inv = list()
 	var/list/stale = list()
@@ -160,8 +157,14 @@
 				addtimer(CALLBACK(src, PROC_REF(end_bible_cooldown)), 6 SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 			. = TRUE
 		if("arcane_confirm")
-			if(emagged)
-				arcane_checkout = TRUE
+			if(emagged && !bible_on_cooldown)
+				new /obj/item/book/tome(get_turf(src))
+				to_chat(usr, SPAN_WARNING("Your sanity barely endures the seconds spent in the vault's browsing window. The only thing to remind you of this when you stop browsing is a dusty old tome sitting on the desk. You don't really remember printing it."))
+				usr.visible_message(
+					SPAN_NOTICE("\The [usr] stares at the blank screen for a few moments, [usr.get_pronoun("his")] expression frozen in fear. When [usr.get_pronoun("he")] finally awakens from it, [usr.get_pronoun("he")] looks a lot older."),
+					range = 2)
+				bible_on_cooldown = TRUE
+				addtimer(CALLBACK(src, PROC_REF(end_bible_cooldown)), 6 SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 			. = TRUE
 		if("increase_checkout_period")
 			checkout_period_minutes += 1
@@ -199,6 +202,13 @@
 			var/obj/machinery/libraryscanner/sc = get_scanner()
 			if(sc?.cache)
 				sc.cache.author = sanitize(params["value"])
+			. = TRUE
+		if("clear_scanner_cache")
+			var/obj/machinery/libraryscanner/sc = get_scanner()
+			if(sc)
+				sc.cache = null
+				SStgui.update_uis(sc)
+				last_uploaded_title = null
 			. = TRUE
 		if("upload_book")
 			var/obj/machinery/libraryscanner/sc = get_scanner()
@@ -385,6 +395,7 @@
 	log_and_message_admins("has uploaded the book titled [book.name], [length(book.dat)] signs")
 	log_game("[uploader.name]/[uploader.key] has uploaded the book titled [book.name], [length(book.dat)] signs")
 	to_chat(uploader, SPAN_NOTICE("Upload complete."))
+	last_uploaded_title = book.name
 	SStgui.update_uis(src)
 
 /obj/machinery/librarycomp/proc/async_order_book(var/book_id)
