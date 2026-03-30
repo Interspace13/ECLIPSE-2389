@@ -794,7 +794,7 @@ pixel_x = 10;
 				list("name" = "Nitrogen",       "command" = "n2_scrub",  "val" = info["filter_n2"]),
 				list("name" = "Carbon Dioxide", "command" = "co2_scrub", "val" = info["filter_co2"]),
 				list("name" = "Phoron",         "command" = "tox_scrub", "val" = info["filter_phoron"]),
-				list("name" = "Hydrogen",       "command" = "h2_scrub",  "val" = info["filter_h2"]),
+				list("name" = "Hydrogen",       "command" = "h2_scrub",  "val" = info["filter_h"]),
 				list("name" = "Nitrous Oxide",  "command" = "n2o_scrub", "val" = info["filter_n2o"])
 			)
 		)

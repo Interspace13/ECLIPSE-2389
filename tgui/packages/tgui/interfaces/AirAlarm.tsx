@@ -122,8 +122,8 @@ export const AirAlarm = (props, context) => {
         {data.locked ? (
           <NoticeBox>Swipe ID card to unlock interface.</NoticeBox>
         ) : (
-          <>
-            <Section>
+          <Section
+            tabs={
               <Tabs>
                 {tabs.map((t) => (
                   <Tabs.Tab
@@ -135,13 +135,14 @@ export const AirAlarm = (props, context) => {
                   </Tabs.Tab>
                 ))}
               </Tabs>
-            </Section>
+            }
+          >
             {tab === 'status' && <MainSection />}
             {tab === 'vents' && <VentsSection />}
             {tab === 'scrubbers' && <ScrubbersSection />}
             {tab === 'mode' && <ModeSection />}
             {tab === 'sensors' && <SensorsSection />}
-          </>
+          </Section>
         )}
       </Window.Content>
     </Window>
@@ -156,33 +157,27 @@ const StatusSection = (props, context) => {
   return (
     <Section title="Air Status">
       {data.has_environment ? (
-        <>
-          <LabeledList>
-            {data.environment.map((entry) => (
-              <LabeledList.Item
-                key={entry.name}
-                label={entry.name}
-                labelColor={DANGER_COLOR[entry.danger_level]}
-              >
-                <Box color={DANGER_COLOR[entry.danger_level]}>
-                  {entry.value.toFixed(1)} {entry.unit}
-                </Box>
-              </LabeledList.Item>
-            ))}
-            <LabeledList.Item label="Local Status">
-              <Box color={DANGER_COLOR[data.total_danger]}>
-                {DANGER_LABEL[data.total_danger]}
+        <LabeledList>
+          {data.environment.map((entry) => (
+            <LabeledList.Item key={entry.name} label={entry.name}>
+              <Box color={DANGER_COLOR[entry.danger_level]}>
+                {entry.value.toFixed(1)} {entry.unit}
               </Box>
             </LabeledList.Item>
-            <LabeledList.Item label="Area Status">
-              {data.atmos_alarm ? (
-                <Box color="bad">Atmosphere alert in area</Box>
-              ) : (
-                'No alerts'
-              )}
-            </LabeledList.Item>
-          </LabeledList>
-        </>
+          ))}
+          <LabeledList.Item label="Local Status">
+            <Box color={DANGER_COLOR[data.total_danger]}>
+              {DANGER_LABEL[data.total_danger]}
+            </Box>
+          </LabeledList.Item>
+          <LabeledList.Item label="Area Status">
+            {data.atmos_alarm ? (
+              <Box color="bad">Atmosphere alert in area</Box>
+            ) : (
+              'No alerts'
+            )}
+          </LabeledList.Item>
+        </LabeledList>
       ) : (
         <NoticeBox danger>
           Warning: Cannot obtain air sample for analysis.
@@ -245,9 +240,7 @@ const MainSection = (props, context) => {
           fluid
           color={data.mode === 3 ? 'bad' : 'average'}
           disabled={!!data.shorted}
-          onClick={() =>
-            act('mode', { mode: data.mode === 3 ? 1 : 3 })
-          }
+          onClick={() => act('mode', { mode: data.mode === 3 ? 1 : 3 })}
         >
           {data.mode === 3
             ? 'PANIC SIPHON ACTIVE — Turn off'
@@ -421,12 +414,17 @@ const ModeSection = (props, context) => {
         <Box key={m.mode} mb={0.5}>
           <Button
             fluid
-            color={data.mode === m.mode ? (m.danger ? 'bad' : 'good') : 'default'}
+            color={
+              data.mode === m.mode ? (m.danger ? 'bad' : 'good') : 'default'
+            }
             selected={data.mode === m.mode}
             disabled={!!data.shorted}
             onClick={() => act('mode', { mode: m.mode })}
           >
-            <b>{m.name}</b> — {m.description}
+            <Box bold display="inline-block">
+              {m.name}
+            </Box>{' '}
+            — {m.description}
           </Button>
         </Box>
       ))}
@@ -462,9 +460,7 @@ const SensorsSection = (props, context) => {
               <Table.Cell key={setting.val} textAlign="center">
                 <Button
                   content={
-                    setting.selected >= 0
-                      ? setting.selected.toFixed(2)
-                      : 'Off'
+                    setting.selected >= 0 ? setting.selected.toFixed(2) : 'Off'
                   }
                   disabled={!!data.shorted || !!data.locked}
                   onClick={() =>

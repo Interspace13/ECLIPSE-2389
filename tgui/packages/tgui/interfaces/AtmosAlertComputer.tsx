@@ -16,7 +16,12 @@ export const AtmosAlertComputer = (props, context) => {
   const { act, data } = useBackend<AtmosAlertComputerData>(context);
 
   return (
-    <Window title="Atmospheric Alert Computer" width={400} height={400} theme="hephaestus">
+    <Window
+      title="Atmospheric Alert Computer"
+      width={400}
+      height={400}
+      theme="hephaestus"
+    >
       <Window.Content scrollable>
         <Section title="Priority Alerts">
           {data.priority_alarms.length ? (

@@ -20,7 +20,12 @@ export const OxyRegenerator = (props, context) => {
   const { act, data } = useBackend<OxyRegeneratorData>(context);
 
   return (
-    <Window title="Oxygen Regeneration System" width={380} height={320} theme="hephaestus">
+    <Window
+      title="Oxygen Regeneration System"
+      width={380}
+      height={320}
+      theme="hephaestus"
+    >
       <Window.Content>
         <Section title="Controls">
           <LabeledList>

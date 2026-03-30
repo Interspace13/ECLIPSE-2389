@@ -1,7 +1,6 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
 import {
-  Box,
   Button,
   LabeledList,
   ProgressBar,
@@ -33,7 +32,12 @@ export const OmniMixer = (props, context) => {
   const { act, data } = useBackend<OmniMixerData>(context);
 
   return (
-    <Window title="Omni Mixer Control" width={430} height={360} theme="hephaestus">
+    <Window
+      title="Omni Mixer Control"
+      width={430}
+      height={360}
+      theme="hephaestus"
+    >
       <Window.Content>
         <Section title="Controls">
           <LabeledList>
@@ -169,7 +173,9 @@ export const OmniMixer = (props, context) => {
                   )}
                   {!data.config && (
                     <Table.Cell textAlign="center">
-                      {port.input ? `${Math.round(port.concentration * 100)}%` : '-'}
+                      {port.input
+                        ? `${Math.round(port.concentration * 100)}%`
+                        : '-'}
                     </Table.Cell>
                   )}
                 </Table.Row>
