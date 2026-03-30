@@ -55,8 +55,8 @@ GLOBAL_DATUM_INIT(revdata, /datum/getrev, new())
 
 	to_chat(src, "<b>Current Map:</b> [SSatlas.current_map.full_name]")
 
-	if(test_merges.len)
-		to_chat(src, testmerge_overview())
+	if(GLOB.revdata.test_merges.len)
+		to_chat(src, GLOB.revdata.testmerge_overview())
 
 /datum/getrev/proc/testmerge_overview()
 	if (!test_merges.len)
