@@ -120,7 +120,7 @@ SUBSYSTEM_DEF(ipintel)
 		)
 		query_add_ip_intel.SetSuccessCallback(CALLBACK(GLOBAL_PROC, /proc/qdel))
 		query_add_ip_intel.SetFailCallback(CALLBACK(GLOBAL_PROC, /proc/qdel))
-		query_add_ip_intel.ExecuteNoSleep()
+		query_add_ip_intel.ExecuteNoSleep(TRUE) // Allow to run while we still load the game
 	if (on_complete)
 		on_complete.Invoke(res)
 
