@@ -478,7 +478,7 @@
 	portgen_lightcolour = "#458943"
 	max_safe_output = 5
 	max_power_output = 8
-	temperature_gain = 70	/
+	temperature_gain = 70
 	max_temperature = 450
 	time_per_sheet = 400
 
