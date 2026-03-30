@@ -891,7 +891,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 
 /client/proc/findJoinDate()
 	var/datum/http_request/req = new()
-	req.prepare(RUSTG_HTTP_METHOD_GET, "http://byond.com/members/[ckey]?format=text")
+	req.prepare(RUSTG_HTTP_METHOD_GET, "https://byond.com/members/[ckey]?format=text")
 	req.begin_async()
 
 	// Poll RUSTG directly rather than routing through SShttp — this proc can be called

@@ -150,7 +150,7 @@ SUBSYSTEM_DEF(ipintel)
 			on_complete.Invoke(-1)
 		return
 
-	var/url = "http://[GLOB.config.ipintel_domain]/check.php?ip=[ip]&contact=[GLOB.config.ipintel_email]&format=json&flags=f"
+	var/url = "https://[GLOB.config.ipintel_domain]/check.php?ip=[ip]&contact=[GLOB.config.ipintel_email]&format=json&flags=f"
 	SShttp.create_async_request(
 		RUSTG_HTTP_METHOD_GET,
 		url,
