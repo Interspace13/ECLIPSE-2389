@@ -84,9 +84,7 @@
 		/* Multiply by the spark chance */\
 		* arms.spark_chance_ratio \
 		/* Then add the contribution from EMP damage. */\
-		+ ((emp_damage > EMP_ATTACK_DISRUPT && prob(emp_damage*2)) \
-			? 100 \
-			: 0)
+		+ emp_damage
 
 	// You may attack the target with your exosuit FIST if you're malfunctioning.
 	var/failed = FALSE
@@ -396,9 +394,7 @@
 		/* Then multiply by the spark chance. */\
 		* legs.spark_chance_ratio \
 		/* And finally add the contribution from EMP damage. */\
-		+ ((emp_damage > EMP_ATTACK_DISRUPT && prob(emp_damage*2)) \
-			? 100 \
-			: 0)
+		+ emp_damage
 
 	if(prob(spark_chance))
 		for (var/mob/pilot in pilots)
