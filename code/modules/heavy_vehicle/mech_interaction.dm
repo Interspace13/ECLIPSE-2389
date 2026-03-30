@@ -80,13 +80,13 @@
 			zone_sel.set_selected_zone("chest", user)
 
 	// Get the ratio of damage over max damage
-	var/spark_chance = motivator.total_dam / motivator.max_dam + arms.total_damage / arms.max_damage
-	// Multiply by the spark chance
-	spark_chance *= arms.spark_chance_ratio
-	// Then add the contribution from EMP damage.
-	spark_chance += ((emp_damage > EMP_ATTACK_DISRUPT && prob(emp_damage*2)) \
-		? 100 \
-		: 0)
+	var/spark_chance = (motivator.total_dam / motivator.max_dam + arms.total_damage / arms.max_damage) \
+		/* Multiply by the spark chance */\
+		* arms.spark_chance_ratio \
+		/* Then add the contribution from EMP damage. */\
+		+ ((emp_damage > EMP_ATTACK_DISRUPT && prob(emp_damage*2)) \
+			? 100 \
+			: 0)
 
 	// You may attack the target with your exosuit FIST if you're malfunctioning.
 	var/failed = FALSE
@@ -392,13 +392,13 @@
 	var/obj/item/robot_parts/robot_component/actuator/motivator = legs.motivator
 
 	// Get the ratio of damage over max damage.
-	var/spark_chance = motivator.total_dam / motivator.max_dam + legs.total_damage / legs.max_damage
-	// Then multiply by the spark chance.
-	spark_chance *= legs.spark_chance_ratio
-	// And finally add the contribution from EMP damage.
-	spark_chance += ((emp_damage > EMP_ATTACK_DISRUPT && prob(emp_damage*2)) \
-		? 100 \
-		: 0)
+	var/spark_chance = (motivator.total_dam / motivator.max_dam + legs.total_damage / legs.max_damage) \
+		/* Then multiply by the spark chance. */\
+		* legs.spark_chance_ratio \
+		/* And finally add the contribution from EMP damage. */\
+		+ ((emp_damage > EMP_ATTACK_DISRUPT && prob(emp_damage*2)) \
+			? 100 \
+			: 0)
 
 	if(prob(spark_chance))
 		for (var/mob/pilot in pilots)
