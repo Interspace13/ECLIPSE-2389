@@ -5,4 +5,5 @@ changes:
   - bugfix: "Attempting to use crowbars, fire axes, hammers on airlocks while in the Hurt intent will now make you attack the airlock."
   - bugfix: "Fixes graphical bug with open lid graphics for crates painted in any engineering color variants."
   - bugfix: "Individual butterfly knife parts are no longer larger than butterfly knives themselves."
+  - bugfix: "Elevators that squish mobs (any type of mob/living) will now appropriately gib instead of just quietly deleting them."
   - rscadd: "Miniature fusion reactor explosions now use subsystem radiation instead of manually applying rad damage to all mobs in range."
