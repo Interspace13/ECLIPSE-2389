@@ -106,7 +106,7 @@ export const OmniMixer = (props, context) => {
                   <Table.Cell textAlign="center">
                     {data.config ? (
                       <Button
-                        content=" "
+                        icon={port.input ? 'dot-circle' : 'circle'}
                         selected={!!port.input}
                         disabled={!!port.output}
                         onClick={() =>
@@ -125,7 +125,7 @@ export const OmniMixer = (props, context) => {
                   <Table.Cell textAlign="center">
                     {data.config ? (
                       <Button
-                        content=" "
+                        icon={port.output ? 'dot-circle' : 'circle'}
                         selected={!!port.output}
                         onClick={() =>
                           act('switch_mode', {

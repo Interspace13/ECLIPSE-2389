@@ -120,10 +120,9 @@
 		))
 	data["ports"] = port_data
 
-	if(output)
-		data["set_flow_rate"] = set_flow_rate
-		data["max_flow_rate"] = max_flow_rate
-		data["last_flow_rate"] = last_flow_rate
+	data["set_flow_rate"] = set_flow_rate
+	data["max_flow_rate"] = max_flow_rate
+	data["last_flow_rate"] = last_flow_rate
 
 	data["filter_types"] = list("None", "Oxygen", "Nitrogen", "Carbon Dioxide", "Phoron", "Nitrous Oxide", "Hydrogen", "Deuterium", "Tritium", "Helium", "Helium-3", "Sulfur Dioxide", "Nitrogen Dioxide", "Chlorine", "Water Vapor")
 

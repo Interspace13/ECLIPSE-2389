@@ -1,7 +1,6 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
 import {
-  Box,
   Button,
   LabeledList,
   ProgressBar,
@@ -34,7 +33,12 @@ export const OmniFilter = (props, context) => {
   const { act, data } = useBackend<OmniFilterData>(context);
 
   return (
-    <Window title="Omni Filter Control" width={430} height={360} theme="hephaestus">
+    <Window
+      title="Omni Filter Control"
+      width={430}
+      height={360}
+      theme="hephaestus"
+    >
       <Window.Content>
         <Section title="Controls">
           <LabeledList>
@@ -99,7 +103,7 @@ export const OmniFilter = (props, context) => {
                   <Table.Cell textAlign="center">
                     {data.config ? (
                       <Button
-                        content=" "
+                        icon={port.input ? 'dot-circle' : 'circle'}
                         selected={!!port.input}
                         onClick={() =>
                           act('switch_mode', {
@@ -117,7 +121,7 @@ export const OmniFilter = (props, context) => {
                   <Table.Cell textAlign="center">
                     {data.config ? (
                       <Button
-                        content=" "
+                        icon={port.output ? 'dot-circle' : 'circle'}
                         selected={!!port.output}
                         onClick={() =>
                           act('switch_mode', {
@@ -137,12 +141,10 @@ export const OmniFilter = (props, context) => {
                       <Button
                         content={port.filter ? (port.f_type ?? 'None') : '-'}
                         disabled={!port.filter}
-                        onClick={() =>
-                          act('switch_filter', { dir: port.dir })
-                        }
+                        onClick={() => act('switch_filter', { dir: port.dir })}
                       />
                     ) : port.filter ? (
-                      port.f_type ?? 'None'
+                      (port.f_type ?? 'None')
                     ) : (
                       ''
                     )}
