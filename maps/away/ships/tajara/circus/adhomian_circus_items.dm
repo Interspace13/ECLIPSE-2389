@@ -155,7 +155,7 @@
 	icon_state = "barbell"
 	item_state = "barbell"
 	weight = "40"
-	slowdown = 0.5
+	slowdown = 1
 	w_class = 5
 	var/lifttime = 10
 
@@ -179,17 +179,17 @@
 /obj/item/dumbbell/barbell/sixty
 	weight = "60"
 	lifttime = 15
-	slowdown = 1
+	slowdown = 2
 
 /obj/item/dumbbell/barbell/eighty
 	weight = "80"
 	lifttime = 25
-	slowdown = 1.5
+	slowdown = 3
 
 /obj/item/dumbbell/barbell/hundred
 	weight = "100"
 	lifttime = 30
-	slowdown = 2
+	slowdown = 4
 
 /obj/item/dumbbell/barbell/hundred/pickuptest(var/mob/living/carbon/human/user)
 	if(user.mind.assigned_role == "Adhomian Circus Strongzhan")
@@ -214,7 +214,7 @@
 /obj/item/dumbbell/barbell/hundredforty
 	weight = "140"
 	lifttime = 35
-	slowdown = 2.5
+	slowdown = 5
 
 /obj/item/dumbbell/barbell/hundredforty/pickuptest(var/mob/living/carbon/human/user)
 	if(user.mind.assigned_role == "Adhomian Circus Strongzhan")
@@ -249,7 +249,7 @@
 /obj/item/dumbbell/barbell/hundredeighty
 	weight = "180"
 	lifttime = 40
-	slowdown = 3
+	slowdown = 6
 
 /obj/item/dumbbell/barbell/hundredeighty/pickuptest(var/mob/living/carbon/human/user)
 	if(user.mind.assigned_role == "Adhomian Circus Strongzhan")
@@ -282,7 +282,7 @@
 /obj/item/dumbbell/barbell/twohundred
 	weight = "200"
 	lifttime = 40
-	slowdown = 3.5
+	slowdown = 7
 
 /obj/item/dumbbell/barbell/twohundred/pickuptest(var/mob/living/carbon/human/user)
 	if(user.mind.assigned_role == "Adhomian Circus Strongzhan")
@@ -313,7 +313,7 @@
 /obj/item/dumbbell/barbell/twohundredtwenty
 	weight = "220"
 	lifttime = 40
-	slowdown = 4
+	slowdown = 8
 
 /obj/item/dumbbell/barbell/twohundredtwenty/pickuptest(var/mob/living/carbon/human/user)
 	if(user.mind.assigned_role == "Adhomian Circus Strongzhan")
@@ -342,7 +342,7 @@
 /obj/item/dumbbell/barbell/twohundredforty
 	weight = "240"
 	lifttime = 40
-	slowdown = 4.5
+	slowdown = 9
 
 /obj/item/dumbbell/barbell/twohundredforty/pickuptest(var/mob/living/carbon/human/user)
 	if(user.mind.assigned_role == "Adhomian Circus Strongzhan")
@@ -369,7 +369,7 @@
 /obj/item/dumbbell/barbell/twohundredsixty
 	weight = "260"
 	lifttime = 50
-	slowdown = 0.50
+	slowdown = 10
 
 /obj/item/dumbbell/barbell/twohundredsixty/pickuptest(var/mob/living/carbon/human/user)
 	if(user.mind.assigned_role == "Adhomian Circus Strongzhan")
@@ -392,7 +392,7 @@
 /obj/item/dumbbell/barbell/threehundred
 	weight = "300"
 	lifttime = 50
-	slowdown = 0.51
+	slowdown = 11
 
 /obj/item/dumbbell/barbell/threehundred/pickuptest(var/mob/living/carbon/human/user)
 	if(user.mind.assigned_role == "Adhomian Circus Strongzhan")
