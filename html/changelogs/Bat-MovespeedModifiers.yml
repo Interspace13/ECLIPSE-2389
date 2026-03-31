@@ -1,0 +1,4 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - balance: "Halves all non-species movespeed_modifier/slowdown datums, positive and negative; old values were too high for the switch to smooth movement."

@@ -134,7 +134,7 @@
 	healths_overlay_x = 9
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
 	rarity_value = 10
-	slowdown = 2
+	slowdown = 1
 	eyes = "breeder_eyes" //makes it so that eye colour is not changed when skin colour is.
 	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
 	grab_mod = 4
@@ -352,7 +352,7 @@
 	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
 	eyes = "bulwark_eyes"
 
-	slowdown = 2
+	slowdown = 1
 
 	unarmed_types = list(/datum/unarmed_attack/vaurca_bulwark)
 	maneuvers = list(
