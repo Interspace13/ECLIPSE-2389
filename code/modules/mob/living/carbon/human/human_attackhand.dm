@@ -580,11 +580,6 @@
 			if(fail)
 				to_chat(H, SPAN_DANGER("No... that wasn't how you do it!"))
 
-		else if(medicine_skill == SKILL_LEVEL_UNFAMILIAR)
-			fail = prob(90)
-			if(fail)
-				to_chat(H, SPAN_NOTICE("You were just slightly off!"))
-
 		if(!fail)
 			if(!L.is_bruised() || (L.is_bruised() && L.rescued))
 				losebreath = 0

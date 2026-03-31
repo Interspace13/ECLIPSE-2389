@@ -354,5 +354,5 @@
 	on_pour(target)
 	return 1
 
-/obj/item/reagent_containers/proc/on_pour(var/atom/target)
+/obj/item/reagent_containers/proc/on_pour(atom/target)
 	playsound(src, SFX_POUR, 25, 1)

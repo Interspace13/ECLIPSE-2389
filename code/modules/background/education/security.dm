@@ -10,10 +10,9 @@
 	)
 	skills = list(
 		/singleton/skill/surgery = SKILL_LEVEL_TRAINED,
-		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/anatomy = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/forensics = SKILL_LEVEL_PROFESSIONAL,
-		/singleton/skill/firearms = SKILL_LEVEL_FAMILIAR
+		/singleton/skill/firearms = SKILL_LEVEL_TRAINED
 	)
 
 /singleton/education/military_basic

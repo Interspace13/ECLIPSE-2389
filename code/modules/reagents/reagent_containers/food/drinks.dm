@@ -477,7 +477,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		return TRUE
 	return ..()
 
-/obj/item/reagent_containers/food/drinks/shaker/on_pour(var/atom/target)
+/obj/item/reagent_containers/food/drinks/shaker/on_pour(atom/target)
 	if (!isnull(drink_quality))
 		switch (drink_quality)
 			if (0 to 5)
