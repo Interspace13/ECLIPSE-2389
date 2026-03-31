@@ -176,7 +176,6 @@
 	blacklisted_species = list(SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	skill_requirements = alist(
 		/singleton/skill/surgery = SKILL_LEVEL_TRAINED,
-		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/anatomy = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/forensics = SKILL_LEVEL_PROFESSIONAL
 	)
