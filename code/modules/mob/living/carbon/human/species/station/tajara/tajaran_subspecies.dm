@@ -116,7 +116,7 @@
 	healths_overlay_x = 9
 	floating_chat_x_offset = 6
 
-	slowdown = 0.5
+	slowdown = 1
 	fall_mod = 1.2
 
 	grab_mod = 3

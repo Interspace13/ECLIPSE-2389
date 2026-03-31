@@ -143,7 +143,7 @@
 	grab_mod = 0.8 // Big, easy to grab onto
 	resist_mod = 10 // Good luck wrestling against this powerhouse.
 
-	slowdown = 1.5
+	slowdown = 3
 
 	blurb = "The first commercialized attempt Hephaestus Industries made at an industrial-type IPC. Designed for extra durability and increased weight loads, the first generation Industrial was considered a success, though it possessed some issues. A limited power cell and actuators designed for heavy lifting and not locomotion resulted in a slow and frequently charging machine. A special addition to the chassis makes up for these drawbacks - the ability to simply slot a suit cooling unit onto the model's back and make use of its built-in heat transferal conduits, allowing the Industrial to perform EVA without any extra peripherals such as a voidsuit."
 
@@ -312,7 +312,7 @@
 	stamina	= -1
 	sprint_speed_factor = 1.25
 	sprint_cost_factor = 1
-	slowdown = 0.5
+	slowdown = 1
 
 	sprint_temperature_factor = 0.6
 	move_charge_factor = 0.3
@@ -344,7 +344,7 @@
 
 	unarmed_types = list(/datum/unarmed_attack/industrial/heavy, /datum/unarmed_attack/palm/industrial)
 
-	slowdown = 1
+	slowdown = 2
 	brute_mod = 0.9
 	grab_mod = 0.7 // Bulkier and bigger than the G1
 	resist_mod = 12 // Overall stronger than G1
@@ -507,7 +507,7 @@
 	heat_level_3 = 2800  //RaceDefault 2400 Default 2800
 
 	heat_discomfort_level = 600
-	slowdown = 1.5
+	slowdown = 3
 
 	eyes = "xion_eyes"
 	flags = IS_IPC
