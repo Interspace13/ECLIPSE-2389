@@ -104,7 +104,6 @@ export const PlayerPanel = (props, context) => {
                     <Box textAlign="right">
                       <Button
                         content="PP"
-                        tooltip="Show player panel"
                         onClick={() =>
                           act('show_player_panel', {
                             show_player_panel: player.ref,
@@ -113,7 +112,6 @@ export const PlayerPanel = (props, context) => {
                       />
                       <Button
                         content="PM"
-                        tooltip="Private message"
                         onClick={() =>
                           act('private_message', {
                             private_message: player.ref,
@@ -122,7 +120,6 @@ export const PlayerPanel = (props, context) => {
                       />
                       <Button
                         content="VV"
-                        tooltip="View variables"
                         onClick={() =>
                           act('view_variables', {
                             view_variables: player.ref,
@@ -131,31 +128,26 @@ export const PlayerPanel = (props, context) => {
                       />
                       <Button
                         content="SM"
-                        tooltip="Subtle message"
                         onClick={() =>
                           act('subtle_message', { subtle_message: player.ref })
                         }
                       />
                       <Button
                         content="N"
-                        tooltip="Notes"
                         onClick={() => act('notes', { ckey: player.key })}
                       />
                       <Button
                         content="TP"
-                        tooltip="Traitor panel"
                         onClick={() =>
                           act('traitor_panel', { traitor_panel: player.ref })
                         }
                       />
                       <Button
                         content="JMP"
-                        tooltip="Jump to"
                         onClick={() => act('jump_to', { jump_to: player.ref })}
                       />
                       <Button
                         content="WND"
-                        tooltip="Wind player"
                         onClick={() => act('wind', { wind: player.ref })}
                       />
                     </Box>

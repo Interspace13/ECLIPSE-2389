@@ -1,5 +1,5 @@
 author: Batrachophrenoboocosmomachia
 delete-after: True
 changes:
-  - qol: "Adds tooltips to Player Panel buttons and better scales default window size."
+  - qol: "Slightly increases Player Panel default window size."
   - qol: "Improves some verb subcategorization, mostly for modmin verbs."
