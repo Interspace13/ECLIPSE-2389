@@ -37,7 +37,7 @@
 	 * If you're stuck, better hope there's a friend available to bail you out..
 	 * Or you can keep the hatch open if you would rather risk getting zipped by incoming fire.
 	 */
-	var/ejection_fail_chance = 100
+	var/ejection_fail_chance = 75
 
 /obj/item/mech_component/chassis/Initialize()
 	. = ..()
