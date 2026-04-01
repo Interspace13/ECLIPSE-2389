@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "made the RFID card slot eject ID cards when removed from a pda, such as when a pda explodes."
