@@ -1,0 +1,4 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Sudden strong airflow now checks for more than just shoes with NO_SLIP (like active magboots) when determining whether to knock people over."
