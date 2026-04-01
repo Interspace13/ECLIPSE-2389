@@ -545,12 +545,12 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	automatic rifle. Laser weapons are usually used by high-ranking soldiers or special operatives. Regardless of advances in the small arms field, artillery is the Republican army’s \
 	main weapon and pride."
 
-	load_method = MAGAZINE|SPEEDLOADER
+	load_method = MAGAZINE
 	caliber = "6.8mm"
 	ammo_type = /obj/item/ammo_casing/a68
 	allowed_magazines = list(/obj/item/ammo_magazine/a68, /obj/item/ammo_magazine/boltaction/adhomai)
 	magazine_type = /obj/item/ammo_magazine/a68
-	max_shells = 25
+	max_shells = 0
 
 	worn_x_dimension = 48 //Uses 48x32 gun sprite
 
@@ -568,10 +568,33 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	..() //Placed here so in-hand sprite reflects no magazine properly.
 	icon_state = (ammo_magazine)? "tsarrayut" : "tsarrayut_nomag"
 
+/obj/item/gun/projectile/automatic/rifle/proc/stripper_load(obj/item/ammo_magazine/magazine, obj/item/ammo_magazine/boltaction/stripper, mob/user)
+	if(stripper.caliber != magazine.caliber)
+		to_chat(user, SPAN_WARNING("\The [stripper] isn't compatible with the [src]!"))
+		return
+	if(!length(stripper.stored_ammo))
+		to_chat(user, SPAN_WARNING("\The [stripper] is empty!"))
+		return
+	if(length(magazine.stored_ammo) >= magazine.max_ammo)
+		to_chat(user, SPAN_WARNING("\The [src] is full!"))
+		return
+	for(var/i = (length(magazine.stored_ammo) + 1) to magazine.max_ammo)
+		if(!length(stripper.stored_ammo))
+			break
+		var/obj/item/ammo_casing/C = stripper.stored_ammo[1]
+		magazine.stored_ammo.Add(C)
+		stripper.stored_ammo.Remove(C)
+	update_icon()
+	stripper.update_icon()
+	playsound(src, 'sound/weapons/reload_clip.ogg', 30)
+
 /obj/item/gun/projectile/automatic/rifle/adhomian/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/ammo_magazine/boltaction) && !ammo_magazine)
 		to_chat(user, SPAN_WARNING("\The [src] cannot be reloaded without a magazine!"))
 		return
+	else if(istype(attacking_item, /obj/item/ammo_magazine/boltaction))
+		var/obj/item/ammo_magazine/stripper_clip = attacking_item
+		stripper_load(ammo_magazine, stripper_clip, user)
 	..()
 
 /obj/item/gun/projectile/automatic/rifle/dpra
@@ -585,12 +608,12 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 
-	load_method = MAGAZINE|SPEEDLOADER
+	load_method = MAGAZINE
 	caliber = "6.8mm"
 	ammo_type = /obj/item/ammo_casing/a68
 	allowed_magazines = list(/obj/item/ammo_magazine/a68)
 	magazine_type = /obj/item/ammo_magazine/a68
-	max_shells = 25
+	max_shells = 0
 
 	worn_x_dimension = 48 //Uses 48x32 gun sprite
 
@@ -607,6 +630,15 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	item_state = (ammo_magazine)? "mrrazhak" : "mrrazhak_nomag"
 	..() //Placed here so in-hand sprite reflects no magazine properly.
 	icon_state = (ammo_magazine)? "mrrazhak" : "mrrazhak_nomag"
+
+/obj/item/gun/projectile/automatic/rifle/dpra/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/ammo_magazine/boltaction) && !ammo_magazine)
+		balloon_alert(user, "needs a magazine!")
+		return
+	else if(istype(attacking_item, /obj/item/ammo_magazine/boltaction))
+		var/obj/item/ammo_magazine/stripper = attacking_item
+		src.stripper_load(ammo_magazine, stripper, user)
+	..()
 
 /obj/item/gun/projectile/automatic/tommygun
 	name = "\improper Thompson submachine gun"

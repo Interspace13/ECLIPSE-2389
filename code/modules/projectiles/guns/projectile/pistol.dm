@@ -138,6 +138,9 @@
 	else
 		icon_state = "secgunwood-e"
 
+/obj/item/gun/projectile/sec/wood/lethal
+	magazine_type = /obj/item/ammo_magazine/c45m
+
 /obj/item/gun/projectile/automatic/x9
 	name = "\improper Mk58-A machine pistol"
 	desc = "A NanoTrasen-designed .45 sidearm, modified for fully-automatic fire. Issued to select security and law enforcement groups."

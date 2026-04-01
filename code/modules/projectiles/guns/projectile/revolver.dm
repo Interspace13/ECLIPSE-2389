@@ -341,3 +341,18 @@
 	ammo_type = /obj/item/ammo_casing/c45/revolver
 	magazine_type = /obj/item/ammo_magazine/c45/revolver
 	max_shells = 6
+
+/obj/item/gun/projectile/revolver/security
+	name = "C45 revolver"
+	desc = "A Zavodskoi-designed .45 revolver, found among law enforcement and security support personnel."
+	desc_extended = "The C45 is a .45 chambered revolver designed and manufactured by Zavodskoi Interstellar for use among security forces across the Spur. \
+	Compact and minimalist, the C45 is prized for its form factor, low maintenance, and extremely long longevity. \
+	Its low capacity sees it used primarily as a trusty back-up for personnel needing protection, but without the volume or firepower of a bulky automatic pistol."
+	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/sec_revolver.dmi'
+	icon_state = "sec_revolver"
+	item_state = "sec_revolver"
+	w_class = WEIGHT_CLASS_NORMAL
+	caliber = ".45"
+	ammo_type = /obj/item/ammo_casing/c45/rubber
+	magazine_type = /obj/item/ammo_magazine/c45/revolver
+	max_shells = 6
