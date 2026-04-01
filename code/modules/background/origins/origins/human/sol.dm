@@ -79,7 +79,7 @@
 
 /singleton/origin_item/origin/jupiter_cal
 	name = "Jupiter, Callisto"
-	desc = "One of the most populous Solarian member-states, the Commonwealth of Callisto is the port of the Sol System. Its heavily terraformed surface is dominated by densely urbanized areas and the Jovian moon is protected by a massive planetary shield ring: one of the last great projects undertaken by the Alliance. Its residents enjoy a remarkably high average quality of life. Residents of Callisto are known as Callisteans or 'Calies'."
+	desc = "One of the most populous Solarian member-states, the Commonwealth of Callisto is the port of the Sol System. Its heavily terraformed surface is densely urbanized and the moon itself is protected by a massive planetary shield ring: one of the last great projects undertaken by the Alliance. Its residents enjoy a remarkably high average quality of life. Residents of Callisto are known as Callisteans or 'Calies'."
 	possible_accents = list(ACCENT_CALLISTO)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
