@@ -1,0 +1,6 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - refactor: "Splits the Jupiter origin into three: ('Jupiter', 'Jupiter, Callisto', 'Jupiter, Europa')."
+  - balance: "Characters with the Europa origin gain the Cold Resistance and Light Sensitivity traits."
+  - balance: "Characters with the New Gibson origin gain the Cold Resistance trait."

@@ -72,10 +72,26 @@
 
 /singleton/origin_item/origin/jupiter
 	name = "Jupiter"
-	desc = "The three major inhabited moons of Jupiter - Callisto, Ganymede, and Europa - are key Solarian worlds. Callisto serves as a major port for the Alliance, Ganymede produces much of the food the Alliance consumes, and Europa is a major research hub. The Jovian Moons are home to a remarkable diversity of humanity, and humans from almost anywhere in the Orion Spur can be found in their ports."
-	possible_accents = list(ACCENT_JUPITER, ACCENT_EUROPA, ACCENT_CALLISTO)
+	desc = "The Jovian System is a major hub of the larger Sol System and the Alliance as a whole. Major worlds in it include Ganymede, Europe, and Callisto. If you want something in the Alliance, it can almost certainly be found in Jupiter’s orbit. Though known formally as Jovians, residents of Jupiter’s moons typically refer to themselves by their moon of origin. Unlike the rest of the Sol System, they tend to refer to Jupiter as 'Jove' or 'the Old Man'."
+	possible_accents = list(ACCENT_JUPITER)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
+
+/singleton/origin_item/origin/jupiter_cal
+	name = "Jupiter, Callisto"
+	desc = "One of the most populous Solarian member-states, the Commonwealth of Callisto is the port of the Sol System. Its heavily terraformed surface is dominated by heavily urbanized areas and the Jovian moon is protected by a massive planetary shield ring: one of the last great projects undertaken by the Alliance. Its residents enjoy a remarkably high average quality of life. Residents of Callisto are known as Callisteans or 'Calies'."
+	possible_accents = list(ACCENT_CALLISTO)
+	possible_citizenships = CITIZENSHIPS_SOLARIAN
+	possible_religions = RELIGIONS_SOLARIAN
+
+/singleton/origin_item/origin/jupiter_eur
+	name = "Jupiter, Europa"
+	desc = "Jupiter’s frozen moon, Europa’s surface is a thick layer of ice whose surface is bombarded by heavy radiation. Its residents instead live under-ice, in the inky darkness of its interior sea, in submarines and habitation stations anchored to the underside of the ice shell. It is a research hub for pharmaceutical interests and known for its biodiversity. Due to gross economic downturn in the early 2200s, to this day Europa still endures poor average standards of living and chronic food and energy deficits outside its capital. Its horrifying seafarers’ tales have long fascinated Solarians across the Alliance. Its residents are known as Europans."
+	possible_accents = list(ACCENT_EUROPA)
+	possible_citizenships = CITIZENSHIPS_SOLARIAN
+	possible_religions = RELIGIONS_SOLARIAN
+	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE, TRAIT_ORIGIN_LIGHT_SENSITIVE)
+	origin_traits_descriptions = list("are more acclimatised to the cold.", "are more sensitive to bright lights")
 
 /singleton/origin_item/origin/saturn
 	name = "Saturn"
