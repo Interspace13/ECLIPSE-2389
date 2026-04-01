@@ -79,14 +79,14 @@
 
 /singleton/origin_item/origin/jupiter_cal
 	name = "Jupiter, Callisto"
-	desc = "One of the most populous Solarian member-states, the Commonwealth of Callisto is the port of the Sol System. Its heavily terraformed surface is dominated by heavily urbanized areas and the Jovian moon is protected by a massive planetary shield ring: one of the last great projects undertaken by the Alliance. Its residents enjoy a remarkably high average quality of life. Residents of Callisto are known as Callisteans or 'Calies'."
+	desc = "One of the most populous Solarian member-states, the Commonwealth of Callisto is the port of the Sol System. Its heavily terraformed surface is dominated by densely urbanized areas and the Jovian moon is protected by a massive planetary shield ring: one of the last great projects undertaken by the Alliance. Its residents enjoy a remarkably high average quality of life. Residents of Callisto are known as Callisteans or 'Calies'."
 	possible_accents = list(ACCENT_CALLISTO)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
 
 /singleton/origin_item/origin/jupiter_eur
 	name = "Jupiter, Europa"
-	desc = "Jupiter’s frozen moon, Europa’s surface is a thick layer of ice whose surface is bombarded by heavy radiation. Its residents instead live under-ice, in the inky darkness of its interior sea, in submarines and habitation stations anchored to the underside of the ice shell. It is a research hub for pharmaceutical interests and known for its biodiversity. Due to gross economic downturn in the early 2200s, to this day Europa still endures poor average standards of living and chronic food and energy deficits outside its capital. Its horrifying seafarers’ tales have long fascinated Solarians across the Alliance. Its residents are known as Europans."
+	desc = "Jupiter’s frozen moon, Europa’s surface is dominated by a thick layer of ice and its residents instead live underground, in the inky darkness of its interior sea, in submarines and habitation stations. Known both for its biodiversity and its horrifying seafarers’ tales, Europa has long fascinated the minds of Solarians across the Alliance. Its residents are known as Europans.
 	possible_accents = list(ACCENT_EUROPA)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
