@@ -1,0 +1,5 @@
+author: Kano
+delete-after: True
+changes:
+  - rscadd: "Added whiteboards, sprites by KingOfThePing."
+  - qol: "Gave barsigns and its subtypes a tgui menu."
