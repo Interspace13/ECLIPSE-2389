@@ -86,7 +86,7 @@
 
 /singleton/origin_item/origin/jupiter_eur
 	name = "Jupiter, Europa"
-	desc = "Jupiter’s frozen moon, Europa’s surface is dominated by a thick layer of ice and its residents instead live underground, in the inky darkness of its interior sea, in submarines and habitation stations. Known both for its biodiversity and its horrifying seafarers’ tales, Europa has long fascinated the minds of Solarians across the Alliance. Its residents are known as Europans.
+	desc = "Jupiter’s frozen moon, Europa’s surface is dominated by a thick layer of ice and its residents instead live underground, in the inky darkness of its interior sea, in submarines and habitation stations. Known both for its biodiversity and its horrifying seafarers’ tales, Europa has long fascinated the minds of Solarians across the Alliance. Its residents are known as Europans."
 	possible_accents = list(ACCENT_EUROPA)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
