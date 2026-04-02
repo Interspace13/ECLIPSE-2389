@@ -344,11 +344,11 @@ ABSTRACT_TYPE(/obj/item/gun/energy/gun/skrell)
 	secondary_projectile_type = /obj/projectile/energy/blaster/skrell
 	secondary_fire_sound = 'sound/weapons/laser3.ogg'
 	can_switch_modes = TRUE
-	projectile_type = /obj/projectile/energy/disruptorstun/skrell
+	projectile_type = /obj/projectile/energy/disruptorskrell
 	modifystate = "psipistolstun"
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/projectile/energy/disruptorstun/skrell, modifystate="psipistolstun", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="stun", projectile_type=/obj/projectile/energy/disruptorskrell, modifystate="psipistolstun", fire_sound='sound/weapons/Taser.ogg'),
 		list(mode_name="lethal", projectile_type=/obj/projectile/energy/blaster/skrell, modifystate="psipistollethal", fire_sound='sound/weapons/laser3.ogg'),
 		list(mode_name="ion", projectile_type=/obj/projectile/ion/small, modifystate="psipistolion", fire_sound='sound/weapons/laser1.ogg')
 		)

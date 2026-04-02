@@ -541,7 +541,7 @@
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
 	caliber = ".599 Kumar Super"
-	projectile_type = /obj/projectile/bullet
+	projectile_type = /obj/projectile/bullet/rifle/kumar_super
 	max_stack = 5
 
 /obj/item/ammo_casing/c6mm
