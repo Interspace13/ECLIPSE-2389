@@ -1,0 +1,6 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes explosions exclusively damaging the torso, and instead distributes damage across all limbs, with a focus on one random limb."
