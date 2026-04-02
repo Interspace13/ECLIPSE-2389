@@ -54,9 +54,21 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	name = "speed loader (.45)"
 	icon_state = "a454"
 	caliber = ".45"
-	ammo_type = /obj/item/ammo_casing/c45/revolver
+	ammo_type = /obj/item/ammo_casing/c45
 	max_ammo = 6
 	multiple_sprites = TRUE
+
+/obj/item/ammo_magazine/c45/revolver/rubber
+	name = "speed loader (.45 rubber)"
+	ammo_type = /obj/item/ammo_casing/c45/rubber
+
+/obj/item/ammo_magazine/c45/revolver/flash
+	name = "speed loader (.45 flash)"
+	ammo_type = /obj/item/ammo_casing/c45/flash
+
+/obj/item/ammo_magazine/c45/revolver/practice
+	name = "speed loader (.45 practice)"
+	ammo_type = /obj/item/ammo_casing/c45/practice
 
 // End of Revolvos //
 
@@ -580,6 +592,10 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 
 /obj/item/ammo_magazine/a68/empty
 	initial_ammo = 0
+
+/obj/item/ammo_magazine/a68/ap
+	name = "magazine (6.8mm AP)"
+	ammo_type = /obj/item/ammo_casing/a68/ap
 
 /obj/item/ammo_magazine/a68/hotaki
 	icon_state = "SVD"
