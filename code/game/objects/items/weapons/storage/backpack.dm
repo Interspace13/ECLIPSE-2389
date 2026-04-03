@@ -592,7 +592,7 @@
 	icon = 'icons/obj/storage/duffelbag.dmi'
 	icon_state = "duffel"
 	item_state = "duffel"
-	slowdown = 0.5
+	slowdown = 0.3
 	max_storage_space = DEFAULT_DUFFELBAG_STORAGE
 	straps = TRUE
 
