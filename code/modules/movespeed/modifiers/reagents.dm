@@ -59,7 +59,7 @@ ABSTRACT_TYPE(/datum/movespeed_modifier/alcohol)
 /datum/movespeed_modifier/alcohol/intoxication
 	id = "reagent_slowdown"
 	priority = 50
-	multiplicative_slowdown = 0.5
+	multiplicative_slowdown = 0.3
 	variable = TRUE
 
 //Only speed boost for unathi
