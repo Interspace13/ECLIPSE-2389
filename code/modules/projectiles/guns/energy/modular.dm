@@ -86,7 +86,7 @@
 		return
 
 	update_chassis()
-
+	//TODO: When the skill system test is merged, rework this to give high skills a chance to avoid the failure.
 	// if(capacitor.reliability - capacitor.condition <= 0)
 	// 	if(prob(66))
 	// 		capacitor.small_fail(user)
