@@ -425,6 +425,18 @@
 	desc = "A green sign that depicts an evacuation pod, with the text \"EVACUATION PODS\" under it."
 	icon_state = "emerg_pods"
 
+ABSTRACT_TYPE(/obj/structure/sign/fire_closet)
+	name = "\improper FIRE CLOSET sign"
+	desc = "A red sign with the text \"FIRE CLOSET\" on it and an arrow pointing towards the closet's direction."
+/obj/structure/sign/fire_closet/north
+	icon_state = "fire_closet_north"
+/obj/structure/sign/fire_closet/east
+	icon_state = "fire_closet_east"
+/obj/structure/sign/fire_closet/south
+	icon_state = "fire_closet_south"
+/obj/structure/sign/fire_closet/west
+	icon_state = "fire_closet_west"
+
 // Miscellanous
 /obj/structure/sign/emergency/meetingpoint
 	name = "\improper EMERGENCY MEETING POINT sign"
