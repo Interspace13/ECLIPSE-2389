@@ -587,8 +587,6 @@
 		/obj/item/laser_components/focusing_lens/strong = 2
 	)
 
-
-
 /obj/item/storage/box/unique/freezer/organcooler/psireceiver
 	name = "psionic receivers cooler"
 	desc = "A cooling box for psionic receivers, which can be surgically implanted to act as a replacement for an underdeveloped or non-existent zona bovinae. This one has a large sticker on the side reading FOR RESEARCH USE ONLY."

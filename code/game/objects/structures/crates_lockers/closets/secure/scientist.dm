@@ -14,7 +14,6 @@
 	new /obj/item/taperoll/science(src)
 	new /obj/item/sampler(src)
 
-
 /obj/structure/closet/secure_closet/scientist/modlaser
 	name = "scientist's laser locker"
 
