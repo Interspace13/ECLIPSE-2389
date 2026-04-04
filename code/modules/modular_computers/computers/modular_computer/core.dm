@@ -41,7 +41,7 @@
 			else
 				enabled_services -= service
 
-	working = hard_drive && processor_unit && health <= broken_damage && computer_use_power()
+	working = hard_drive && processor_unit && health >= broken_damage && computer_use_power()
 	check_update_ui_need()
 
 	if(looping_sound && working && enabled && world.time > ambience_last_played_time + 30 SECONDS && prob(3))
