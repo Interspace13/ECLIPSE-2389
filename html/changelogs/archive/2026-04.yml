@@ -18,3 +18,9 @@
   - bugfix: Fixed a rat missing one handheld and one ear slot sprite.
   - bugfix: Made the RFID card slot eject ID cards when removed from a pda, such as
       when a pda explodes.
+2026-04-04:
+  Batrachophrenoboocosmomachia:
+  - qol: Slightly increases Player Panel default window size.
+  - qol: Improves some verb subcategorization, mostly for modmin verbs.
+  GeneralCamo:
+  - rscadd: Two sheets of cardboard can now be used to make large boxes.
