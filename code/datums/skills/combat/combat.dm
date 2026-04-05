@@ -17,12 +17,6 @@
 	description = "Unarmed combat represents your training in hand-to-hand combat, or without a weapon. It also influences your ability to resist actions like disarms or martial arts. " \
 		+ "Higher ranks in Unarmed Combat provide bonuses when attacking with your fists, as well as bonuses to defending against others unarmed attacks and disarms."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
-	skill_level_map = list(
-		"Untrained",
-		"Dabbling",
-		"Trained",
-		"Black Belt"
-	)
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have rarely, if ever, fought someone in your life.<br>" \
 			+ " - You are more likely to miss when attempting to punch anywhere not the torso.<br>" \
@@ -62,12 +56,6 @@
 	subcategory = SKILL_SUBCATEGORY_RANGED
 	required = TRUE
 	component_type = FIREARMS_SKILL_COMPONENT
-	skill_level_map = list(
-		"Untrained",
-		"Dabbling",
-		"Trained",
-		"Gunslinger"
-	)
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have no knowledge of how firearms work at all.<br>" \
 			+ " - Firearms you shoot have a 30 degree spread-angle increase, making them very inaccurate.<br>" \

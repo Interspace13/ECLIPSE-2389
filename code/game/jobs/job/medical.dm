@@ -36,9 +36,7 @@
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 	skill_requirements = alist(
-		/singleton/skill/surgery = SKILL_LEVEL_TRAINED,
-		/singleton/skill/medicine = SKILL_LEVEL_PROFESSIONAL,
-		/singleton/skill/anatomy = SKILL_LEVEL_TRAINED
+		/singleton/skill/medicine = SKILL_LEVEL_TRAINED
 	)
 
 /obj/outfit/job/cmo

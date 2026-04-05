@@ -18,12 +18,6 @@
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
 	component_type = SURGERY_SKILL_COMPONENT
 	required = TRUE
-	skill_level_map = list(
-		"Untrained",
-		"Med Student",
-		"Licensed Surgeon",
-		"World-class Surgeon"
-	)
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have zero training or experience with surgery.<br>" \
 			+ " - You cannot perform any surgical procedures on organic humanoids.",

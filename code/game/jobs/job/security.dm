@@ -311,8 +311,10 @@
 
 	blacklisted_species = list(SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
 
-	// Let the sec cadets footgun themselves as a little treat. <3
-	// skill_requirements = alist()
+	// Make sure security at bare minimum won't footgun themselves...
+	skill_requirements = alist(
+		/singleton/skill/firearms = SKILL_LEVEL_TRAINED
+	)
 
 /obj/outfit/job/intern_sec
 	name = "Security Cadet"

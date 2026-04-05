@@ -448,26 +448,6 @@
 	O.set_dir(dir)
 	O.add_fingerprint(user)
 
-	// Setup fun item name modifiers based on skill level.
-	var/d20Roll = rand(1, 20) + 3 * skill_diff
-	var/initial_name = "[O.name]"
-	// Yes some of these are from the dwarf fortress wiki.
-	if (d20Roll <= 0)
-		O.name = "shoddy " + initial_name
-	else if (d20Roll <= 5)
-		O.name = "inferior " + initial_name
-	else if (d20Roll <= 10)
-		O.name = "cheap " + initial_name
-	else if (d20Roll <= 15)
-		O.name = "finely-crafted " + initial_name
-	else if (d20Roll <= 20)
-		O.name = "superior quality " + initial_name
-	else if (d20Roll < 30)
-		O.name = "masterful " + initial_name
-		O.desc = "[O.desc]\n All craftsmanship is of the highest quality."
-	else
-		O.name = "artifact " + initial_name
-
 	if (istype(O, /obj/item/stack))
 		var/obj/item/stack/S = O
 		S.amount = amount

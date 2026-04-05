@@ -7,12 +7,6 @@
 	subcategory = SKILL_SUBCATEGORY_OPERATIONS
 	component_type = ROBOTICS_SKILL_COMPONENT
 	required = TRUE
-	skill_level_map = list(
-		"Untrained",
-		"Hobbyist",
-		"Licensed Roboticist",
-		"Robotics Wizard"
-	)
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have zero training or experience with synthetics.<br>" \
 			+ " - You cannot perform any surgical procedures on synthetics.",
@@ -79,12 +73,6 @@
 	uneducated_skill_cap = SKILL_LEVEL_TRAINED
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_OPERATIONS
-	skill_level_map = list(
-		"Unlicensed",
-		"Licensed Pilot",
-		"Experienced Pilot",
-		"Mechwarrior"
-	)
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "What's a mech?<br>" \
 			+ " - You have a 10% chance to move in a wrong direction when controlling mechs.<br>" \
