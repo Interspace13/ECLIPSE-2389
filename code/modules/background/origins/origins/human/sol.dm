@@ -9,6 +9,8 @@
 		/singleton/origin_item/origin/venus_j,
 		/singleton/origin_item/origin/mars,
 		/singleton/origin_item/origin/jupiter,
+		/singleton/origin_item/origin/jupiter_cal,
+		/singleton/origin_item/origin/jupiter_eur,
 		/singleton/origin_item/origin/saturn,
 		/singleton/origin_item/origin/pluto,
 		/singleton/origin_item/origin/eridani,
