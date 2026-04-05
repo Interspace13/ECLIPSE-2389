@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "The tesla hardsuit now requires an advanced military grade tesla spine to use."
+  - rscdel: "The tesla hardsuit has been removed from the golden deep submap and replaced with a hazard and AMI rig instead."
