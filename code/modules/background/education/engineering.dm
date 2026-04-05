@@ -1,7 +1,7 @@
 /singleton/education/mechanical_engineering
 	name = "Mechanical Engineering"
 	description = "You are at least 25 years of age, with either a Bachelor's degree in Mechanical Engineering, or otherwise have functionally equivalent working experience. \
-    	You specialize in constructing structural systems, lathing, and the more manual pleasures of engineering, such as welding and wrenching."
+		You specialize in constructing structural systems, lathing, and the more manual pleasures of engineering, such as welding and wrenching."
 	jobs = list("Engineer")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 25,
@@ -18,7 +18,7 @@
 /singleton/education/electrical_engineering
 	name = "Electrical Engineering Background"
 	description = "You are at least 25 years of age, with a Bachelor's degree in Electrical Engineering, or otherwise have functionally equivalent working experience. \
-    	You specialize in variable-voltage cabling, grid management, electronic hardware, and other electrical systems."
+		You specialize in variable-voltage cabling, grid management, electronic hardware, and other electrical systems."
 	jobs = list("Engineer")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 25,
@@ -35,7 +35,7 @@
 /singleton/education/atmospherics_engineer
 	name = "Atmospherics Systems Background"
 	description = "You are at least 25 years of age, with a Bachelor's degree in Atmospherics Systems, or otherwise have functionally equivalent working experience. \
-    	You specialize in everything to do with atmospherics systems, whether that's the delivery of gases, usage of atmospherics machines, or simply how to use a pipe wrench."
+		You specialize in everything to do with atmospherics systems, whether that's the delivery of gases, usage of atmospherics machines, or simply how to use a pipe wrench."
 	jobs = list("Atmospherics Technician")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 25,
@@ -53,7 +53,7 @@
 /singleton/education/reactors_engineer
 	name = "Reactor Systems Background"
 	description = "You are at least 25 years of age, with a Bachelor's degree in Reactor Systems, or otherwise have functionally equivalent working experience. \
-    	You specialize in everything to do with a reactor's systems, whether you are looking at a Supermatter crystal, a fusion reactor, or a combustion chamber."
+		You specialize in everything to do with a reactor's systems, whether you are looking at a Supermatter crystal, a fusion reactor, or a combustion chamber."
 	jobs = list("Engineer")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 25,
