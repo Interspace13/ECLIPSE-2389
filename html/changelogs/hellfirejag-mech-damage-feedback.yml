@@ -1,0 +1,9 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Mech arms now have a chance to fail on use when damaged, which scales proportionally with said damage."
+  - balance: "Since damage to mech arms now matters, the max health of all mech arms has been increased by 50%."
+  - balance: "Nerfed Superheavy mech arms to be more in line with other Superheavy mech components."
+  - rscadd: "Mech arms and legs now have a chance to create electrical sparks when utilized while damaged. This provides visual and audible feedback for a mech being damaged."
+  - rscadd: "Ejecting from a mech or opening its canopy now has a chance to fail loudly based on how much damage its center torso has taken."
+  - rscadd: "Added sound effects to mechs for opening and closing hatches, toggling the hatch lock, and for toggling the mech's air supply."

@@ -1,0 +1,6 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - qol: "Light's Edge AI Lobby Announcement: 10dB noise reduction, sample rate reduced to 16mHz like other AI lobby announcements"

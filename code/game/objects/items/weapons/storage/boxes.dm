@@ -170,6 +170,10 @@
 	label = null
 	illustration = null
 
+/obj/item/storage/box/large/blank
+	label = null
+	illustration = null
+
 /obj/item/storage/box/blank/teabox
 	max_storage_space = 12
 	can_hold = list(

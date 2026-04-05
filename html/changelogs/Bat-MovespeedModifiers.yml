@@ -1,0 +1,5 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - balance: "Halves all non-species movespeed_modifier/slowdown datums, positive and negative; old values were too high for the switch to smooth movement. Some additional tweaks on top of this."
+  - balance: "Movespeed modifier datums derived from chems/reagents no longer stack."
