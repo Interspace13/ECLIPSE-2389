@@ -1,0 +1,9 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed uranium golems not emitting detectable radiation by geiger counters."
+  - balance: "Replaced arbitrarily radioacitivty values in a lot of things with new more inline radiation level defines. These balances are minor and don't effect item, object or material behavior."
+  - rscadd: "Added a new version for radioactive green glow and waste barrels, radiation level very high."
+  - rscdel: "Removed the LRP hairloss on radiation exposure."
