@@ -144,15 +144,21 @@
 	var/base_maximum_level = skill.get_maximum_level(education)
 	var/remaining_skill_points = calculate_remaining_skill_points(GET_SINGLETON(skill.category))
 
-	for(var/skill_level = 0 to base_maximum_level)
-		. = skill_level
+	var/current_level = SKILL_LEVEL_UNFAMILIAR
+	if(skill.type in pref.skills)
+		current_level = pref.skills[skill.type]
 
-		var/skill_cost = skill.get_cost(skill_level + 1)
-		if(skill_cost > remaining_skill_points)
-			break
+	var/current_cost = 0
+	if(!(skill.type in education.skills))
+		current_cost = skill.get_cost(current_level)
 
-		skill_level++
-		remaining_skill_points -= skill_cost
+	var/available_points = remaining_skill_points + current_cost
+
+	for(var/skill_level = base_maximum_level; skill_level >= SKILL_LEVEL_UNFAMILIAR; skill_level--)
+		if(skill.get_cost(skill_level) <= available_points)
+			return skill_level
+
+	return SKILL_LEVEL_UNFAMILIAR
 
 /**
  * Turns a skill into a dynamic button.
