@@ -519,7 +519,15 @@ ABSTRACT_TYPE(/obj/structure/reagent_dispensers/radioactive_waste/hazardous)
 	radioactivity = RAD_LEVEL_HIGH
 
 /obj/structure/reagent_dispensers/radioactive_waste/hazardous/high/antagonist_hints(mob/user, distance, is_adjacent)
-	. += "Geiger counters will start clicking at ~9 tiles away from this object."
+	. += "Geiger counters will start clicking at ~7 tiles away from this object."
+	. += "A radsuit is necessary to move safely adjacent to it."
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/very_high
+	/// This is as high as radsuits can absorb! Use with caution.
+	radioactivity = RAD_LEVEL_VERY_HIGH
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/very_high/antagonist_hints(mob/user, distance, is_adjacent)
+	. += "Geiger counters will start clicking at ~11 tiles away from this object."
 	. += "A radsuit is necessary to move safely adjacent to it."
 
 /obj/structure/reagent_dispensers/radioactive_waste/hazardous/extreme

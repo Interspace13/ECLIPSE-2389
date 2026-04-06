@@ -96,7 +96,15 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 
 /obj/effect/decal/cleanable/greenglow/radioactive/high/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Geiger counters will start clicking at ~9 tiles away from this object."
+	. += "Geiger counters will start clicking at ~7 tiles away from this object."
+	. += "A radsuit is necessary to move safely adjacent to it."
+
+/obj/effect/decal/cleanable/greenglow/radioactive/very_high
+	radioactivity = RAD_LEVEL_VERY_HIGH
+
+/obj/effect/decal/cleanable/greenglow/radioactive/very_high/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Geiger counters will start clicking at ~11 tiles away from this object."
 	. += "A radsuit is necessary to move safely adjacent to it."
 
 /obj/effect/decal/cleanable/greenglow/radioactive/extreme
