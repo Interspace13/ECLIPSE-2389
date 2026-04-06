@@ -57,11 +57,11 @@ This has been talked with a lore writer as of April 2026.
 		last_broadcastEcho = world.time
 	if((SSatlas.current_sector.catchecho == TRUE) && world.time >= (last_projectionEcho + rand(240,480) SECONDS))
 		var/projection = GETPROJECTION
+		last_projectionEcho = world.time
 		CHECKPLAYER
 			if(isvaurca(player))
 				CHECK_VALID_SOCKET
 					to_chat(player, projection)
-					last_projectionEcho = world.time
 		for(var/mob/G in GLOB.player_list)
 			if(isghost(G))
 				to_chat(G, projection)
