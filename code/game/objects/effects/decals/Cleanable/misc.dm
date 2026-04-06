@@ -96,7 +96,7 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 
 /obj/effect/decal/cleanable/greenglow/radioactive/high/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Geiger counters will start clicking at ~8 tiles away from this object."
+	. += "Geiger counters will start clicking at ~9 tiles away from this object."
 	. += "A radsuit is necessary to move safely adjacent to it."
 
 /obj/effect/decal/cleanable/greenglow/radioactive/extreme
@@ -105,7 +105,7 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 
 /obj/effect/decal/cleanable/greenglow/radioactive/extreme/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Geiger counters will start clicking at ~12 tiles away from this object."
+	. += "Geiger counters will start clicking at ~11 tiles away from this object."
 	. += "No living thing can safely stand next to this object! Borgs or IPCs only!"
 
 /obj/effect/decal/cleanable/greenglow/radioactive/Initialize()
