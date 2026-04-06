@@ -76,11 +76,11 @@
 			icon_state = "geiger_on_3"
 			geiger_volume = 25
 			sound_token.SetVolume(geiger_volume)
-		if(RAD_LEVEL_HIGH + 1 to RAD_LEVEL_VERY_HIGH)
+		if(RAD_LEVEL_HIGH + 1 to RAD_LEVEL_EXTREME)
 			icon_state = "geiger_on_4"
 			geiger_volume = 40
 			sound_token.SetVolume(geiger_volume)
-		if(RAD_LEVEL_VERY_HIGH + 1 to INFINITY)
+		if(RAD_LEVEL_EXTREME + 1 to INFINITY)
 			icon_state = "geiger_on_5"
 			geiger_volume = 60
 			sound_token.SetVolume(geiger_volume)
