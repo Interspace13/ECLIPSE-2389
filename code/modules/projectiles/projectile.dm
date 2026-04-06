@@ -228,9 +228,9 @@
 
 	var/incinerate = 0
 	/// Whether or not the projectile can embed itself in the mob
-	var/embed = 1
+	var/embed = 0
 	/// A flat bonus to the % chance to embed
-	var/embed_chance = 100
+	var/embed_chance = 0
 
 	/// For maiming. Factor that the recipiant will be maimed by the projectile (NOT OUT OF 100%.)
 	var/maim_rate = 0
