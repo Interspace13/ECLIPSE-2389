@@ -9,3 +9,4 @@
 #define RAD_LEVEL_HIGH 40
 #define RAD_LEVEL_VERY_HIGH 80
 #define RAD_LEVEL_EXTREME 100
+#define RAD_LEVEL_CATASTROPHIC 120 // Higher then radsuits can absorb! Use with caution.
