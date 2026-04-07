@@ -97,7 +97,7 @@
 		update_icon()
 
 // Uninstalls component. Found and Critical vars may be passed by parent types, if they have additional hardware.
-/obj/item/modular_computer/proc/uninstall_component(var/mob/living/user, var/obj/item/computer_hardware/H, var/found = FALSE, var/critical = FALSE, var/put_in_hands = FALSE)
+/obj/item/modular_computer/proc/uninstall_component(mob/living/user, obj/item/computer_hardware/H, found = FALSE, critical = FALSE, put_in_hands = FALSE, eject_id = TRUE)
 	if(portable_drive == H)
 		portable_drive = null
 		found = TRUE
@@ -112,7 +112,8 @@
 		nano_printer = null
 		found = TRUE
 	else if(card_slot == H)
-		astype(H, /obj/item/computer_hardware/card_slot)?.eject_id()
+		if(eject_id)
+			astype(H, /obj/item/computer_hardware/card_slot)?.eject_id()
 		card_slot = null
 		found = TRUE
 	else if(battery_module == H)
