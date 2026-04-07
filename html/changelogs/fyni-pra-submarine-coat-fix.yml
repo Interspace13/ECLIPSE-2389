@@ -1,0 +1,4 @@
+author: fyni
+delete-after: True
+changes:
+  - bugfix: "Fixes the PRA Submarine Coat closed state not working by removing six letters from the sprite sheet. Whoops!"
