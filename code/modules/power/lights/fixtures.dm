@@ -23,9 +23,9 @@
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	/// Luminosity when on, also used in power calculation.
 	var/brightness_range = 7
-	var/brightness_power = 1
-	var/night_brightness_range = 5
-	var/night_brightness_power = 0.4
+	var/brightness_power = 0.75
+	var/night_brightness_range = 6
+	var/night_brightness_power = 0.3
 	var/supports_nightmode = TRUE
 	var/nightmode = FALSE
 	var/brightness_color = LIGHT_COLOR_HALOGEN

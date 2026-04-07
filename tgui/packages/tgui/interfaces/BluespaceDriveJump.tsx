@@ -5,43 +5,41 @@ import {
   LabeledControls,
   Section,
   LabeledList,
+  NoticeBox,
 } from '../components';
 import { Window } from '../layouts';
 import { BooleanLike } from '../../common/react';
 
-export type BluespaceDriveData = {
-  energized: BooleanLike;
+export type BluespaceDriveJumpData = {
   charge: BooleanLike;
   rotation: number;
   jumping: BooleanLike;
   jump_power: number;
   fuel_gas: number;
+  primed: BooleanLike;
 };
 
-export const BluespaceDrive = (props, context) => {
-  const { act, data } = useBackend<BluespaceDriveData>(context);
+export const BluespaceDriveJump = (props, context) => {
+  const { act, data } = useBackend<BluespaceDriveJumpData>(context);
   return (
-    <Window width="382" height="277" theme="hephaestus">
+    <Window width="382" height="277" theme="nanotrasen">
       <Window.Content>
-        <Section title="Drive Configuration">
-          <LabeledControls>
-            <LabeledControls.Item>
+        <Section title="Jump Computer">
+          {!data.primed ? (
+            <NoticeBox>
+              Bluespace drive awaiting final priming{' '}
               <Button
-                name="Energize"
-                content={data.energized ? 'Energized' : 'Energize'}
-                color={data.energized ? 'green' : 'red'}
-                onClick={() => act('toggle_energized')}
-              />
-            </LabeledControls.Item>
-            <LabeledControls.Item>
-              <Button
-                name="Purge Charge"
-                content="Purge Charge"
+                content="Override"
                 color="red"
-                disabled={!data.charge || data.jumping}
-                onClick={() => act('purge_charge')}
+                icon="circle-exclamation"
+                disabled={data.primed}
+                onClick={() => act('toggle_primed')}
               />
-            </LabeledControls.Item>
+            </NoticeBox>
+          ) : (
+            ''
+          )}
+          <LabeledControls>
             <LabeledControls.Item>
               <Knob
                 name="Rotation"
@@ -61,7 +59,7 @@ export const BluespaceDrive = (props, context) => {
                 name="Jump"
                 content="Jump"
                 color="green"
-                disabled={!data.charge || data.jumping}
+                disabled={!data.charge || data.jumping || !data.primed}
                 onClick={() => act('jump')}
               />
             </LabeledControls.Item>

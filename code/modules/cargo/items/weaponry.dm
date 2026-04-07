@@ -200,7 +200,7 @@
 	name = "Tsarrayut'yan automatic rifle"
 	supplier = "zharkov"
 	description = "An Adhomian assault rifle from the People's Republic of Adhomai."
-	price = 1450
+	price = 1650
 	items = list(
 		/obj/item/gun/projectile/automatic/rifle/adhomian
 	)
@@ -436,6 +436,20 @@
 	spawn_amount = 1
 
 /singleton/cargo_item/magazine_68ap
+	category = "weaponry"
+	name = "rifle magazine (6.8mm AP)"
+	supplier = "zharkov"
+	description = "An AP 6.8mm rifle magazine."
+	price = 80
+	items = list(
+		/obj/item/ammo_magazine/a68/ap
+	)
+	access = ACCESS_SECURITY
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/magazine_68sniper
 	category = "weaponry"
 	name = "sniper rifle magazine (6.8mm AP)"
 	supplier = "zharkov"
