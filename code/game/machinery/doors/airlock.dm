@@ -1716,8 +1716,7 @@ About the new airlock wires panel:
 
 /obj/machinery/door/airlock/proc/CreateAssembly()
 	var/obj/structure/door_assembly/da = new assembly_type(src.loc)
-	if (istype(da, /obj/structure/door_assembly/multi_tile))
-		da.set_dir(src.dir)
+	da.set_dir(src.dir)
 
 	da.anchored = 1
 	if(mineral)
