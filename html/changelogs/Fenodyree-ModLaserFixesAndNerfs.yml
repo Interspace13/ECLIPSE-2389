@@ -1,0 +1,69 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes:
+#   bugfix
+#     - (fixes bugs)
+#   wip
+#     - (work in progress)
+#   qol
+#     - (quality of life)
+#   soundadd
+#     - (adds a sound)
+#   sounddel
+#     - (removes a sound)
+#   rscadd
+#     - (adds a feature)
+#   rscdel
+#     - (removes a feature)
+#   imageadd
+#     - (adds an image or sprite)
+#   imagedel
+#     - (removes an image or sprite)
+#   spellcheck
+#     - (fixes spelling or grammar)
+#   experiment
+#     - (experimental change)
+#   balance
+#     - (balance changes)
+#   code_imp
+#     - (misc internal code change)
+#   refactor
+#     - (refactors code)
+#   config
+#     - (makes a change to the config files)
+#   admin
+#     - (makes changes to administrator tools)
+#   server
+#     - (miscellaneous changes to server)
+#################################
+
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes laser shotguns having no dispersion."
+  - bugfix: "Fixes laser shotguns having no delay between shots."
+  - bugfix: "Fixes mod laser bluespace capacitors not teleporting you."
+  - bugfix: "Fixes mod laser phoron capacitors not hurting when they explode."
+  - bugfix: "Fixes mod laser malfunction messages not displaying."
+  - bugfix: "Fixes mod laser wielded firedelay."
+  - bugfix: "Fixes being able to spam click to repair mod laser components."
+  - bugfix: "Fixes being able to attempt a repair on undamaged components."
+  - bugfix: "Fixes the weapons analyzer to correctly display damage on burst fire weapons."
+  - bugfix: "The power capacity of the modlasers is no longer multiplied by the shot count. Instead burst fire reduces power cost."
+  - bugfix: "Capacitors no longer get deleted when at reliability 0 as this broke all other components. You can keep shooting until it kills you."
+  - rscadd: "Adds new messages for mod laser malfunctions, visible to everyone nearby."
+  - rscadd: "Adds a locker that spawns with boxes of mod laser components, mostly for testing purposes."
+  - balance: "Modifiers no longer break immediately, they instead degrade over multiple shots."
+  - balance: "Makes mod laser lenses repairable with glass or reinforced glass."
+  - balance: "Adds an electric shock on all minor capacitor failures, as an instant consequence, radiation was too slow to affect an in progress fight."
+  - balance: "Adds a direct damage component to phoron capacitor overloads, if the gun is being held."
+  - balance: "Reduces the damage of mod laser blasters by 20%, cuts their AP in half and halves the firestacks they cause."
+  - balance: "Critical capacitor failures are now very dangerous, probably deadly without apporiate protection or medical help."

@@ -1,0 +1,5 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed a hard del related to grem larva."
+  - bugfix: "Fixed grem larva having no delay when attempting to flee into a vent."
