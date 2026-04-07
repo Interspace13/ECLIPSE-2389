@@ -34,9 +34,9 @@
 		QDEL_NULL(sound_token)
 
 /obj/item/geiger/Destroy()
-	. = ..()
 	STOP_PROCESSING(SSprocessing, src)
 	update_sound(0)
+	return ..()
 
 /obj/item/geiger/process()
 	if(!scanning)

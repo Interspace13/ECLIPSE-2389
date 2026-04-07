@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed some hard dels related to Destroy() procs triggering in the wrong order of operations."
