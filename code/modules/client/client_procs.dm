@@ -546,6 +546,35 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	return QDEL_HINT_HARDDEL_NOW
 
 
+/**
+ * Ensures whitelist_status is populated from the database.
+ *
+ * Idempotent: returns immediately if already loaded.
+ * Called by log_client_to_db() as part of the full player record fetch,
+ * and by the loadout sanitization to block until the status is available.
+ */
+/client/proc/load_whitelist_status()
+	if (whitelist_status_loaded)
+		return
+
+	if (IsGuestKey(key) || !GLOB.config.sql_whitelists)
+		whitelist_status_loaded = TRUE
+		return
+
+	var/datum/db_query/query = SSdbcore.NewQuery(
+		"SELECT whitelist_status FROM ss13_player WHERE ckey = :ckey",
+		list("ckey" = ckey(key))
+	)
+	if (!query.Execute())
+		qdel(query)
+		whitelist_status_loaded = TRUE
+		return
+
+	if (query.NextRow())
+		whitelist_status = text2num(query.item[1])
+	qdel(query)
+	whitelist_status_loaded = TRUE
+
 /client/proc/log_client_to_db()
 	set waitfor = FALSE
 
@@ -588,6 +617,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 					account_age = text2num(query_datediff.item[1])
 				qdel(query_datediff)
 	qdel(query)
+	whitelist_status_loaded = TRUE
 
 	// --- Related account lookups ---
 	var/datum/db_query/query_ip = SSdbcore.NewQuery(
