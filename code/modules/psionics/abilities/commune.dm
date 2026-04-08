@@ -86,9 +86,7 @@
 		log_say("[key_name(user)] communed to [key_name(target)]: [image] [object]\n[note]" + " [warpdesc]")
 
 		for(var/mob/M as anything in GLOB.player_list)
-			if(istype(M, /mob/abstract/new_player))
-				continue
-			else if(M.stat == DEAD && M.client.prefs.toggles & CHAT_GHOSTEARS)
+			if(M.stat == DEAD && M.client.prefs.toggles & CHAT_GHOSTEARS)
 				to_chat(M, "<span class='notice'>[user] psionically says to [target]:</span> [image] [object]\n[note]" + " [warpdesc]")
 		return
 	var/text = tgui_input_text(user, "What would you like to say?", "Commune", "", MAX_MESSAGE_LEN, TRUE)
