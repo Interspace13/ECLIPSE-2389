@@ -1,0 +1,4 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Fixes light and dark sensitivity trait behaviors being locked behind an unrelated rare prob event."
