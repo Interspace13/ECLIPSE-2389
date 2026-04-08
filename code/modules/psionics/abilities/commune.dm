@@ -85,7 +85,7 @@
 
 		log_say("[key_name(user)] communed to [key_name(target)]: [image] [object]\n[note]" + " [warpdesc]")
 
-		for(var/mob/M in GLOB.player_list)
+		for(var/mob/M as anything in GLOB.player_list)
 			if(istype(M, /mob/abstract/new_player))
 				continue
 			else if(M.stat == DEAD && M.client.prefs.toggles & CHAT_GHOSTEARS)
