@@ -25,13 +25,13 @@
 	. = ..()
 	if(warpdesc)
 		warpdesc = null
-		to_chat(user, SPAN_NOTICE("You rein back to your initial mental image of [object], clearing the warped additions."))
+		to_chat(user, SPAN_NOTICE("You rein back to your initial mental image of \the [object], clearing the warped additions."))
 	else if(warpdesc == null && (object))
-		warpdesc = tgui_input_text(user, "How would you warp the mental image of [object]? This will only add to its existing description, never override or delete.", "Warp Mental Image", "", MAX_MESSAGE_LEN, TRUE)
+		warpdesc = tgui_input_text(user, "How would you warp the mental image of \the [object]? This will only add to its existing description, never override or delete.", "Warp Mental Image", "", MAX_MESSAGE_LEN, TRUE)
 		if(!warpdesc)
 			warpdesc = null
 			return
-		to_chat(user, SPAN_NOTICE("You rethink your mental image of [object], warping in additions to its details."))
+		to_chat(user, SPAN_NOTICE("You rethink your mental image of \the [object], warping in additions to its details."))
 	else return
 
 /obj/item/spell/commune/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
@@ -39,13 +39,13 @@
 	if(!.)
 		return
 	if(object)
-		to_chat(user, SPAN_NOTICE("You already have a mental image in mind of [object]."))
+		to_chat(user, SPAN_NOTICE("You already have a mental image in mind of \the [object]."))
 		return
 	else if(isobj(hit_atom) && !object)
-		object = "[hit_atom]" //Save a snapshot of its info so they don't auto-update.
+		object = "[hit_atom.name]" //Save a snapshot of its info so they don't auto-update.
 		note = ("[hit_atom.desc]" + " [hit_atom.desc_feedback]")
 		image = icon2html(hit_atom, user)
-		to_chat(user, SPAN_NOTICE("You note and refine a mental image of [object] for sending."))
+		to_chat(user, SPAN_NOTICE("You note and refine a mental image of \the [object] for sending."))
 
 /obj/item/spell/commune/on_ranged_cast(atom/hit_atom, mob/user)
 	. = ..()
@@ -74,14 +74,14 @@
 		var/target_sensitivity = T.check_psi_sensitivity()
 		if(target_sensitivity >= 1) //Small detail, psions can subtly tell apart warped descriptions easier with the new line.
 			to_chat(T, SPAN_NOTICE("<i>[user] blinks, their eyes briefly developing an unnatural shine.</i>"))
-			to_chat(T, SPAN_CULT("What must be [user]'s mental image of [image] [object] appears in your mind.\n[note]\n[warpdesc]"))
+			to_chat(T, SPAN_CULT("What must be [user]'s mental image of \a [image] [object] appears in your mind.\n[note]\n[warpdesc]"))
 		else if(target_sensitivity >= 0) //Info span so it feels like an actual examine at a glance
-			to_chat(T, SPAN_INFO("<b>A mental image of [image] [object] suddenly builds in your mind.</b>\n[note]" + " [warpdesc]"))
+			to_chat(T, SPAN_INFO("<b>A mental image of \a [image] [object] suddenly builds in your mind.</b>\n[note]" + " [warpdesc]"))
 		else //60% chance low-targets don't even get the icon. 35% (per point) of the object's name is scrambled, but base desc can still clue the item
 			var/scrmbldobject = stars(object, (abs(target_sensitivity) * 35))
 			var/scrmbldnote = stars(note, (abs(target_sensitivity) * 25))
 			var/scrmbldwarp = stars(warpdesc, (abs(target_sensitivity) * 45)) //Warped descriptions are even more abnormal, so extra scrambled
-			to_chat(T, SPAN_ALIEN("<b>A mental image of [prob(40)?"[image] ":""][scrmbldobject] attempts to form in your mind.</b>\n[scrmbldnote]" + " [scrmbldwarp]"))
+			to_chat(T, SPAN_ALIEN("<b>A mental image of \a [prob(40)?"[image] ":""][scrmbldobject] attempts to form in your mind.</b>\n[scrmbldnote]" + " [scrmbldwarp]"))
 
 		log_say("[key_name(user)] communed to [key_name(target)]: [image] [object]\n[note]" + " [warpdesc]")
 
