@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscdel: "Sheet Snatchers no longer flood your chat with messages."
