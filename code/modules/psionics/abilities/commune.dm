@@ -21,6 +21,10 @@
 	var/image //chat icon
 	var/warpdesc //Custom text added right after normal note desc
 
+/obj/item/spell/commune/Destroy()
+	object = null
+	return ..()
+
 /obj/item/spell/commune/on_use_cast(mob/user)
 	. = ..()
 	if(warpdesc)
