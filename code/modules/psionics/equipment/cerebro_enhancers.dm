@@ -157,12 +157,15 @@
 	/// Optionally also give the user specific additional psi-power datums
 	var/list/singleton/psionic_power/additional_powers = list()
 
+	/// Whether or not this jumpstarter requires a psi-sensitive species (AKA, Not Vaurca/Diona/IPC)
+	var/requires_zona_bovinae = TRUE
+
 /obj/item/psionic_jumpstarter/attack_self(mob/user)
 	. = ..()
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
-	if(!H.has_zona_bovinae())
+	if(requires_zona_bovinae && !H.has_zona_bovinae())
 		to_chat(H, non_eligible_message)
 		return
 
@@ -193,9 +196,10 @@
 /obj/item/psionic_jumpstarter/loner
 	name = "loner jumpstarter"
 	desc = "Use this to gain the powers of a Loner, enabling you to use the Psionic Point Shop, as well as the Zona Absorbtion, Awaken, and Drain powers. \
-			This won't work on species with no Zona Bovinae, like synthetics, vaurcae or dionae! This item is definitely not canon."
+			This psi-jumpstarter variant is unique in that it will work on any (humanoid) character! This item is extremely none-canon."
 	psi_points_override = 10
 	awakening_message = SPAN_DANGER("The curtain of reality parts before your mind, revealing the truth of all existence.")
+	requires_zona_bovinae = FALSE // The standalone Loner roundtype uniquely allows nonstandard psions such as Vaurca, so this one follows the same logic.
 
 	/// Same as Loner bonus powers
 	additional_powers = list(
@@ -204,9 +208,9 @@
 		/singleton/psionic_power/psi_drain)
 
 /obj/item/psionic_jumpstarter/loner/attack_self(mob/user)
-	. = ..()
 	if (!ishuman(user))
 		return
 
+	. = ..()
 	var/mob/living/carbon/human/character = user
 	GLOB.loners.add_antagonist(character.mind, do_not_equip = TRUE, do_not_announce = TRUE, preserve_appearance = TRUE)
