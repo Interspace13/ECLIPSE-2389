@@ -15,7 +15,7 @@
 	aspect = ASPECT_PSIONIC
 	cooldown = 10
 	psi_cost = 15
- //For shared/remote-examine Communes, similar to Show-Held-Object
+//For shared/remote-examine Communes, similar to Show-Held-Object
 	var/object
 	var/note //desc
 	var/image //chat icon
