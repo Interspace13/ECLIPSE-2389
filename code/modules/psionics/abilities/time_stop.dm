@@ -7,41 +7,74 @@
 	spell_path = /obj/item/spell/time_stop
 
 /obj/item/spell/time_stop
-	name = "nlom eyes"
-	desc = "Psionic drugs? No way."
+	name = "time stop"
+	desc = "Stop time around you."
 	icon_state = "track"
 	cast_methods = CAST_USE
 	aspect = ASPECT_PSIONIC
 	cooldown = 10
 	psi_cost = 30
+	/// Whether the time stop effect is currently active.
+	var/active = FALSE
 
 /obj/item/spell/time_stop/Destroy()
-	for(var/mob/living/L in get_hearers_in_view(5, owner))
-		if(L == owner)
-			continue
-		to_chat(L, SPAN_DANGER("Time around you returns to normal!"))
-		L.stunned = 0
-		L.silent = 0
+	if(active)
+		active = FALSE
+		STOP_PROCESSING(SSprocessing, src)
+		for(var/mob/living/L in get_hearers_in_view(5, owner))
+			if(L == owner)
+				continue
+			to_chat(L, SPAN_DANGER("Time around you returns to normal!"))
+			L.AdjustStunned(-30)
+			L.silent = max(0, L.silent - 30)
 	return ..()
 
 /obj/item/spell/time_stop/on_use_cast(mob/user)
+	// Prevent queuing multiple activations.
+	if(active)
+		active = FALSE
+		STOP_PROCESSING(SSprocessing, src)
+		to_chat(user, SPAN_NOTICE("You release your hold on time."))
+		for(var/mob/living/L in get_hearers_in_view(5, user))
+			if(L == user)
+				continue
+			to_chat(L, SPAN_DANGER("Time around you returns to normal!"))
+			L.AdjustStunned(-30)
+			L.silent = max(0, L.silent - 30)
+		return
+
 	. = ..()
 	if(!.)
 		return
 
-	if(do_after(user, 1 SECOND))
-		user.visible_message(SPAN_DANGER(FONT_HUGE("[user] extends [user.get_pronoun("his")] arms to [user.get_pronoun("his")] sides!")),
-							SPAN_DANGER("You extend your arms to your side and crystallize the Nlom around you!"))
-		time_stop(user)
+	user.visible_message(SPAN_DANGER(FONT_HUGE("[user] extends [user.get_pronoun("his")] arms to [user.get_pronoun("his")] sides!")),
+						SPAN_DANGER("You extend your arms to your side and crystallize the Nlom around you!"))
+	active = TRUE
+	START_PROCESSING(SSprocessing, src)
 
-/obj/item/spell/time_stop/proc/time_stop(mob/living/user)
-	for(var/mob/living/L in get_hearers_in_view(5, user))
-		if(L == user)
+/obj/item/spell/time_stop/process(seconds_per_tick)
+	if(!active || !owner)
+		active = FALSE
+		STOP_PROCESSING(SSprocessing, src)
+		return
+
+	// Spend psi each tick. If we can't afford it, the effect ends.
+	if(!owner.psi.spend_power(5 * seconds_per_tick))
+		active = FALSE
+		STOP_PROCESSING(SSprocessing, src)
+		to_chat(owner, SPAN_DANGER("Your concentration falters — time resumes!"))
+		for(var/mob/living/L in get_hearers_in_view(5, owner))
+			if(L == owner)
+				continue
+			to_chat(L, SPAN_DANGER("Time around you returns to normal!"))
+			L.SetStunned(0)
+			L.silent = max(0, L.silent - 30)
+		return
+
+	// Freeze everyone nearby.
+	for(var/mob/living/L in get_hearers_in_view(5, owner))
+		if(L == owner)
 			continue
 		to_chat(L, SPAN_DANGER("Time around you slows down to a crawl..."))
-		L.AdjustStunned(5)
-		L.silent += 30
-
-	if(do_after(user, 1 SECOND))
-		if(user.psi.spend_power(20))
-			time_stop(user)
+		L.SetStunned(30)
+		L.silent += 2

@@ -1,0 +1,7 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Psi Grip Reworked: Grip now acts as a continuous force choke that requires LoS, keeping the target stunned until you either break LoS or run out of psi stamina. Reactivate the power to hurt the victim."
+  - rscadd: "Psi Mend Reworked: Mend is now a single cast (over 3 second doafter) that heals whatever injury is most likely going to kill you urgently, then stops."
+  - bugfix: "Fixed issues with Read Mind that caused it to not work correctly when triggered in Unsafe Mode."
+  - rscadd: "Time Stop Reworked: Now a continuous sustained power that activates immediately when you draw the spell in hand, and stops targets in range. Using it costs psi stamina every second."
