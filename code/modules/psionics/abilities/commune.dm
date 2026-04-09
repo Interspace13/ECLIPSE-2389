@@ -60,7 +60,6 @@
 /obj/item/spell/commune/proc/commune(atom/hit_atom, mob/user)
 	if(!isliving(hit_atom))
 		return
-
 	var/mob/living/target = hit_atom
 	if(target.stat == DEAD)
 		to_chat(user, SPAN_WARNING("Not even a psion of your level can speak to the dead."))
