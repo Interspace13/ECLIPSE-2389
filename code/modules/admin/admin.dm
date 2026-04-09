@@ -1024,7 +1024,7 @@ var/global/enabled_spooking = 0
 	if(!check_rights(R_SPAWN))
 		return
 
-	if(!length(object)) // Prevent server lag by searching all atmos
+	if(!length(object)) // Prevent server lag by searching all atoms
 		return
 
 	var/list/matches = typesof(/atom)
