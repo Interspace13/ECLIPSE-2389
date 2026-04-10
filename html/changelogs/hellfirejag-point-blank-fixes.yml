@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed projectile hit detection for point-blank situations. It's no longer possible to run into your own projectiles. You can take a human shield and either shoot through your human shield, or kill them by clicking their head."
