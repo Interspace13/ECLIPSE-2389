@@ -35,9 +35,10 @@
 		power = max(power - 2, 0)
 
 /singleton/reagent/drugs/final_effect(mob/living/carbon/M, datum/reagents/holder)
-	if (effect_messages)
+	if (effect_messages && REALTIMEOFDAY >= M.next_sober_message)
 		var/msg = pick(sober_message_list)
 		to_chat(M, SPAN_WARNING("[msg]"))
+		M.next_sober_message = REALTIMEOFDAY + SOBER_MESSAGE_COOLDOWN
 
 /singleton/reagent/drugs/mms
 	name = "Mercury Monolithium Sucrose"
