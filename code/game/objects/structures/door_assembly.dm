@@ -328,12 +328,19 @@
 		return ..()
 
 	var/list/species_too_big = list(SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARFORM, SPECIES_IPC_G1, SPECIES_IPC_G2)
+	var/list/species_fast = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_TAJARA_MSAI)
+	var/list/species_slow = list(SPECIES_UNATHI, SPECIES_HUMAN_OFFWORLD, SPECIES_IPC_XION, SPECIES_VAURCA_WARRIOR)
 
+	var/speed_multiplier = 1.0
 	if (istype(user, /mob/living/carbon/human))
 		var/species = user.get_species()
 		if(species in species_too_big)
 			visible_message(SPAN_NOTICE("\The [user] tries to squeeze through \the [src]! That's never going to fit..."))
 			return ..()
+		else if(species in species_fast)
+			speed_multiplier = 0.5
+		else if(species in species_slow)
+			speed_multiplier = 1.5
 
 	visible_message(SPAN_NOTICE("\The [user] tries to squeeze through \the [src]!"))
 
@@ -360,15 +367,15 @@
 	src.add_fingerprint(user)
 
 	user.resting = TRUE
-	if(do_after(user, 3 SECONDS, src, DO_UNIQUE, (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_FULLY))) // Squeeze in
+	if(do_after(user, (3 * speed_multiplier) SECONDS, src, DO_UNIQUE, (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_FULLY))) // Squeeze in
 		user.forceMove(src.loc) // Ignore density check
-		sleep(1 SECOND) // Crawl delay
+		sleep((2 * speed_multiplier) SECOND) // Crawl delay
 		if(src.loc != user.loc) // Check if user was moved out of the assembly during the process, if so, abort
 			user.resting = FALSE
 			return ..()
-		if(prob(5)) // Climb out
+		if(prob(10 * speed_multiplier)) // Climb out
 			visible_message(SPAN_WARNING("[user] gets tangled in the \the [src] for a moment..."))
-			if(!do_after(user, 5 SECONDS, src, DO_UNIQUE, (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_FULLY)))
+			if(!do_after(user, (5 * speed_multiplier) SECONDS, src, DO_UNIQUE, (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_FULLY)))
 				user.forceMove(old_loc)
 				user.resting = FALSE
 				return ..()
