@@ -1429,7 +1429,7 @@
 /obj/item/clothing/accessory/led_collar/Initialize()
 	. = ..()
 	color = pick("#00FFFF", "#FF0000", "#FF00FF", "#FF6600", "#CC00CC")
-	set_light_range_power_color(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
+	set_light_range_power_color(0.5, 0.4, color)
 	set_light_on(TRUE)
 
 /// Update the light mode to one used by accessories when it gets attached.
