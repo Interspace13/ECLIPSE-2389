@@ -1,0 +1,5 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed implanted medical and security huds flickering."
+  - rscadd: "Components and Implants can now add hud elements via signals."

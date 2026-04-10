@@ -72,6 +72,8 @@
 		if(istype(back,/obj/item/rig))
 			process_rig(back)
 
+	SEND_SIGNAL(src, COMSIG_MOB_UPDATE_VISION)
+
 /mob/living/carbon/human/proc/process_glasses(var/obj/item/clothing/glasses/G)
 	if(G && G.active)
 		equipment_darkness_modifier += G.darkness_view
