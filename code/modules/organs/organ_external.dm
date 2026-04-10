@@ -1360,7 +1360,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 			augment_limit += 1	//robotic limbs get one extra augment capacity
 			SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
 
-
 	dislocated = -1 //TODO, make robotic limbs a separate type, remove snowflake
 	limb_flags &= ~ORGAN_CAN_BREAK
 	get_icon()
