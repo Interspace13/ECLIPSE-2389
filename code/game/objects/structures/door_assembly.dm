@@ -6,7 +6,7 @@
 	name = "airlock assembly"
 	desc = "An airlock assembly."
 	icon = 'icons/obj/doors/basic/single/generic/door.dmi'
-	icon_state = "construction"
+	icon_state = "construction_new"
 	anchored = FALSE
 	density = TRUE
 	w_class = WEIGHT_CLASS_HUGE
@@ -79,6 +79,7 @@
 
 /obj/structure/door_assembly/door_assembly_ext
 	base_name = "external airlock"
+	icon = 'icons/obj/doors/basic/single/external/door.dmi'
 	airlock_type = /obj/machinery/door/airlock/external
 
 /obj/structure/door_assembly/door_assembly_hatch
@@ -88,7 +89,7 @@
 
 /obj/structure/door_assembly/door_assembly_mhatch
 	base_name = "maintenance hatch"
-	icon = 'icons/obj/doors/basic/single/external/door.dmi'
+	icon = 'icons/obj/doors/basic/single/hatch/door.dmi'
 	airlock_type = /obj/machinery/door/airlock/maintenance_hatch
 
 /obj/structure/door_assembly/door_assembly_highsecurity
@@ -377,10 +378,13 @@
 	switch (state)
 		if(STATE_UNWIRED)
 			name = anchored ? "secured " : "unsecured "
+			icon_state = anchored ? "construction_anchored" : "construction_new"
 		if(STATE_WIRED)
 			name = "wired "
+			icon_state = "construction_wired"
 		if(STATE_ELECTRONICS_INSTALLED)
 			name = "near-finished "
+			icon_state = "construction_electronics"
 	name += "[glass == TRUE ? "window " : ""][glass ? "glass airlock" : base_name] assembly"
 	if(created_name)
 		name += " ([created_name])"
