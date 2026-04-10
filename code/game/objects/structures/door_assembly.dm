@@ -327,13 +327,21 @@
 		to_chat(user, SPAN_WARNING("\The [src] isn't secured to the floor yet, you can't squeeze through it."))
 		return ..()
 
+	var/list/species_too_big = list(SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARFORM, SPECIES_IPC_G1, SPECIES_IPC_G2)
+
+	if (istype(user, /mob/living/carbon/human))
+		var/species = user.get_species()
+		if(species in species_too_big)
+			visible_message(SPAN_NOTICE("\The [user] tries to squeeze through \the [src]! That's never going to fit..."))
+			return ..()
+
+	visible_message(SPAN_NOTICE("\The [user] tries to squeeze through \the [src]!"))
+
 	// Check if user is standing directly infront of the airlock facing the open assembly, not diagonal or besides the assembly.
 	if((src.dir == NORTH || src.dir == SOUTH) && !((src.loc.y == user.loc.y + 1 || src.loc.y == user.loc.y -1) && user.loc.x == src.loc.x))
 		return ..()
 	else if((src.dir == EAST || src.dir == WEST) && !((src.loc.x == user.loc.x + 1 || src.loc.x == user.loc.x - 1) && user.loc.y == src.loc.y))
 		return ..()
-
-	visible_message(SPAN_NOTICE("\The [user] tries to squeeze through \the [src]!"))
 
 	// Get position on the opposite side of the airlock from the user.
 	var/dx = src.loc.x - user.loc.x
