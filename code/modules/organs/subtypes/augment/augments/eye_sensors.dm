@@ -75,7 +75,6 @@
 		to_chat(user, SPAN_NOTICE("You deactivate \the [src]."))
 
 /obj/item/organ/internal/augment/eye_sensors/security/handle_vision_update(mob/living/carbon/human/H)
-	SIGNAL_HANDLER
 	if(!owner)
 		return
 
@@ -105,7 +104,6 @@
 		to_chat(user, SPAN_NOTICE("You deactivate \the [src]."))
 
 /obj/item/organ/internal/augment/eye_sensors/medical/handle_vision_update(mob/living/carbon/human/H)
-	SIGNAL_HANDLER
 	if(!owner)
 		return
 
