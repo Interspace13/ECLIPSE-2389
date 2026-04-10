@@ -1,0 +1,7 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - qol: "Warehouse submap compartment shutter now spawns closed by default."
+  - qol: "Warehouse submap compartment walls are now reinforced walls for radiation blocking."
+  - qol: "Modifies several warehouse submaps; removes static objs like ship weapon and cars, increase variety of existing content, removes a few lore-unfriendly items, tunes radiatioactive waste submap, etc."
+  - bugfix: "Acid barrel now spawns with acid in it."
