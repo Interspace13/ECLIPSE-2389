@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Tweaked bluespace techs to hold a weakref to their original mob instead of a real reference, in order to mitigate race condition hard deletes."
