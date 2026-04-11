@@ -1215,27 +1215,34 @@
 			if(T.get_lumcount() < 0.05)	// give a little bit of tolerance for near-dark areas.
 				playsound(null, pick(GLOB.scarySounds), 50, TRUE)
 
-		// People who are afraid of the dark (Assunzionii) get anxious.
+		// People who are afraid of the dark get anxious.
 		if(HAS_TRAIT(src, TRAIT_ORIGIN_DARK_AFRAID))
 			T = loc
 			if(prob(2) && T.get_lumcount() < 0.2)
-				var/list/assunzione_messages = list(
+				var/list/afraid_of_the_dark_messages = list(
 					"You feel a bit afraid...",
 					"You feel somewhat nervous...",
 					"You could use a little light here...",
-					"Ennoia be with you, it's a bit too dark..."
+					"It's dark enough that you feel a little anxious..."
 				)
-				to_chat(src, SPAN_WARNING(pick(assunzione_messages)))
+				to_chat(src, SPAN_WARNING(pick(afraid_of_the_dark_messages)))
 
 		// People sensitive to light get eye strain.
 		if(HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
 			T = loc
 			// From testing, this generally leaves several minutes between each message.
 			if(prob(1) && T.get_lumcount() > 0.8)
-				// If you have this trait, your default flash protection is -1; check for ANY protection.
 				var/mob/living/carbon/human/self = src
+
+				// If you have this trait, your default flash protection is -1; check for ANY protection.
 				var/flash_protection = self.get_flash_protection()
-				if(!flash_protection)
+
+				// I hate this. We removed flash protection from basic sunglasses for 'powergaming concerns.'
+				// Check if we're wearing the stupid fake loadout sunglasses.
+				// Yes this is stupid. Remove this when we rebalance flash protection to be a 0-100 threshold.
+				var/fakesunglasses = istype(self?.glasses, /obj/item/clothing/glasses/fakesunglasses)
+
+				if(!flash_protection && !fakesunglasses)
 					var/obj/item/organ/eyes = self.get_eyes()
 					if(istype(eyes))
 						self.eye_blurry = max(self.eye_blurry, 6)
