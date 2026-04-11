@@ -281,7 +281,7 @@
 			continue
 
 		if(heal)
-			if(E.pain > 0)
+			if(E.get_pain() > 0)
 				amount -= E.remove_pain(amount)
 		else
 			amount -= E.add_pain(amount)
