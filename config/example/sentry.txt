@@ -32,6 +32,10 @@
 ## alongside the attached JSON. Defaults to 20.
 # PROFILER_TOP_N 20
 
+## How long (in deciseconds of game time) to suppress duplicate file:line exceptions.
+## Set to 0 to disable deduplication. Defaults to 600 (60 seconds).
+# DEDUP_WINDOW 600
+
 ## Hash (md5) ckeys before sending instead of forwarding them in the clear.
 ## Defaults to 1 (enabled).
 # SCRUB_CKEYS 1

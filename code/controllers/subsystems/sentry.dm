@@ -60,6 +60,8 @@ SUBSYSTEM_DEF(sentry)
 	// ---- runtime state ----
 	/// Per-round dedup table: erroruid (file:line) → world.time of last send.
 	var/list/sent_this_round
+	/// How long (in deciseconds of game time) to suppress duplicate file:line events. Defaults to 600 (60 s).
+	var/dedup_window = 600
 	/// Count of consecutive HTTP failures. Reset on any success.
 	var/consecutive_failures = 0
 	/// Kill-switch threshold.
@@ -167,8 +169,8 @@ SUBSYSTEM_DEF(sentry)
 		return
 
 	var/erroruid = "[e.file]:[e.line]"
-	// Dedup: skip if the same file:line was already sent within 60 seconds of game time.
-	if (sent_this_round[erroruid] && (world.time - sent_this_round[erroruid]) < 600)
+	// Dedup: skip if the same file:line was already sent within dedup_window deciseconds of game time.
+	if (sent_this_round[erroruid] && (world.time - sent_this_round[erroruid]) < dedup_window)
 		return
 	sent_this_round[erroruid] = world.time
 

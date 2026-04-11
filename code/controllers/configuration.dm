@@ -1216,6 +1216,8 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 					SSsentry.capture_profiler = text2num(value) ? TRUE : FALSE
 				if ("profiler_top_n")
 					SSsentry.profiler_top_n = text2num(value)
+				if ("dedup_window")
+					SSsentry.dedup_window = text2num(value)
 				if ("scrub_ckeys")
 					SSsentry.scrub_ckeys = text2num(value) ? TRUE : FALSE
 				if ("max_consecutive_failures")
