@@ -24,7 +24,7 @@
 	/// Turning this off prevents awkward zone geometry in places like medbay lobby, for example.
 	block_air_zones = 0
 
-	/// Blast doors don't respond to hand interaction, so don't intercept clicks on their turf.
+	// Blast doors don't respond to hand interaction, so don't intercept clicks on their turf.
 	turf_hand_priority = 0
 
 	/// Icon states for different shutter types. Simply change this instead of rewriting the update_icon proc.
