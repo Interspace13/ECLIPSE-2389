@@ -305,8 +305,10 @@ SUBSYSTEM_DEF(sentry)
 		consecutive_failures++
 		if (consecutive_failures >= max_consecutive_failures)
 			active = FALSE
-			log_subsystem_sentry("Kill-switch triggered after [consecutive_failures] consecutive failures. \
-				Last: [res ? (res.errored ? "[res.error]" : "HTTP [res.status_code]") : "null response"]")
+			var/last_err = res ? (res.errored ? "[res.error]" : "HTTP [res.status_code]") : "null response"
+			log_subsystem_sentry("Kill-switch triggered after [consecutive_failures] consecutive failures. Last: [last_err]")
+			admin_notice(SPAN_DANGER("Sentry kill-switch triggered after [consecutive_failures] consecutive HTTP failures ([last_err]). \
+				Event reporting is disabled. Reset via VV: SSsentry → active = TRUE."), R_ADMIN|R_MOD|R_DEV)
 		return
 
 	consecutive_failures = 0
