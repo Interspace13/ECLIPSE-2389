@@ -1,15 +1,14 @@
 /**
- * Retrieve persistent data entries that haven't expired.
- * RETURN: List of JSON, with ID, author_ckey, type, content, x, y, z
+ * Insert or update a type definition in the database. If a type with the same name already exists, it will be updated with the new title and description.
  */
-/datum/controller/subsystem/persistence/proc/upsertTypeDefinition(type, title, description, definition_type)
+/datum/controller/subsystem/persistence/proc/typeDefinitionDatabaseUpsertType(type, title, description, definition_type)
 	PRIVATE_PROC(TRUE)
 	if(!databaseCheckConnection("upsertTypeDefinition"))
 		return
 
 	var/datum/db_query/upsert_query = SSdbcore.NewQuery(
-		"INSERT INTO ss13_persistent_type_definitions (type, title, description, definition_type) VALUES (:type, :title, :description, :definition_type) " +
-		"ON DUPLICATE KEY UPDATE title = VALUES(title), description = VALUES(description)",
+		"INSERT INTO ss13_persistent_type_definitions (type, title, description, definition_type) VALUES (:type, :title, :description, :definition_type) \
+		ON DUPLICATE KEY UPDATE title = VALUES(title), description = VALUES(description)",
 		list(
 			"type" = type,
 			"title" = title,
