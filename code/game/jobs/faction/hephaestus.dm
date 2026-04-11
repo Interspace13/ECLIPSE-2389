@@ -29,6 +29,10 @@
 		/datum/species/diona
 	)
 
+	blacklisted_citizenship_types = list(
+		CITIZENSHIP_FREE_COUNCIL,
+		CITIZENSHIP_NKA
+	)
 
 	job_species_blacklist = list(
 		"Corporate Liaison" = list(
