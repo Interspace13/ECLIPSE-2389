@@ -1341,3 +1341,31 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	var/raskara_text = SPAN_CULT("\The [src] holds a treasure from the depths of the Maggot's hoard.")
 	. += raskara_text
+
+/obj/item/organ/external/leg/left/fluff/vien_autakh // Prosthetic Aut'akh Left Leg - Vien Xuan Pham - TheStripes
+	robotize_type = PROSTHETIC_AUTAKH
+	skin_color = FALSE
+	override_robotize_force_icon = 'icons/mob/human_races/fluff/vien_leg.dmi'
+	override_robotize_painted = FALSE
+	robotize_children = FALSE
+
+/obj/item/organ/external/leg/left/fluff/vien_autakh/Initialize(mapload)
+	. = ..()
+	LAZYADD(children, new /obj/item/organ/external/foot/left/fluff/vien_autakh(src))
+
+/obj/item/organ/external/foot/left/fluff/vien_autakh // Prosthetic Aut'akh Left Foot - Vien Xuan Pham - TheStripes
+	robotize_type = PROSTHETIC_AUTAKH
+	skin_color = FALSE
+	override_robotize_force_icon = 'icons/mob/human_races/fluff/vien_leg.dmi'
+	override_robotize_painted = FALSE
+	robotize_children = FALSE
+
+/obj/item/clothing/suit/storage/toggle/tajaran/pra_submarine/kalkii_coat //TD-17 submariner coat - Kalkii Dynhvah - CatsinHD
+	name = "TD-17 submariner coat"
+	desc = "A black leather coat with a Zshram fur collar found in use by the People's Republic of Adhomai's submarine service. \
+	This coat is missing the left sleeve past the shoulder, along with holes and rips throughout. Care has been taken to hem the \
+	edges of the holes, rips, and remains of the left sleeve. Rredouane's sword has been stenciled onto the back of the coat in white paint."
+	icon = 'icons/obj/custom_items/kalkii_coat.dmi'
+	icon_override = 'icons/obj/custom_items/kalkii_coat.dmi'
+	icon_state = "kalkii_coat"
+	item_state = "kalkii_coat"

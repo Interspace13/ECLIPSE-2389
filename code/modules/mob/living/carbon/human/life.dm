@@ -235,12 +235,6 @@
 					Weaken(3)
 					if(!lying)
 						emote("collapse")
-				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == SPECIES_HUMAN) //apes go bald
-					if((h_style != "Bald" || f_style != "Shaved" ))
-						to_chat(src, SPAN_WARNING("Your hair falls out."))
-						h_style = "Bald"
-						f_style = "Shaved"
-						update_hair()
 
 			if (total_radiation > 75)
 				src.apply_radiation(-1 * RADIATION_SPEED_COEFFICIENT)
@@ -872,6 +866,7 @@
 #define DRUNK_STRING "drunk"
 #define BLEEDING_STRING "bleeding"
 #define POSING_STRING "posing"
+#define STASIS_STRING "stasis"
 
 /mob/living/carbon/human/handle_regular_hud_updates()
 	if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
@@ -1061,12 +1056,6 @@
 			if (oxygen.icon_state != new_oxy)
 				oxygen.icon_state = new_oxy
 
-		if(fire)
-			//fire_alert is either 0 if no alert, 1 for cold and 2 for heat.
-			var/new_fire = fire_alert ? "fire[fire_alert]" : "fire0"
-			if (fire.icon_state != new_fire)
-				fire.icon_state = new_fire
-
 		if(bodytemp)
 			var/new_temp
 			if (!species)
@@ -1137,6 +1126,15 @@
 				qdel(status_overlays[DRUNK_STRING])
 				status_overlays -= DRUNK_STRING
 
+			var/has_stasis_status = LAZYISIN(status_overlays, STASIS_STRING)
+			if(InStasis())
+				if(!has_stasis_status)
+					add_status_to_hud(STASIS_STRING, "Your biological functions are slowed. You can't interact with much in this state.")
+			else if(has_stasis_status)
+				client.screen -= status_overlays[STASIS_STRING]
+				qdel(status_overlays[STASIS_STRING])
+				status_overlays -= STASIS_STRING
+
 			var/has_bleeding_limb = FALSE
 			var/has_bleeding_status = LAZYISIN(status_overlays, BLEEDING_STRING)
 			for(var/obj/item/organ/external/damaged_limb as anything in bad_external_organs)
@@ -1170,6 +1168,7 @@
 #undef DRUNK_STRING
 #undef BLEEDING_STRING
 #undef POSING_STRING
+#undef STASIS_STRING
 
 /mob/living/carbon/human/proc/add_status_to_hud(var/set_overlay, var/set_status_message)
 	var/atom/movable/screen/status/new_status = new /atom/movable/screen/status(null, ui_style2icon(client.prefs.UI_style), set_overlay, set_status_message)

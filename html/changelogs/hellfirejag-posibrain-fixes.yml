@@ -1,0 +1,5 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed surgically removing a positronic brain deleting it and ghosting the player, you now correctly get a sentient cube."
+  - bugfix: "Fixed posibrains despawning instantly when joined as a ghostrole. They have souls, this is proof!"

@@ -68,6 +68,16 @@
 	gear_tweaks += new /datum/gear_tweak/path(lunchboxes)
 	gear_tweaks += new /datum/gear_tweak/contents(lunchables_lunches(), lunchables_snacks(), lunchables_drinks(), lunchables_utensil())
 
+/datum/gear/teaset
+	display_name = "tea set"
+	description = "A box containing a tea set."
+	cost = 2
+	path = /obj/item/storage/box/blank/teabox
+
+/datum/gear/teaset/New()
+	..()
+	gear_tweaks += new /datum/gear_tweak/contents(teas_tea_type(), teas_teapot_type(), teas_teacup_type(), teas_teacup_type(), teas_teacup_type(), teas_teacup_type())
+
 /datum/gear/coffeecup
 	display_name = "coffee cups"
 	description = "A coffee cup in various designs."
@@ -297,6 +307,9 @@
 	standards["standard, Volvalaad"] = /obj/item/flag/volvalaad
 	standards["standard, Caladius"] = /obj/item/flag/caladius
 	standards["standard, Zhao"] = /obj/item/flag/zhao
+	standards["standard, Seok"] = /obj/item/flag/seok
+	standards["standard, Kaneko"] = /obj/item/flag/kaneko
+	standards["standard, von Sinzendorf"] = /obj/item/flag/sinzendorf
 	gear_tweaks += new /datum/gear_tweak/path(standards)
 
 /datum/gear/flag

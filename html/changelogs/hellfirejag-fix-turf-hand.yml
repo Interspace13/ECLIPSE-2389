@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed the ability to close airlocks by clicking on the tile underneath them."

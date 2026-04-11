@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Admins and CCIAA now have a universal translator for faxes, letting them read any fax via admin command, regardless of language markings used."

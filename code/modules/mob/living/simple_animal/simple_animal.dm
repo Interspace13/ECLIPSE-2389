@@ -980,6 +980,8 @@
 
 	to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]."))
 
+	SEND_SIGNAL(src, COMSIG_MOB_RESTED)
+
 	update_icon()
 
 //Todo: add snowflakey shit to it.
@@ -1070,6 +1072,9 @@
 		AddOverlays(upper_fire_emissive)
 		AddOverlays(lower_fire_overlay)
 		AddOverlays(lower_fire_emissive)
+		throw_alert(ALERT_FIRE, /atom/movable/screen/alert/fire)
+	else
+		clear_alert(ALERT_FIRE)
 
 
 /mob/living/simple_animal/get_resist_power()

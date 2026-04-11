@@ -108,8 +108,12 @@
 	new /obj/item/clothing/suit/space/void/cruiser(src)
 	new /obj/item/gun/energy/gun/nuclear(src)
 	new /obj/item/gun/energy/gun/nuclear(src)
-	new /obj/item/gun/energy/disruptorpistol/magnum(src)
-	new /obj/item/gun/energy/disruptorpistol/magnum(src)
+	new /obj/item/gun/projectile/sec/lethal(src)
+	new /obj/item/gun/projectile/sec/lethal(src)
+	new /obj/item/ammo_magazine/c45m(src)
+	new /obj/item/ammo_magazine/c45m(src)
+	new /obj/item/ammo_magazine/c45m(src)
+	new /obj/item/ammo_magazine/c45m(src)
 	new /obj/item/gun/energy/net(src)
 	new /obj/item/gun/projectile/automatic/x9(src)
 	new /obj/item/gun/projectile/automatic/x9(src)
@@ -124,7 +128,9 @@
 	new /obj/item/clothing/head/helmet/space/void/cruiser(src)
 	new /obj/item/clothing/suit/space/void/cruiser(src)
 	new /obj/item/gun/energy/gun/nuclear(src)
-	new /obj/item/gun/energy/disruptorpistol/magnum(src)
+	new /obj/item/gun/projectile/sec/lethal(src)
+	new /obj/item/ammo_magazine/c45m(src)
+	new /obj/item/ammo_magazine/c45m(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/elyra/fill()
 	new /obj/item/rig/elyran/equipped(src)
@@ -1403,6 +1409,7 @@
 	associated_hardsuit = /obj/item/rig/vaurca
 
 /obj/structure/closet/crate/secure/gear_loadout/ninja/vaurca/fill()
+	..()
 	var/obj/item/clothing/under/vaurca/clothes = new(src)
 	var/obj/item/clothing/shoes/vaurca/shoes = new(src)
 	var/obj/item/clothing/glasses/sunglasses/blinders/blinders = new(src)
@@ -1423,6 +1430,7 @@
 	associated_hardsuit = /obj/item/rig/skrell/tup/ninja
 
 /obj/structure/closet/crate/secure/gear_loadout/ninja/skrell/fill()
+	..()
 	new /obj/item/clothing/accessory/holster/hip(src)
 	new /obj/item/clothing/under/skrell/tupkala(src)
 	new /obj/item/gun/energy/rifle/laser/qukala(src)

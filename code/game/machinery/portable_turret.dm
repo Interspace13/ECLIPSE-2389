@@ -159,7 +159,7 @@
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
-	installation = /obj/item/gun/energy/laser
+	installation = /obj/item/gun/energy/rifle/laser
 	sprite_set = "laser"
 
 /obj/machinery/porta_turret/Initialize(mapload)
@@ -547,14 +547,10 @@
 
 /obj/machinery/porta_turret/process()
 	//the main machinery process
-	if(stat & (NOPOWER|BROKEN))
-		//if the turret has no power or is broken, make the turret pop down if it hasn't already
-		popDown()
-		return
-
-	if(!enabled)
-		//if the turret is off, make it pop down
-		popDown()
+	if((stat & (NOPOWER|BROKEN)) || !enabled)
+		//if the turret has no power, is broken, or off, make the turret pop down if it hasn't already
+		if(raised || raising)
+			popDown()
 		return
 
 	if(auto_repair && (health < maxhealth))
@@ -579,7 +575,7 @@
 			if(!tryToShootAt(targets))
 				tryToShootAt(secondarytargets)
 
-	if(!targets.len && !secondarytargets.len)
+	if(raised && !targets.len && !secondarytargets.len)
 		resetting = addtimer(CALLBACK(src, PROC_REF(reset)), 6 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE) // no valid targets, close the cover
 	else if(resetting)
 		deltimer(resetting)
@@ -1176,7 +1172,7 @@
 	req_one_access = list(ACCESS_SYNDICATE)
 
 /obj/machinery/porta_turret/sniper
-	installation = /obj/item/gun/energy/sniperrifle
+	installation = /obj/item/gun/energy/rifle/laser/sniper
 	lethal = 1
 	lethal_icon = 1
 	egun = 0

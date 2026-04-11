@@ -143,7 +143,7 @@
 /obj/item/paper/proc/show_content(mob/user, forceshow)
 	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)
 	var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
-	paper_win.set_content(get_content(user, can_read(user, forceshow)))
+	paper_win.set_content(get_content(user, can_read(user, forceshow), forceshow))
 	paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
 	paper_win.open()
 
@@ -154,8 +154,8 @@
 		can_read = get_dist(src, AI.camera) < 2
 	return can_read
 
-/obj/item/paper/proc/get_content(var/mob/user, var/can_read = TRUE)
-	return "<head><title>[capitalize_first_letters(name)]</title><style>body {background-color: [color];}</style></head><body>[can_read ? parse_languages(user, info) : stars(info)][stamps]</body>"
+/obj/item/paper/proc/get_content(var/mob/user, var/can_read = TRUE, var/ignore_languages = FALSE)
+	return "<head><title>[capitalize_first_letters(name)]</title><style>body {background-color: [color];}</style></head><body>[can_read ? parse_languages(user, info, FALSE, ignore_languages) : stars(info)][stamps]</body>"
 
 /obj/item/paper/verb/rename()
 	set name = "Rename paper"
@@ -381,6 +381,10 @@
 		t = replacetext(t, "\[logo_pvpolice_small\]", "")
 		t = replacetext(t, "\[logo_outereyes\]", "")
 		t = replacetext(t, "\[logo_outereyes_small\]", "")
+		t = replacetext(t, "\[twinsuns\]", "")
+		t = replacetext(t, "\[twinsuns_small\]", "")
+		t = replacetext(t, "\[raskara_sigil\]", "")
+		t = replacetext(t, "\[raskara_sigil_small\]", "")
 		t = replacetext(t, "\[barcode\]", "")
 
 	if(istypewriter)
@@ -470,7 +474,7 @@
  * @return	An HTML string where all of the [lang][/lang] marker contents are replaced
  * with scrambled and properly fonted content depending on what languages the user knows.
  */
-/obj/item/paper/proc/parse_languages(mob/user, input, language_check = FALSE)
+/obj/item/paper/proc/parse_languages(mob/user, input, language_check = FALSE, ignore_languages = FALSE)
 	// Just a safety fallback.
 	if (!user)
 		return input
@@ -488,7 +492,7 @@
 			continue
 
 		var/content = written_lang_regex.group[3]
-		var/reader_understands = user.say_understands(null, L)
+		var/reader_understands = ignore_languages || user.say_understands(null, L)
 
 		// Replace the content with <p>content here</p>
 		if(!reader_understands)
@@ -818,13 +822,13 @@
 				PERSISTENT
 #############################################*/
 
-/obj/item/paper/persistence_get_content()
+/obj/item/paper/persistent_objects_get_content()
 	var/list/content = list()
 	content["title"] = name
 	content["text"] = info
 	return content
 
-/obj/item/paper/persistence_apply_content(content, x, y, z)
+/obj/item/paper/persistent_objects_apply_content(content, x, y, z)
 	set_content(content["title"], content["text"])
 	src.x = x
 	src.y = y
@@ -861,14 +865,14 @@
 
 	icon_state = info ? "stickynote_words" : "stickynote"
 
-/obj/item/paper/stickynotes/persistence_get_content()
+/obj/item/paper/stickynotes/persistent_objects_get_content()
 	var/list/content = ..()
 	content["color"] = color
 	content["pixel_x"] = pixel_x
 	content["pixel_y"] = pixel_y
 	return content
 
-/obj/item/paper/stickynotes/persistence_apply_content(content, x, y, z)
+/obj/item/paper/stickynotes/persistent_objects_apply_content(content, x, y, z)
 	src.name = content["title"]
 	src.info = content["text"]
 	src.color = content["color"]
@@ -879,7 +883,7 @@
 	src.z = z
 
 /obj/item/paper/stickynotes/pickup()
-	SSpersistence.deregister_track(src)
+	SSpersistence.objectsDeregisterTrack(src)
 	..()
 
 /obj/item/paper/stickynotes/afterattack(var/A, mob/user, var/prox, var/params)
@@ -896,7 +900,7 @@
 	if(!params || !prox)
 		return
 
-	SSpersistence.register_track(src, ckey(user.key))
+	SSpersistence.objectsRegisterTrack(src, ckey(user.key))
 	user.drop_from_inventory(src,source_turf)
 	if(params) //Parallels taped paper placement method, and avoids seeing stickynotes through walls
 		var/list/mouse_control = mouse_safe_xy(params)

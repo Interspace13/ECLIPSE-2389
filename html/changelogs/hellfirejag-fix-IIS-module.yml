@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed the IIS module not allowing a PAI to actually do anything with a hardsuit."

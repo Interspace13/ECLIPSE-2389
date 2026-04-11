@@ -40,10 +40,10 @@
 		original_settings = null
 
 /// Parent gun type. Guns are weapons that can be aimed at mobs and act over a distance.
-/obj/item/gun
+ABSTRACT_TYPE(/obj/item/gun)
 	name = "gun"
 	desc = "It's a gun. It's pretty terrible, though."
-	icon = 'icons/obj/guns/pistol.dmi'
+	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/pistol.dmi'
 	var/gun_gui_icons = 'icons/obj/guns/gun_gui.dmi'
 	icon_state = "pistol"
 	item_state = "pistol"
@@ -258,7 +258,7 @@
 	underlays.Cut()
 	if(bayonet)
 		var/image/I
-		I = image(icon = 'icons/obj/guns/bayonet.dmi', icon_state = "bayonet")
+		I = image(icon = 'icons/obj/guns/attachments/bayonet.dmi', icon_state = "bayonet")
 		I.pixel_x = knife_x_offset
 		I.pixel_y = knife_y_offset
 		underlays += I
@@ -412,7 +412,9 @@
 		if(user.a_intent == I_HURT)
 			toggle_safety(user)
 		else
+			var/safety_cooldown = 5 // Half a second
 			handle_click_empty(user)
+			user.setClickCooldown(safety_cooldown)
 			return FALSE
 
 	if(!special_check(user))
@@ -484,6 +486,8 @@
 
 	// Custom formula here because otherwise you can fire bursts within the burst.
 	var/shoot_time = burst > 1 ? burst_delay + 1 : fire_delay
+	if (burst > 1 && burst_delay == 0) //Prevents guns with no burst delay (laser shotguns) from firing as fast as you can click.
+		shoot_time = fire_delay
 	user.setClickCooldown(shoot_time)
 
 /// Similar to the Fire() proc, but does not require a user, which is ideal for things like turrets.
@@ -771,6 +775,7 @@
 	return new_mode
 
 /obj/item/gun/attack_self(mob/user)
+	. = ..()
 	if(is_wieldable)
 		toggle_wield(usr)
 		update_held_icon()
@@ -917,6 +922,9 @@
 		var/mob/living/living_user = user
 		living_user.stop_aiming(src)
 
+	// so that mobs don't rest with the gun already wielded to bypass the firing delay updates
+	UnregisterSignal(user, COMSIG_MOB_RESTED)
+
 	queue_icon_update()
 	//Unwields the item when dropped, deletes the offhand
 	update_maptext()
@@ -931,6 +939,8 @@
 	..()
 	queue_icon_update()
 	addtimer(CALLBACK(src, PROC_REF(update_maptext)), 1)
+	// so that mobs don't rest with the gun already wielded to bypass the firing delay updates
+	RegisterSignal(user, COMSIG_MOB_RESTED, PROC_REF(update_firing_delays))
 	if(is_wieldable)
 		unwield()
 
@@ -995,9 +1005,9 @@
  */
 /obj/item/gun/proc/handle_reliability_fail(var/mob/user)
 	var/severity = 1
-	if(prob(100-reliability))
+	if(prob(80-reliability)) //Medium severity failures only possible under 80% reliability.
 		severity = 2
-		if(prob(100-reliability))
+		if(prob(65-reliability)) //Critical failures only possible under 65% reliability.
 			severity = 3
 	switch(severity)
 		if(1)
@@ -1016,7 +1026,7 @@
 /obj/item/gun/proc/critical_fail(var/mob/user)
 	return
 
-/obj/item/gun/attackby(obj/item/attacking_item, mob/user)
+/obj/item/gun/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/material/knife/bayonet))
 		if(!can_bayonet)
 			balloon_alert(user, "doesn't fit!")
