@@ -25,7 +25,7 @@
 	// When this component is given to a datum via AddComponent(), such as on a player character
 	// the component tells the datum it wishes to do something when this signal happens to the datum.
 	// When SendSignal() is later activated on that character, this component will react with its prepared proc.
-	RegisterSignal(parent, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
+	RegisterSignal(parent, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity))
 
 /datum/component/psi_sensitivity/Destroy()
 	if (!parent)

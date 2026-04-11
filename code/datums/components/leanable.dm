@@ -69,7 +69,7 @@
 		return COMPONENT_CANCEL_MOUSEDROPPED_ONTO
 	leaner.start_leaning(source, leaning_offset)
 	LAZYADD(leaning_mobs, leaner)
-	RegisterSignals(leaner, list(COMSIG_LIVING_STOPPED_LEANING, COMSIG_QDELETING), PROC_REF(stopped_leaning), override = TRUE)
+	RegisterSignals(leaner, list(COMSIG_LIVING_STOPPED_LEANING, COMSIG_QDELETING), PROC_REF(stopped_leaning))
 	return COMPONENT_CANCEL_MOUSEDROPPED_ONTO
 
 /**

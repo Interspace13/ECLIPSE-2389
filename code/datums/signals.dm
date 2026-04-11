@@ -13,7 +13,7 @@
  * * proctype The proc to call back when the signal is emitted
  * * override If a previous registration exists you must explicitly set this
  */
-/datum/proc/RegisterSignal(datum/target, signal_type, proctype, override = FALSE)
+/datum/proc/RegisterSignal(datum/target, signal_type, proctype)
 	if(QDELETED(src) || QDELETED(target))
 		return
 
@@ -26,7 +26,7 @@
 			known_failures[message] = TRUE
 			stack_trace("[target] [message]")
 
-		RegisterSignals(target, signal_type, proctype, override)
+		RegisterSignals(target, signal_type, proctype)
 		return
 
 	var/list/procs = (_signal_procs ||= list())
@@ -37,13 +37,6 @@
 	target_procs[signal_type] = proctype
 
 	if(exists)
-		if(!override)
-			// This is stupid. It does literally nothing but pointlessly nuke garbage collection.
-			// The signal registry duplication is already cleanly and safely prevented by the if (exists) return, there is no need to throw a runtime error.
-
-			// var/override_message = "[signal_type] overridden. Use override = TRUE to suppress this warning.\nTarget: [target] ([target.type]) Existing Proc: [exists] New Proc: [proctype]"
-			// log_signal(override_message)
-			// stack_trace(override_message)
 		return
 
 	var/list/looked_up = lookup[signal_type]
@@ -56,9 +49,9 @@
 		looked_up += src
 
 /// Registers multiple signals to the same proc.
-/datum/proc/RegisterSignals(datum/target, list/signal_types, proctype, override = FALSE)
+/datum/proc/RegisterSignals(datum/target, list/signal_types, proctype)
 	for (var/signal_type in signal_types)
-		RegisterSignal(target, signal_type, proctype, override)
+		RegisterSignal(target, signal_type, proctype)
 
 /**
  * Stop listening to a given signal from target

@@ -25,8 +25,8 @@
 <b>Integrity:</b> Implant will last so long as the nanobots are inside the bloodstream."}
 
 /obj/item/implant/mindshield/implanted(mob/M)
-	RegisterSignal(M, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
-	RegisterSignal(M, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power), override = TRUE)
+	RegisterSignal(M, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity))
+	RegisterSignal(M, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power))
 	to_chat(M, SPAN_GOOD("You feel your mind steel against external suggestion!"))
 	if(istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M

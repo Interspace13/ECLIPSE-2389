@@ -24,14 +24,14 @@
 	if(!owner)
 		return
 
-	RegisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
+	RegisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity))
 
 /obj/item/organ/internal/augment/bioaug/psi/replaced()
 	. = ..()
 	if(!owner)
 		return
 
-	RegisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
+	RegisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity))
 
 /obj/item/organ/internal/augment/bioaug/psi/removed()
 	if(!owner)

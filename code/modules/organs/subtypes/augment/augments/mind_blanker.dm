@@ -12,16 +12,16 @@
 	if(!owner)
 		return
 
-	RegisterSignal(owner, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power), override = TRUE)
-	RegisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
+	RegisterSignal(owner, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power))
+	RegisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity))
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/replaced()
 	. = ..()
 	if(!owner)
 		return
 
-	RegisterSignal(owner, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power), override = TRUE)
-	RegisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
+	RegisterSignal(owner, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power))
+	RegisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity))
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/removed()
 	if(!owner)
@@ -63,16 +63,16 @@
 	if(!owner)
 		return
 
-	RegisterSignal(owner, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power_lethal), override = TRUE)
-	RegisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
+	RegisterSignal(owner, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power_lethal))
+	RegisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity))
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/replaced()
 	. = ..()
 	if(!owner)
 		return
 
-	RegisterSignal(owner, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power_lethal), override = TRUE)
-	RegisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
+	RegisterSignal(owner, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power_lethal))
+	RegisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity))
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/removed()
 	. = ..()

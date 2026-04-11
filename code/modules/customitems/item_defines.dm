@@ -1047,7 +1047,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	. = ..()
 	if(!owner)
 		return
-	RegisterSignal(owner, COMSIG_BEGIN_SURGERY, PROC_REF(negate_healing), override = TRUE)
+	RegisterSignal(owner, COMSIG_BEGIN_SURGERY, PROC_REF(negate_healing))
 	var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
 	parent.fracture(TRUE)
 
@@ -1055,7 +1055,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	. = ..()
 	if(!owner)
 		return
-	RegisterSignal(owner, COMSIG_BEGIN_SURGERY, PROC_REF(negate_healing), override = TRUE)
+	RegisterSignal(owner, COMSIG_BEGIN_SURGERY, PROC_REF(negate_healing))
 	var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
 	parent.fracture(TRUE)
 

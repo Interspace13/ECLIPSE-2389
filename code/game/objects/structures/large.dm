@@ -109,7 +109,7 @@
 		C.part_of = src
 		C.color = color
 		grouped_structures += C
-		RegisterSignal(T, COMSIG_ATOM_ENTERED, PROC_REF(structure_entered), override = TRUE)
+		RegisterSignal(T, COMSIG_ATOM_ENTERED, PROC_REF(structure_entered))
 
 /datum/large_structure/proc/disassemble(var/time_per_structure, var/mob/user)
 	if(user in interacting)
@@ -151,7 +151,7 @@
 /datum/large_structure/proc/structure_entered(var/turf/entry_point, var/atom/movable/entering)
 	if(!(isliving(entering) || isobserver(entering)))
 		return FALSE
-	RegisterSignal(entering, COMSIG_MOVABLE_MOVED, PROC_REF(mob_moved), override = TRUE)
+	RegisterSignal(entering, COMSIG_MOVABLE_MOVED, PROC_REF(mob_moved))
 	return TRUE
 
 /datum/large_structure/proc/mob_moved(var/mob/mover)

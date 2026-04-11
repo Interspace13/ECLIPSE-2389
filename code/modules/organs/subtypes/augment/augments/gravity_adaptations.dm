@@ -11,14 +11,14 @@
 	if(!owner)
 		return
 
-	RegisterSignal(owner, COMSIG_GRAVITY_WEAKNESS_EVENT, PROC_REF(negate_weakness), override = TRUE)
+	RegisterSignal(owner, COMSIG_GRAVITY_WEAKNESS_EVENT, PROC_REF(negate_weakness))
 
 /obj/item/organ/internal/augment/bioaug/gravity_adaptations/replaced()
 	. = ..()
 	if(!owner)
 		return
 
-	RegisterSignal(owner, COMSIG_GRAVITY_WEAKNESS_EVENT, PROC_REF(negate_weakness), override = TRUE)
+	RegisterSignal(owner, COMSIG_GRAVITY_WEAKNESS_EVENT, PROC_REF(negate_weakness))
 
 /obj/item/organ/internal/augment/bioaug/gravity_adaptations/removed()
 	if(!owner)

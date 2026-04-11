@@ -16,8 +16,8 @@
 	if (!parent)
 		return
 
-	RegisterSignal(parent, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
-	RegisterSignal(parent, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power), override = TRUE)
+	RegisterSignal(parent, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity))
+	RegisterSignal(parent, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power))
 
 /datum/component/psi_suppression/Destroy()
 	if (!parent)

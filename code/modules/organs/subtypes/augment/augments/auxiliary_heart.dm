@@ -12,14 +12,14 @@
 	if(!owner)
 		return
 
-	RegisterSignal(owner, COMSIG_HEART_PUMP_EVENT, PROC_REF(stabilize_circulation), override = TRUE)
+	RegisterSignal(owner, COMSIG_HEART_PUMP_EVENT, PROC_REF(stabilize_circulation))
 
 /obj/item/organ/internal/augment/bioaug/auxiliary_heart/replaced()
 	. = ..()
 	if(!owner)
 		return
 
-	RegisterSignal(owner, COMSIG_HEART_PUMP_EVENT, PROC_REF(stabilize_circulation), override = TRUE)
+	RegisterSignal(owner, COMSIG_HEART_PUMP_EVENT, PROC_REF(stabilize_circulation))
 
 /obj/item/organ/internal/augment/bioaug/auxiliary_heart/removed()
 	if(!owner)
