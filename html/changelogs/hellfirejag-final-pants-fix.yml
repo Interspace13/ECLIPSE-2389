@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Finally fixed the pants memory leak. It is no longer possible to accidentally put Abstract (not real) pants in your loadout."
