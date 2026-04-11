@@ -38,9 +38,12 @@
 
 	if(exists)
 		if(!override)
-			var/override_message = "[signal_type] overridden. Use override = TRUE to suppress this warning.\nTarget: [target] ([target.type]) Existing Proc: [exists] New Proc: [proctype]"
-			log_signal(override_message)
-			stack_trace(override_message)
+			// This is stupid. It does literally nothing but pointlessly nuke garbage collection.
+			// The signal registry duplication is already cleanly and safely prevented by the if (exists) return, there is no need to throw a runtime error.
+
+			// var/override_message = "[signal_type] overridden. Use override = TRUE to suppress this warning.\nTarget: [target] ([target.type]) Existing Proc: [exists] New Proc: [proctype]"
+			// log_signal(override_message)
+			// stack_trace(override_message)
 		return
 
 	var/list/looked_up = lookup[signal_type]
