@@ -7,6 +7,8 @@
  * - persistence_objects.dm				- Persistent objects related code.
  * - persistence_objects_sql.dm			- Persistent objects database code.
  * - persistence_objects_public.dm		- Persistent objects public procs.
+ * - persistence_types.dm               - Persistent data type definitions.
+ * - persistence_types.dm               - Persistent data type database code.
  */
 
 SUBSYSTEM_DEF(persistence)
@@ -59,6 +61,12 @@ SUBSYSTEM_DEF(persistence)
 		return SS_INIT_SUCCESS
 
 	if(!databaseCheckConnection("subsystem init"))
+		return SS_INIT_FAILURE
+
+	try
+		initializeTypeDefinitions()
+	catch(var/exception/e)
+		log_subsystem_persistence_panic("Unhandled exception during persistent type initialization: [e]")
 		return SS_INIT_FAILURE
 
 	try
