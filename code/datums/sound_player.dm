@@ -142,7 +142,10 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 
 /datum/sound_token/Destroy()
 	Stop()
-	. = ..()
+	source = null
+	listeners.Cut()
+	sound = null
+	return ..()
 
 /datum/sound_token/proc/SetVolume(new_volume)
 	new_volume = clamp(new_volume, 0, 100)

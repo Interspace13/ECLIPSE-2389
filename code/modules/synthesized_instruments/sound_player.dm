@@ -33,7 +33,7 @@
 	src.instrument = null
 	QDEL_NULL(song)
 	QDEL_NULL(event_manager)
-	tokens = null
+	QDEL_LIST(tokens)
 	GLOB.instrument_synchronizer.unregister_global(src, .proc/check_wait)
 	wait = null
 	. = ..()
@@ -59,7 +59,8 @@
 /datum/sound_player/proc/unsubscribe(datum/sound_token/instrument/oldtoken)
 	if(!istype(oldtoken))
 		CRASH("Non token type passed to unsubscribe function.")
-	tokens -= oldtoken
+	if(tokens)
+		tokens -= oldtoken
 
 
 /datum/sound_player/proc/apply_modifications(sound/what, note_num, which_line, which_note) // You don't need to override this
