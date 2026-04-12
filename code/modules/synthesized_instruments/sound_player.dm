@@ -59,8 +59,7 @@
 /datum/sound_player/proc/unsubscribe(datum/sound_token/instrument/oldtoken)
 	if(!istype(oldtoken))
 		CRASH("Non token type passed to unsubscribe function.")
-	if(tokens)
-		tokens -= oldtoken
+	tokens.Remove(oldtoken)
 
 
 /datum/sound_player/proc/apply_modifications(sound/what, note_num, which_line, which_note) // You don't need to override this
