@@ -92,15 +92,15 @@
 	glass_name = "glass of Xanu Rush!"
 	glass_desc = "Made from the NEW Xanu Prime peaches."
 
-/singleton/reagent/drink/peach_soda
+/singleton/reagent/drink/cherrysoda
 	name = "Drosiá Cherry"
 	description = "Assunzione's number two drink!"
 	color = "#FF0000"
-	taste_description = "sparkly sweet grapes"
+	taste_description = "sparkly sweet cherries"
 	carbonated = TRUE
 
 	glass_icon_state = "glass_red"
-	glass_name = "glass of Drosiá Cherry"
+	glass_name = "glass of Drosiá "
 	glass_desc = "Assunzione's number two drink!"
 
 //
