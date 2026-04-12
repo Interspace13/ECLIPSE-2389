@@ -143,7 +143,8 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 /datum/sound_token/Destroy()
 	Stop()
 	source = null
-	listeners.Cut()
+	if (listeners)
+		listeners.Cut()
 	sound = null
 	return ..()
 
