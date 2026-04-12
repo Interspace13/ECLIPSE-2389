@@ -7,7 +7,7 @@
 
 /datum/instrument/Destroy()
 	samples.Cut()
-	QDEL_LIST(sample_map)
+	QDEL_LIST_ASSOC_VAL(sample_map)
 	return ..()
 
 /datum/instrument/proc/create_full_sample_deviation_map()

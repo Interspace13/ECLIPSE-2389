@@ -28,9 +28,8 @@
 	GLOB.instrument_synchronizer.register_global(src, .proc/check_wait)
 
 /datum/sound_player/Destroy()
-	src.song.playing = FALSE
-	src.actual_instrument = null
-	src.instrument = null
+	actual_instrument = null
+	instrument = null
 	QDEL_NULL(song)
 	QDEL_NULL(event_manager)
 	QDEL_LIST(tokens)

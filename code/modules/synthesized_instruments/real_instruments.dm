@@ -203,7 +203,11 @@
 
 
 /datum/real_instrument/Destroy()
-	QDEL_LIST(instruments)
+	if (islist(instruments))
+		var/list/aslist = instruments
+		QDEL_LIST_ASSOC_VAL(aslist)
+	else
+		QDEL_NULL(instruments)
 	QDEL_NULL(player)
 	QDEL_NULL(song_editor)
 	QDEL_NULL(usage_info)
