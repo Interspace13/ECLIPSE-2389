@@ -203,7 +203,7 @@
 
 
 /datum/real_instrument/Destroy()
-	QDEL_NULL(instruments)
+	QDEL_LIST(instruments)
 	QDEL_NULL(player)
 	QDEL_NULL(song_editor)
 	QDEL_NULL(usage_info)
