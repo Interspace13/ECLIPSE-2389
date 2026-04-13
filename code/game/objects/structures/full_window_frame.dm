@@ -3,6 +3,7 @@
 	desc = "A steel window frame."
 	icon = 'icons/obj/smooth/window/full_window_frame_color.dmi'
 	icon_state = "window_frame"
+	maxhealth = OBJECT_HEALTH_MEDIUM
 	color = COLOR_GRAY20
 	build_amt = 4
 	layer = WINDOW_FRAME_LAYER
@@ -10,7 +11,6 @@
 	density = TRUE
 	climbable = TRUE
 	smoothing_flags = SMOOTH_MORE
-	breakable = TRUE
 	can_be_unanchored = TRUE
 	canSmoothWith = list(
 		/turf/simulated/wall,
@@ -177,6 +177,7 @@
 		W.hitby(arglist(args))
 
 /obj/structure/window_frame/wood
+	maxhealth = OBJECT_HEALTH_LOW
 	color = "#8f5847"
 
 /obj/structure/window_frame/unanchored // Used during in-game construction.
@@ -187,6 +188,7 @@
 	should_check_mapload = FALSE // No glass.
 
 /obj/structure/window_frame/shuttle
+	maxhealth = OBJECT_HEALTH_HIGH
 	icon = 'icons/obj/smooth/window/full_window_frame_color.dmi'
 	color = null
 	smoothing_flags = SMOOTH_MORE

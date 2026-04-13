@@ -671,6 +671,7 @@
 #include "code\defines\procs\hud.dm"
 #include "code\defines\procs\radio.dm"
 #include "code\game\ambience.dm"
+#include "code\game\atom_health.dm"
 #include "code\game\atoms.dm"
 #include "code\game\atoms_movable.dm"
 #include "code\game\base_turf.dm"

@@ -187,7 +187,7 @@
 		. += ""
 
 	if(!stat)
-		. += "System Integrity: [round((health/maxHealth)*100)]%"
+		. += "System Integrity: [round((health/maxhealth)*100)]%"
 	else
 		. += "System Integrity: NON-FUNCTIONAL"
 		show_malf_ai()
