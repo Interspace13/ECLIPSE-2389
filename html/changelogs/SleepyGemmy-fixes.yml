@@ -1,0 +1,9 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed watches referring to bluespace transfer during the round end timer."
+  - bugfix: "Fixed ashtrays not having a examine hint about emptying vs putting it into a disposal."
+  - bugfix: "Fixed ashtrays not giving a feedback message when trying to empty a empty one."
+  - bugfix: "Fixed a duplicate \"the\" when putting something inside a disposal."
