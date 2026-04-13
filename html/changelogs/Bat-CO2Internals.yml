@@ -1,0 +1,5 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Makes 'tanks' with distribution pressure set to 0 not count for purposes of Internals button trying to find the 'best' tank."
+  - qol: "Makes such tanks provide feedback hint text explaining that they cannot be used for Internals."
