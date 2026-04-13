@@ -15,7 +15,6 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
 	alt_titles = list("Freelance Journalist")
 	alt_factions = list(
@@ -88,7 +87,6 @@
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	access = list(ACCESS_LAWYER, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_LAWYER)
 	alt_titles = list(
 		"Workplace Liaison",
@@ -218,7 +216,6 @@
 		SPECIES_SKRELL_AXIORI = 150
 	)
 
-	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_CONSULAR)
 	outfit = /obj/outfit/job/representative/consular
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
@@ -327,7 +324,6 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_CONSULAR)
 	outfit = /obj/outfit/job/diplomatic_aide
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
@@ -374,7 +370,6 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_CONSULAR)
 	outfit = /obj/outfit/job/diplomatic_bodyguard
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
@@ -421,7 +416,6 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_LAWYER, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_LAWYER)
 	outfit = /obj/outfit/job/corporate_aide
 
