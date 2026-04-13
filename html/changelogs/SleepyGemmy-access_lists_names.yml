@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - backend: "Renamed the basic role access list and removed the unused expanded role access list."
