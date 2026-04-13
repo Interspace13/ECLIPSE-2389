@@ -56,10 +56,13 @@
 	var/before = pref.skills
 	var/loaded_skills
 	try
-		loaded_skills = pref.skills
+		if(istext(pref.skills))
+			loaded_skills = json_decode(pref.skills)
+		else
+			loaded_skills = pref.skills
 	catch (var/exception/e)
 		log_debug("SKILLS: Caught [e]. Initial value: [before]")
-		pref.skills = list()
+		loaded_skills = list()
 
 	pref.skills = list()
 	for(var/key in SSskills.required_skills)
@@ -70,7 +73,8 @@
 	for(var/key,value in loaded_skills)
 		if (!key)
 			continue
-		var/singleton/skill/skill = GET_SINGLETON(key)
+		var/path = istext(key) ? text2path(key) : key
+		var/singleton/skill/skill = GET_SINGLETON(path)
 		if(istype(skill))
 			pref.skills[skill.type] = value
 
