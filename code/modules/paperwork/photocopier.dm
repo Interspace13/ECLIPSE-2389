@@ -135,7 +135,7 @@
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		to_chat(user, SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
-	return
+	return ..()
 
 /proc/copy_type(var/obj/machinery/target, var/c_item, var/toner, var/do_print = TRUE, var/mob/user) // helper proc to reduce ctrl+c ctrl+v
 	if (istype(c_item, /obj/item/paper))
