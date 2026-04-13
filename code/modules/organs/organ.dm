@@ -18,9 +18,12 @@
 	//Organ damage stats.
 	var/damage = 0 // amount of damage to the organ
 	/// Total amount of EMP damage a mechanical organ has taken. Effectively equal to "number of seconds the organ EMP effect will last".
-	var/surge_damage = 0
-	/// The amount of EMP damage a mechanical organ will recover per second.
-	var/surge_recovery_per_second = 1
+	var/surge_damage = 0.0
+	/**
+	 * The amount of EMP damage a mechanical organ will recover per second.
+	 * Fractional and floating points are allowed, but it shouldn't ever be negative.
+	 */
+	var/surge_recovery_per_second = 1.0
 
 	var/min_broken_damage = 30
 	var/min_bruised_damage = 10 // Damage before considered bruised
