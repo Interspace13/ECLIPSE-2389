@@ -9,7 +9,7 @@
 	universal_speak = FALSE
 
 	health = 10
-	maxHealth = 10
+	maxhealth = 10
 	melee_damage_lower = 1
 	melee_damage_upper = 2
 	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")

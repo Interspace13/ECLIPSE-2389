@@ -19,7 +19,7 @@
 	response_harm   = "kicks"
 	attacktext = "kicks"
 	health = 250
-	maxHealth = 250
+	maxhealth = 250
 	canbrush = TRUE
 	brush = /obj/item/reagent_containers/glass/rag
 

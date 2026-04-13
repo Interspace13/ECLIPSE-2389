@@ -8,7 +8,7 @@
 	icon_gib = "brownbear_gib"
 
 	health = 100
-	maxHealth = 100
+	maxhealth = 100
 
 	density = TRUE
 	belongs_to_station = FALSE

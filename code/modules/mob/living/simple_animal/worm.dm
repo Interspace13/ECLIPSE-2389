@@ -17,7 +17,7 @@
 
 	harm_intent_damage = 2
 
-	maxHealth = 30
+	maxhealth = 30
 	health = 30
 
 	universal_speak =1
@@ -185,7 +185,7 @@
 	icon_living = "spacewormhead0"
 	icon_dead = "spacewormheaddead"
 
-	maxHealth = 20
+	maxhealth = 20
 	health = 20
 
 	melee_damage_lower = 10

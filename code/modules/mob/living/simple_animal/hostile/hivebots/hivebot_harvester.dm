@@ -4,7 +4,7 @@
 	icon = 'icons/mob/npc/hivebot.dmi'
 	icon_state = "hivebotharvester"
 	health = 100
-	maxHealth = 100
+	maxhealth = 100
 	blood_type = COLOR_OIL
 	blood_overlay_icon = 'icons/mob/npc/blood_overlay_hivebot.dmi'
 	melee_damage_lower = 30

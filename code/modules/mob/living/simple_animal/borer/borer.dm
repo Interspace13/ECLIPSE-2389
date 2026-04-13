@@ -19,7 +19,7 @@
 	attacktext = "nips"
 	friendly = "prods"
 	wander = 0
-	maxHealth = 40
+	maxhealth = 40
 	health = 40
 	pass_flags = PASSTABLE
 	universal_understand = TRUE

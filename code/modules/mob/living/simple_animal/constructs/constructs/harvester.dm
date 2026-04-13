@@ -5,7 +5,7 @@
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "harvester"
 	icon_living = "harvester"
-	maxHealth = 300
+	maxhealth = 300
 	health_prefix = "harvester"
 	melee_damage_lower = 25
 	melee_damage_upper = 25

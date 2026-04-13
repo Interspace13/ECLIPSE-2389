@@ -12,7 +12,7 @@
 	blood_overlay_icon = null
 
 	health = 70
-	maxHealth = 70
+	maxhealth = 70
 
 	belongs_to_station = TRUE
 	stop_automated_movement_when_pulled = TRUE

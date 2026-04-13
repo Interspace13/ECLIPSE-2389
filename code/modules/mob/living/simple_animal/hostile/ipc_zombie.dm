@@ -6,7 +6,7 @@
 	icon_dead = "baseline_grey_off"
 	blood_type = COLOR_OIL
 	health = 100
-	maxHealth = 100
+	maxhealth = 100
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	armor_penetration = 20

@@ -691,7 +691,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 		glassify(H)
 		return
 
-	if(H.getFireLoss() >= (H.health - H.maxHealth))	//if the sand golem suffered enough burn damage it turns into a glass one
+	if(H.getFireLoss() >= (H.health - H.maxhealth))	//if the sand golem suffered enough burn damage it turns into a glass one
 		glassify(H)
 		return
 

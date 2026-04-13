@@ -21,7 +21,7 @@
 	response_harm   = "kicks"
 	faction = "goat"
 	attacktext = "kicks"
-	maxHealth = 40
+	maxhealth = 40
 	melee_damage_lower = 1
 	melee_damage_upper = 5
 	udder = null
@@ -167,7 +167,7 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
 	attacktext = "kicks"
-	maxHealth = 1
+	maxhealth = 1
 	var/amount_grown = 0
 	pass_flags = PASSTABLE | PASSGRILLE
 	holder_type = /obj/item/holder/chick
@@ -215,7 +215,7 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
 	attacktext = "kicks"
-	maxHealth = 10
+	maxhealth = 10
 	var/eggsleft = 0
 	var/body_color
 	pass_flags = PASSTABLE

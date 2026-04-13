@@ -335,7 +335,7 @@
 
 	. = ..(user, distance, is_adjacent, "It is a [size] item.", get_extended = get_extended)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
-	if(armor_component)
+	if(armor_component && !armor_component.hidden)
 		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href='byond://?src=[REF(src)];examine_armor=1'>\[Show Armor Values\]</a>"))
 
 /obj/item/Topic(href, href_list)

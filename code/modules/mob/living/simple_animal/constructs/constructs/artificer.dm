@@ -5,7 +5,7 @@
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "artificer"
 	icon_living = "artificer"
-	maxHealth = 250 // Was undertuned prior to our damage numbers
+	maxhealth = 250 // Was undertuned prior to our damage numbers
 	health_prefix = "artificer"
 	response_harm = "viciously beaten"
 	melee_damage_lower = 10

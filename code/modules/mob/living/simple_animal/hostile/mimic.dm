@@ -15,7 +15,7 @@
 	response_disarm = "pushes"
 	response_harm = "hits"
 	speed = 4
-	maxHealth = 250
+	maxhealth = 250
 	health = 250
 
 	harm_intent_damage = 5
@@ -125,7 +125,7 @@ GLOBAL_LIST_INIT(protected_objects, list(/obj/structure/table, /obj/structure/ca
 /mob/living/simple_animal/hostile/mimic/copy
 
 	health = 100
-	maxHealth = 100
+	maxhealth = 100
 	var/mob/living/creator = null // the creator
 	var/destroy_objects = 0
 	var/knockdown_people = 0
@@ -165,7 +165,7 @@ GLOBAL_LIST_INIT(protected_objects, list(/obj/structure/table, /obj/structure/ca
 			melee_damage_upper = 2 + I.force
 			speed = 2 * I.w_class
 
-		maxHealth = health
+		maxhealth = health
 		if(creator)
 			src.creator = creator
 			faction = "[REF(creator)]" // very unique

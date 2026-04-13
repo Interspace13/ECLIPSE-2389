@@ -19,7 +19,7 @@
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
 	blood_overlay_icon = null
-	maxHealth = 400
+	maxhealth = 400
 	health = 400
 	harm_intent_damage = 0
 	melee_damage_lower = 40
@@ -150,7 +150,7 @@
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
 	speed = -1
-	maxHealth = 50
+	maxhealth = 50
 	health = 50
 	mob_size = 10
 

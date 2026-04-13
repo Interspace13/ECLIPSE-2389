@@ -291,9 +291,9 @@ Class Procs:
 		if(1)
 			add_damage(maxhealth)
 		if(2)
-			add_damage(maxhealth * 0.25)
-		if(3)
 			add_damage(maxhealth * 0.5)
+		if(3)
+			add_damage(maxhealth * 0.25)
 
 /**
  * Check to see if the machine is operable

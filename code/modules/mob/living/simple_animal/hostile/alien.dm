@@ -8,7 +8,7 @@
 	icon_dead = "samak_dead"
 	icon = 'icons/jungle.dmi'
 	speed = 2
-	maxHealth = 125
+	maxhealth = 125
 	health = 125
 	melee_damage_lower = 5
 	melee_damage_upper = 15
@@ -29,7 +29,7 @@
 	icon_dead = "diyaab_dead"
 	icon = 'icons/jungle.dmi'
 	speed = 1
-	maxHealth = 25
+	maxhealth = 25
 	health = 25
 	melee_damage_lower = 1
 	melee_damage_upper = 8
@@ -54,7 +54,7 @@
 	icon_dead = "shantak_dead"
 	icon = 'icons/jungle.dmi'
 	speed = 1
-	maxHealth = 75
+	maxhealth = 75
 	health = 75
 	melee_damage_lower = 3
 	melee_damage_upper = 12

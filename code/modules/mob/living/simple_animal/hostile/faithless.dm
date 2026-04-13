@@ -12,7 +12,7 @@
 	response_disarm = "shoves"
 	response_harm = "hits"
 	speed = 4
-	maxHealth = 80
+	maxhealth = 80
 	health = 80
 	environment_smash = 2
 

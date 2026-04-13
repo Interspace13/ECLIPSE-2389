@@ -77,7 +77,7 @@
 		attacktext = "swarm"
 		melee_damage_lower = 15
 		melee_damage_upper = 20
-		maxHealth = 260
+		maxhealth = 260
 		health = 260
 		mob_size = 10
 		universal_speak = 1
@@ -89,7 +89,7 @@
 		attacktext = "swarm"
 		melee_damage_lower = 10
 		melee_damage_upper = 10
-		maxHealth = 160
+		maxhealth = 160
 		health = 160
 		mob_size = 9
 	else if(rats.len >= RAT_EMPEROR_LEVEL)
@@ -100,7 +100,7 @@
 		attacktext = "swarm"
 		melee_damage_lower = 7
 		melee_damage_upper = 5
-		maxHealth = 110
+		maxhealth = 110
 		health = 110
 		mob_size = 8
 	else if(rats.len >= RAT_KING_LEVEL)
@@ -111,7 +111,7 @@
 		attacktext = "swarm"
 		melee_damage_lower = 5
 		melee_damage_upper = 5
-		maxHealth = 60
+		maxhealth = 60
 		health = 60
 		mob_size = 7
 	else if(rats.len >= RAT_DUKE_LEVEL)
@@ -120,7 +120,7 @@
 		announce_name = "decree"
 		desc = "A swarm of rats."
 		attacktext = "bites"
-		maxHealth = 35
+		maxhealth = 35
 		health = 35
 		mob_size = 6
 	else if(rats.len >= RAT_BARON_LEVEL)
@@ -129,7 +129,7 @@
 		announce_name = "decree"
 		desc = "A group of rats."
 		attacktext = "bites"
-		maxHealth = 25
+		maxhealth = 25
 		health = 25
 		mob_size = 4
 	else if(rats.len >= RAT_MAYOR_LEVEL)
@@ -138,7 +138,7 @@
 		announce_name = "decree"
 		desc = "A couple of rats."
 		attacktext = "bites"
-		maxHealth = 15
+		maxhealth = 15
 		health = 15
 		mob_size = 3
 	else
@@ -147,7 +147,7 @@
 		announce_name = "request"
 		desc = "A single rat. This one seems special."
 		attacktext = "scratches"
-		maxHealth = 10
+		maxhealth = 10
 		health = 10
 		mob_size = 2
 

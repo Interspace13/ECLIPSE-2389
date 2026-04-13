@@ -10,7 +10,7 @@
 	universal_speak = FALSE
 	density = FALSE
 	health = 50
-	maxHealth = 50
+	maxhealth = 50
 	melee_damage_lower = 5
 	melee_damage_upper = 8
 	armor_penetration = 5

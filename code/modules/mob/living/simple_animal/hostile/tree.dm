@@ -15,7 +15,7 @@
 	response_harm = "hits"
 	blood_overlay_icon = null
 	speed = -1
-	maxHealth = 250
+	maxhealth = 250
 	health = 250
 
 	pixel_x = -16

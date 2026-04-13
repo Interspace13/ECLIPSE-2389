@@ -28,8 +28,8 @@
 				. += chassis_armor
 
 /mob/living/heavy_vehicle/updatehealth()
-	maxHealth = body.mech_health
-	health = maxHealth-(getFireLoss()+getBruteLoss())
+	maxhealth = body.mech_health
+	health = maxhealth-(getFireLoss()+getBruteLoss())
 
 /mob/living/heavy_vehicle/adjustFireLoss(var/amount, var/obj/item/mech_component/C)
 	if(C)

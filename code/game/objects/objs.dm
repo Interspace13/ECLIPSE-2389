@@ -33,14 +33,8 @@
 	var/armor_penetration = 0
 	/// To make it not able to slice things. Used for curtains, flaps, pumpkins... why aren't you just using edge?
 	var/noslice = FALSE
-	/// The health of this object. If this is null, it will set health to maxhealth on Initialize. Otherwise, you can set a custom health value to use at initialize.
-	var/health
-	/// The maximum health of this object. If null, health is not used.
-	var/maxhealth
 	/// The armor of this object, turned into an armor component.
 	var/list/armor
-	/// The sound played when this object is destroyed.
-	var/destroy_sound
 	/// Set to TRUE when shocked by the tesla ball, to not repeatedly shock the object.
 	var/being_shocked = FALSE
 
@@ -126,7 +120,7 @@
 				AddComponent(/datum/component/armor, armor)
 				break
 	else
-		AddComponent(/datum/component/armor, GLOB.default_object_armor)
+		AddComponent(/datum/component/armor, GLOB.default_object_armor, TRUE)
 
 /obj/Destroy()
 	if(persistent_objects_track_active) // Prevent hard deletion of references in the persistence register by removing it preemptively
@@ -162,79 +156,7 @@
 /mob/proc/CanUseObjTopic()
 	return 1
 
-/**
- * This proc is called to add damage to an object. If there is no health left, it calls on_death().
- */
-/obj/proc/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
-	if(!damage || !maxhealth || (damage < 1))
-		return FALSE
 
-	var/datum/component/armor/armor = GetComponent(/datum/component/armor)
-	if(armor)
-		var/blocked = armor.get_blocked(damage_type, damage_flags, armor_penetration, damage)
-		damage *= 1 - blocked
-
-	health = max(health - damage, 0)
-	update_health()
-	if(!health)
-		if(destroy_sound)
-			playsound(src, destroy_sound, 75)
-		on_death()
-	return TRUE
-
-/obj/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	if(health < maxhealth)
-		. += get_damage_condition_hints(user, distance, is_adjacent)
-
-/**
- * For custom damage condition hints. Some structures may want different ones than the default, like the cult crystal.
- */
-/obj/proc/get_damage_condition_hints(mob/user, distance, is_adjacent)
-	if(health < maxhealth * 0.25)
-		. = SPAN_DANGER("\The [src] looks like it's about to break!")
-	else if(health < maxhealth * 0.5)
-		. = SPAN_ALERT("\The [src] looks seriously damaged!")
-	else if(health < maxhealth * 0.75)
-		. = SPAN_WARNING("\The [src] shows signs of damage!")
-
-/**
- * This proc is called when object health changes. Use this to set custom states, do messages, etc.
- */
-/obj/proc/update_health()
-	return
-
-/**
- * This proc is called by update_health() when the health of the object hits zero. Handles the destruction of the object, or you can override it to do different effects.
- */
-/obj/proc/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
-	qdel(src)
-
-/**
- * This proc is called to set the object's health directly.
- */
-/obj/proc/change_health(new_health)
-	if(!maxhealth)
-		return
-
-	if(health >= maxhealth)
-		return FALSE
-
-	health = min(new_health, maxhealth)
-	return TRUE
-
-/**
- * This proc is called to directly add to an object's health (basically, to add it).
- */
-/obj/proc/add_health(repair_amount)
-	if(!maxhealth)
-		return
-
-	if(health >= maxhealth)
-		return FALSE
-
-	health = min(health + repair_amount, maxhealth)
-	return TRUE
 
 /obj/proc/CouldUseTopic(var/mob/user)
 	user.AddTopicPrint(src)

@@ -19,7 +19,7 @@
 	mob_size = 12
 
 	health = 60
-	maxHealth = 60
+	maxhealth = 60
 	blood_type = "#006666"
 	melee_damage_lower = 10
 	melee_damage_upper = 10
@@ -84,7 +84,7 @@
 	icon_dead = "sadrone_dead"
 	speed = 5
 	health = 60
-	maxHealth = 60
+	maxhealth = 60
 	harm_intent_damage = 5
 	ranged = 1
 	smart_ranged = TRUE

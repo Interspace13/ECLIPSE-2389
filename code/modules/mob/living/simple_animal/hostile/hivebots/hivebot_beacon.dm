@@ -12,7 +12,7 @@
 	icon_state = "hivebotbeacon_active"
 	icon_living = "hivebotbeacon_active"
 	health = 300
-	maxHealth = 300
+	maxhealth = 300
 	blood_type = COLOR_OIL
 	projectilesound = 'sound/weapons/taser2.ogg'
 	projectiletype = /obj/projectile/beam/hivebot
