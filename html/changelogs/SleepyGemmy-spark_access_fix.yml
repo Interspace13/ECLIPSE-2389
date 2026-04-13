@@ -3,5 +3,5 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - bugfix: "Fixed the shuttles' access shutters not allowing the Quark and Spark accesses."
+  - bugfix: "Fixed the shuttles' access shutters not allowing the Spark and Canary accesses."
   - bugfix: "Fixed the Spark's access shutters not having mining access."
