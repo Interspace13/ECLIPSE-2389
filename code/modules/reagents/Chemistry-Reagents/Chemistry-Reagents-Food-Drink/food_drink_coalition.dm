@@ -100,7 +100,7 @@
 	carbonated = TRUE
 
 	glass_icon_state = "glass_red"
-	glass_name = "glass of Drosiá "
+	glass_name = "glass of Drosiá Cherry"
 	glass_desc = "Assunzione's number two drink!"
 
 //
