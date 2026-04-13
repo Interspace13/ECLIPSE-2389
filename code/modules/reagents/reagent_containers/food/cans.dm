@@ -329,7 +329,7 @@
 	item_state = "cherrysoda"
 	center_of_mass = list("x"=16, "y"=10)
 
-	reagents_to_add = list(/singleton/reagent/drink/cherryjuice = 30)
+	reagents_to_add = list(/singleton/reagent/drink/cherrysoda = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/tonic
 	name = "\improper T-Borg's tonic water"
