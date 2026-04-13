@@ -1,4 +1,4 @@
 author: Batrachophrenoboocosmomachia
 delete-after: True
 changes:
-  - bugfix: "For the purpose of determining the best internals tank to use, tanks (including jetpacks) will no longer treat CO2 as a viable qualifying gas."
+  - bugfix: "Makes 'tanks' with distribution pressure set to 0 not count for purposes of Internals button trying to find the 'best' tank."
