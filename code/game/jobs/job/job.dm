@@ -181,7 +181,7 @@
 /datum/job/proc/get_access(selected_title)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	. = minimal_access.Copy()
+	. = job_access.Copy()
 
 	if (LAZYLEN(title_accesses) && title_accesses[selected_title])
 		. += title_accesses[selected_title]
