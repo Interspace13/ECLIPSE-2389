@@ -36,10 +36,6 @@ SUBSYSTEM_DEF(ghostroles)
 		if(!G.short_name || !G.name || !G.desc)
 			log_subsystem_ghostroles("Spawner [G.type] got removed from selection because of missing data")
 			continue
-		//Check if we have a spawnpoint on the current map
-		if(!G.select_spawnlocation(FALSE) && G.loc_type == GS_LOC_POS)
-			log_subsystem_ghostroles("Spawner [G.type] got removed from selection because of missing spawnpoint")
-			continue
 		spawners[G.short_name] = G
 
 	for (var/identifier in spawnpoints)
@@ -51,6 +47,14 @@ SUBSYSTEM_DEF(ghostroles)
 		spawn_atom[spawn_type] = list()
 
 	return SS_INIT_SUCCESS
+
+/datum/controller/subsystem/ghostroles/proc/prune_spawners()
+	set waitfor = FALSE
+	for(var/s in spawners)
+		var/datum/ghostspawner/G = spawners[s]
+		if(!G.select_spawnlocation(FALSE) && G.loc_type == GS_LOC_POS)
+			log_subsystem_ghostroles("Spawner [G.type] got removed from selection because of missing spawnpoint after map gen")
+			spawners -= s
 
 //Adds a spawnpoint to the spawnpoint list
 /datum/controller/subsystem/ghostroles/proc/add_spawnpoints(var/obj/effect/ghostspawpoint/P)

@@ -35,11 +35,19 @@ SUBSYSTEM_DEF(mapping)
 	if(!GLOB.config.fastboot || GLOB.config.exoplanets["enable_loading"] || GLOB.config.awaysites["enable_loading"])
 		// Load templates and build away sites.
 		preloadTemplates()
-
-		SSatlas.current_map.build_away_sites()
-		SSatlas.current_map.build_exoplanets()
+		build_extra_sites()
 
 	return SS_INIT_SUCCESS
+
+/datum/controller/subsystem/mapping/proc/build_extra_sites()
+	set waitfor = FALSE
+	SSatlas.current_map.build_away_sites()
+	SSatlas.current_map.build_exoplanets()
+
+	while(!SSghostroles.initialized)
+		sleep(wait)
+
+	SSghostroles.prune_spawners()
 
 /datum/controller/subsystem/mapping/Recover()
 	flags |= SS_NO_INIT
