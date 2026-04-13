@@ -11,7 +11,7 @@
 	selection_color = "#949494"
 	economic_modifier = 1
 
-	minimal_access = list()	//See /datum/job/assistant/get_access()
+	job_access = list()	//See /datum/job/assistant/get_access()
 	outfit = /obj/outfit/job/assistant
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 	alt_ages = list(
@@ -118,7 +118,7 @@
 	selection_color = "#949494"
 	economic_modifier = 1
 
-	minimal_access = list()
+	job_access = list()
 	outfit = /obj/outfit/job/visitor
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
@@ -145,6 +145,6 @@
 	selection_color = "#949494"
 	economic_modifier = 1
 
-	minimal_access = list()
+	job_access = list()
 	outfit = /obj/outfit/job/visitor/passenger
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)

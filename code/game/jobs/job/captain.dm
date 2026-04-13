@@ -11,7 +11,7 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 	intro_prefix = "the"
 	supervisors = "company officials and Corporate Regulations"
 	selection_color = "#114dc1"
-	minimal_access = list() 	//See get_access()
+	job_access = list() 	//See get_access()
 	minimal_player_age = 14
 	economic_modifier = 20
 
@@ -97,7 +97,7 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 
 	outfit = /obj/outfit/job/xo
 
-	minimal_access = list(
+	job_access = list(
 		ACCESS_SEC_DOORS, ACCESS_MEDICAL, ACCESS_SHIP_WEAPONS, ACCESS_ENGINE, ACCESS_CHANGE_IDS, ACCESS_EVA, ACCESS_HEADS, ACCESS_ALL_PERSONAL_LOCKERS,
 		ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_JANITOR, ACCESS_CONSTRUCTION, ACCESS_CREMATORIUM, ACCESS_GALLEY, ACCESS_HYDROPONICS, ACCESS_CHAPEL_OFFICE,
 		ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_MAILSORTING, ACCESS_JANITOR, ACCESS_HOP, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY,
@@ -153,7 +153,7 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 
 	outfit = /obj/outfit/job/bridge_crew
 
-	minimal_access = list(
+	job_access = list(
 		ACCESS_HEADS, ACCESS_EVA, ACCESS_GATEWAY, ACCESS_WEAPONS, ACCESS_BRIDGE_CREW, ACCESS_INTREPID, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY,
 		ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS
 	)

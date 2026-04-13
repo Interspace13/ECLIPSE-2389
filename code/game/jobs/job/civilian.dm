@@ -15,7 +15,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	minimal_access = list(ACCESS_BAR)
+	job_access = list(ACCESS_BAR)
 	alt_titles = list("Barista")
 	outfit = /obj/outfit/job/bartender
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -61,7 +61,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	minimal_access = list(ACCESS_GALLEY)
+	job_access = list(ACCESS_GALLEY)
 	alt_titles = list("Cook")
 	outfit = /obj/outfit/job/chef
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -111,7 +111,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	minimal_access = list(ACCESS_HYDROPONICS)
+	job_access = list(ACCESS_HYDROPONICS)
 	outfit = /obj/outfit/job/hydro
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 	alt_titles = list("Hydroponicist")
@@ -163,7 +163,7 @@
 	spawn_positions = 2
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
-	minimal_access = list(ACCESS_JANITOR, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_MEDICAL)
+	job_access = list(ACCESS_JANITOR, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_MEDICAL)
 	outfit = /obj/outfit/job/janitor
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
@@ -201,7 +201,7 @@
 	spawn_positions = 1
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
-	minimal_access = list(ACCESS_LIBRARY)
+	job_access = list(ACCESS_LIBRARY)
 	alt_titles = list("Curator", "Tech Support")
 	alt_outfits = list("Curator" = /obj/outfit/job/librarian/curator, "Tech Support" = /obj/outfit/job/librarian/tech_support)
 	title_accesses = list("Tech Support" = list(ACCESS_IT, ACCESS_TECH_STORAGE))
@@ -269,7 +269,7 @@
 	spawn_positions = 1
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
-	minimal_access = list(ACCESS_CHAPEL_OFFICE)
+	job_access = list(ACCESS_CHAPEL_OFFICE)
 	alt_titles = list("Presbyter", "Rabbi", "Imam", "Priest", "Priestess", "Shaman", "Counselor", "Keeper", "Shaper", "Sleepwalker")
 	outfit = /obj/outfit/job/chaplain
 
@@ -347,7 +347,7 @@
 		SPECIES_SKRELL_AXIORI = 70
 	)
 
-	minimal_access = list(ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_QM, ACCESS_MINING, ACCESS_SHIP_WEAPONS, ACCESS_MINING_STATION, ACCESS_KEYCARD_AUTH, ACCESS_RC_ANNOUNCE, ACCESS_HEADS,
+	job_access = list(ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_QM, ACCESS_MINING, ACCESS_SHIP_WEAPONS, ACCESS_MINING_STATION, ACCESS_KEYCARD_AUTH, ACCESS_RC_ANNOUNCE, ACCESS_HEADS,
 						ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_MEDICAL, ACCESS_ROBOTICS, ACCESS_ENGINE, ACCESS_TELEPORTER, ACCESS_EVA, ACCESS_INTREPID)
 
 	outfit = /obj/outfit/job/operations_manager
@@ -396,7 +396,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	minimal_access = list(
+	job_access = list(
 		ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_SHIP_WEAPONS, ACCESS_MAILSORTING
 	)
 	outfit = /obj/outfit/job/hangar_tech
@@ -446,7 +446,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	minimal_access = list(
+	job_access = list(
 		ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_MAILSORTING, ACCESS_SPARK
 	)
 	outfit = /obj/outfit/job/mining
@@ -500,7 +500,7 @@
 		SPECIES_SKRELL_AXIORI = 55
 	)
 
-	minimal_access = list(
+	job_access = list(
 		ACCESS_ROBOTICS, ACCESS_TECH_STORAGE, ACCESS_MAILSORTING
 	)
 

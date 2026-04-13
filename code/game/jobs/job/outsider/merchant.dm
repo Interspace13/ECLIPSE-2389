@@ -16,7 +16,7 @@
 
 	selection_color = "#c9ad12"
 
-	minimal_access = list(ACCESS_MERCHANT)
+	job_access = list(ACCESS_MERCHANT)
 
 	latejoin_at_spawnpoints = TRUE
 

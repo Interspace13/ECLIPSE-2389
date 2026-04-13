@@ -3,7 +3,7 @@
 	var/title = "NOPE"
 
 	/// Job access.
-	var/list/minimal_access = list()
+	var/list/job_access = list()
 
 	/// Bitflags for the job.
 	var/flag = 0
