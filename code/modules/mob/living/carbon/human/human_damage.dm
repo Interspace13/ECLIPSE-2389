@@ -269,6 +269,8 @@
 		adjustToxLoss(getToxLoss()-amount)
 
 /mob/living/carbon/human/adjustHalLoss(var/amount)
+	if (!amount)
+		return
 	var/heal = (amount < 0)
 	amount = abs(amount)
 	var/list/pick_organs = organs.Copy()
@@ -279,7 +281,8 @@
 			continue
 
 		if(heal)
-			amount -= E.remove_pain(amount)
+			if(E.get_pain() > 0)
+				amount -= E.remove_pain(amount)
 		else
 			amount -= E.add_pain(amount)
 	BITSET(hud_updateflag, HEALTH_HUD)
@@ -451,7 +454,17 @@ This function restores all organs.
 			to_chat(src, SPAN_DANGER("You are now visible."))
 			set_invisibility(0)
 
-	var/obj/item/organ/external/organ = isorgan(def_zone) ? def_zone : (isnull(def_zone) ? get_organ(BP_CHEST) : get_organ(def_zone))
+	var/obj/item/organ/external/organ
+	if(isorgan(def_zone))
+		organ = def_zone
+	else if(isnull(def_zone))
+		if(damage_flags & DAMAGE_FLAG_DISPERSED)
+			organ = null
+		else
+			organ = get_organ(BP_CHEST) //Default to the chest if there is no zone, and its not dispersed damage.
+	else
+		organ = get_organ(def_zone)
+
 	if(!organ)
 		if(!def_zone)
 			if(damage_flags & DAMAGE_FLAG_DISPERSED)

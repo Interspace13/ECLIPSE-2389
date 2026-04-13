@@ -152,8 +152,6 @@
 
 /obj/item/storage/bag/sheetsnatcher/can_be_inserted(obj/item/W as obj, stop_messages = 0)
 	if(!istype(W,/obj/item/stack/material))
-		if(!stop_messages)
-			to_chat(usr, "The snatcher does not accept [W].")
 		return 0
 	var/current = 0
 	for(var/obj/item/stack/material/S in contents)
@@ -324,7 +322,7 @@
 	storage_slots = 100
 	max_storage_space = 200
 	w_class = WEIGHT_CLASS_BULKY
-	slowdown = 1
+	slowdown = 0.5
 	can_hold = list(
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/glass/beaker,
