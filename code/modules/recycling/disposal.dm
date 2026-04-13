@@ -263,7 +263,7 @@
 
 	user.drop_from_inventory(attacking_item, src)
 
-	user.visible_message("<b>[user]</b> places \the [attacking_item] into \the [src].", SPAN_NOTICE("You place \the [attacking_item] into the [src]."), range = 3)
+	user.visible_message("<b>[user]</b> places \the [attacking_item] into \the [src].", SPAN_NOTICE("You place \the [attacking_item] into \the [src]."), range = 3)
 	update()
 
 /**
