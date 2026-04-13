@@ -3,4 +3,4 @@ author: FabianK3
 delete-after: True
 
 changes:
-  - rscadd: "Added four new whiteboard overlays: SCCV Horizon, Navigation chart, Task list and thrust diagram."
+  - rscadd: "Added four new whiteboard overlays: SCCV Horizon, Navigation chart, Task list and Thrust diagram."
