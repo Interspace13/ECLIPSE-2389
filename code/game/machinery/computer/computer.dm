@@ -8,7 +8,6 @@
 	idle_power_usage = 300
 	active_power_usage = 300
 	clicksound = SFX_KEYBOARD
-
 	/// The path to the circuit board type. If circuit==null, the computer can't be disassembled.
 	var/circuit = null
 	var/processing = 0

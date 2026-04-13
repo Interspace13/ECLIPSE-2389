@@ -4,6 +4,7 @@
 	name = "Modular Computer"
 	desc = DESC_PARENT
 	maxhealth = OBJECT_HEALTH_MEDIUM
+	should_use_health = TRUE
 
 	var/lexical_name = "computer"
 	/// Whether the computer is turned on.

@@ -119,7 +119,7 @@
 			if(armor[type])
 				AddComponent(/datum/component/armor, armor)
 				break
-	else
+	else if(should_use_health)
 		AddComponent(/datum/component/armor, GLOB.default_object_armor, TRUE)
 
 /obj/Destroy()

@@ -88,6 +88,7 @@ Class Procs:
 	init_flags = INIT_MACHINERY_PROCESS_SELF
 	pass_flags_self = PASSMACHINE | LETPASSCLICKS
 	destroy_sound = 'sound/effects/meteorimpact.ogg'
+	should_use_health = TRUE
 
 	/**
 	 * 'stat' = 'state'. Controlled by a bitflag, differentiates between a few different possible states including the machine being broken or unpowered.
