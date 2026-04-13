@@ -139,6 +139,8 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 	if(budget && (ruin.spawn_cost > budget))
 		return
 
+	ruin.lazy_load_size()
+
 	var/width = TRANSITIONEDGE + RUIN_MAP_EDGE_PAD + round(ruin.width / 2)
 	var/height = TRANSITIONEDGE + RUIN_MAP_EDGE_PAD + round(ruin.height / 2)
 
@@ -164,6 +166,7 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 /proc/load_ruin(turf/central_turf, datum/map_template/template)
 	if(!template)
 		return FALSE
+	template.lazy_load_size()
 	for(var/i in template.get_affected_turfs(central_turf, 1))
 		var/turf/T = i
 		for(var/mob/living/simple_animal/monster in T)

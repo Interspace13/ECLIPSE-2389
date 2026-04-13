@@ -33,10 +33,12 @@
 	. = ..()
 	if(path)
 		mappath = path
-	if(mappath)
-		preload_size(mappath, cache)
 	if(rename)
 		name = rename
+
+/datum/map_template/proc/lazy_load_size()
+	if(!width || !height)
+		preload_size()
 
 /datum/map_template/proc/preload_size(path)
 	var/list/bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
@@ -52,6 +54,7 @@
 	return bounds
 
 /datum/map_template/proc/load_new_z(var/no_changeturf = TRUE)
+	lazy_load_size()
 	var/x = round((world.maxx - width)/2)
 	var/y = round((world.maxy - height)/2)
 
@@ -173,6 +176,7 @@
 			T.static_lighting_build_overlay()
 
 /datum/map_template/proc/load(turf/T, centered = FALSE)
+	lazy_load_size()
 	if(centered)
 		T = locate(T.x - round(width / 2) , T.y - round(height / 2) , T.z)
 	if(!T)

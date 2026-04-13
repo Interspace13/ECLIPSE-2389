@@ -10,6 +10,7 @@
 		return
 
 	var/datum/map_template/template = SSmapping.map_templates[map]
+	template.lazy_load_size()
 
 	var/turf/T = get_turf(usr)
 	if(!T)
