@@ -192,7 +192,7 @@
 	log_admin("GlobalScreenText: [key_name(usr)] : [msg]")
 	message_admins(SPAN_NOTICE("Global Screen Text: [key_name_admin(usr)] : [msg]"), 1)
 
-/mob/abstract/ghost/storyteller/verb/SwitchHivenetEchoes() //
+/mob/abstract/ghost/storyteller/verb/SwitchHivenetEchoes()
 	set name = "Switch Off/On Hivenet Echoes"
 	set category = "Storyteller"
 	set desc = "Switch if Vaurcae can hear faint echoes (fluff) of the greater Hivenet. They will notice."
@@ -202,7 +202,7 @@
 		to_chat(src,"Vaurcae have been cut off from echoes (fluff) of the greater Hivenet.")
 		for(var/mob/living/carbon/human/player in GLOB.player_list)
 			if(isvaurca(player) && (player.internal_organs_by_name[BP_NEURAL_SOCKET]) && (!within_jamming_range(player)) && (GLOB.all_languages[LANGUAGE_VAURCA]))
-				to_chat(player, SPAN_CULT("The faint echoes of the greater Hivenet fade entirely. Without them, you feel dreadful and low in company."))
+				to_chat(player, SPAN_CULT("The absence of echoes makes you feel dreadful."))
 	else if(SSatlas.current_sector.catchecho == FALSE)
 		SSatlas.current_sector.catchecho = TRUE
 		to_chat(src,"Vaurcae will receive echoes (fluff) of the greater Hivenet.")
