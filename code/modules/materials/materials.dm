@@ -437,7 +437,7 @@
 	value = 4
 	conductivity = 11
 	protectiveness = 10 // 33%
-	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
+	wall_icon = 'icons/turf/smooth/composite_plating.dmi'
 	table_icon = 'icons/obj/structure/tables/steel_table.dmi'
 	icon_base = "steel"
 	icon_colour = COLOR_GRAY40
