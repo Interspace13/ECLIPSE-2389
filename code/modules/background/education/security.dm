@@ -20,7 +20,7 @@
 	description = "You have finished at least one full contract of military service. Alternatively, this could be equivalent experience from mercenary work (legal or otherwise), \
 		or or simply surviving for long in a grim environment where self-discipline matters as much as skill."
 	minimum_character_age = list(
-		SPECIES_HUMAN = 25,
+		SPECIES_HUMAN = 18,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -36,7 +36,7 @@
 		+ "Your combat skills are not as sharp as others, but you made up for it by knowing how to keep your comrades in arms from bleeding out on the battlefield. " \
 		+ "A character with this training is NOT legally considered a medical doctor. You're on the hook for manslaughter if you attempt and fail to save them yourself instead of taking them to a real doctor."
 	minimum_character_age = list(
-		SPECIES_HUMAN = 25,
+		SPECIES_HUMAN = 18,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -54,7 +54,7 @@
 	description = "You are a police academy graduate, or else you have certified through (or survived) a local institution of comparable sort. \
 		Your combat skills are not as stringent as actual military service, though this is made up for with more generalized training suitable for a first-responder."
 	minimum_character_age = list(
-		SPECIES_HUMAN = 25,
+		SPECIES_HUMAN = 18,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
