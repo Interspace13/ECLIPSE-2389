@@ -55,6 +55,7 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
   - rscadd: "Adds a dosimeter. Engineering spawns with two. Counts the amount of radiation it's wearer takes and calculates the real rate of exposure after armor."
+  - imageadd: "Adds sprites to the dosimeter courtesy of The_Ill_fated, with a big thanks!"
   - rscadd: "Adds an instruction to shelter in maintanance to the Supermatter Delamination alert. Also unlocks maintanance when it does."
   - rscadd: "Adds radiation armour values to makeshift armour, based on weight. Lead plate on the chest blocks 90% of radiation to the chest. Does nothing for your arms and legs though."
   - rscadd: "Adds a damage flag that makes certain hits ignore mechanical limbs. Useful for radiation, which shouldn't give metal radaiation burns."
