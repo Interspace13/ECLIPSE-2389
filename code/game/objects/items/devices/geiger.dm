@@ -99,12 +99,11 @@
 	var/current_rate_after_armor = 0 //The amount of rads the dosimeter has detected after armor mitigation.
 	var/previous_dose = 0 //The amount of rads the dosimeter had recorded the last time it checked, used to calculate how many new rads have been absorbed since then.
 	var/total_dose = 0 //The number of rads the dosimeter has recieved, human max is 1000, but the dosimeter will keep counting.
-	var/life_tick = 0 //Keep track of the last life tick, so we don't update unless Life has.
 	var/warning_threshold = 0 //Counts up as radiation thresholds are reached, giving the user a warning each time.
 
 /obj/item/geiger/dosimeter/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	var/msg = "current Dose rate: <b>[round(current_rate_after_armor,1.1)] IU/s</b>."
+	var/msg = "current Dose rate: <b>[round(current_rate_after_armor,1)] IU/s</b>."
 	if(current_rate_after_armor > 3)
 		. += SPAN_WARNING("[msg]")
 	else if (current_rate_after_armor > 10)
@@ -112,7 +111,7 @@
 	else
 		. += SPAN_NOTICE("[msg]")
 
-	msg = "total absorbed Dose: <b>[round(total_dose,1.1)] mGy</b>."
+	msg = "total absorbed Dose: <b>[round(total_dose,1)] mGy</b>."
 	if(total_dose > 250 && total_dose < 500)
 		. += SPAN_WARNING("[msg]")
 	else if (total_dose > 500)
@@ -124,11 +123,15 @@
 	scanning = !scanning
 	if(scanning)
 		START_PROCESSING(SSprocessing, src)
+		if (ishuman(user))
+			var/mob/living/carbon/human/H = user
+			previous_dose = H.total_radiation
 	else
 		STOP_PROCESSING(SSprocessing, src)
 		total_dose = 0
 		warning_threshold = 0
-		previous_dose = user.total_radiation
+		previous_dose = 0
+
 	to_chat(user, SPAN_NOTICE("[icon2html(src, user)] You switch [src] [scanning ? "on, starting the count" : "off, resetting the count"]."))
 	update_icon(user)
 
@@ -138,11 +141,9 @@
 	if (ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		if(H.wrists == src)
+			current_rate_after_armor = max(0, H.total_radiation - previous_dose)
+			total_dose += current_rate_after_armor //Done this way so we're not making an expensive call to check armour every tick, when apply_damage already does it.
 			previous_dose = total_dose
-			if(life_tick != H.life_tick) //Only update the dose if a life tick has passed.
-				current_rate_after_armor = max(0, H.total_radiation - previous_dose)
-				total_dose += current_rate_after_armor //Done this way so we're not making an expensive call to check armour every tick, when apply_damage already does it.
-				life_tick = H.life_tick
 		else
 			total_dose += radiation_count
 			current_rate_after_armor = radiation_count
