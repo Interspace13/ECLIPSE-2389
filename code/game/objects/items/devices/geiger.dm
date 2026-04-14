@@ -128,6 +128,7 @@
 		STOP_PROCESSING(SSprocessing, src)
 		total_dose = 0
 		warning_threshold = 0
+		previous_dose = user.total_radiation
 	to_chat(user, SPAN_NOTICE("[icon2html(src, user)] You switch [src] [scanning ? "on, starting the count" : "off, resetting the count"]."))
 	update_icon(user)
 
