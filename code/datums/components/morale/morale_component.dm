@@ -71,7 +71,7 @@
  */
 /datum/component/morale/proc/load_moodlet(datum/moodlet/moodlet_type, set_points)
 	RETURN_TYPE(moodlet_type)
-	var/datum/moodlet/loaded_moodlet = moodlets[moodlet_type]
+	var/datum/moodlet/loaded_moodlet = locate(moodlet_type) in moodlets
 	if (!loaded_moodlet)
 		loaded_moodlet = new moodlet_type(src, set_points)
 		moodlets.Add(loaded_moodlet)
