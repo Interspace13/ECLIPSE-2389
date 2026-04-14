@@ -6,7 +6,7 @@
 	name = "airlock assembly"
 	desc = "An airlock assembly."
 	icon = 'icons/obj/doors/basic/single/generic/door.dmi'
-	icon_state = "construction"
+	icon_state = "construction_new"
 	anchored = FALSE
 	density = TRUE
 	w_class = WEIGHT_CLASS_HUGE
@@ -62,6 +62,7 @@
 	. = list()
 	. = ..()
 	. += "It is currently facing [dir2text(dir)]."
+	. += "It is possible to squeeze through it as long it is anchored to the floor. Drag and drop a mob onto the assembly to do so."
 
 /obj/structure/door_assembly/Initialize(mapload)
 	. = ..()
@@ -78,6 +79,7 @@
 
 /obj/structure/door_assembly/door_assembly_ext
 	base_name = "external airlock"
+	icon = 'icons/obj/doors/basic/single/external/door.dmi'
 	airlock_type = /obj/machinery/door/airlock/external
 
 /obj/structure/door_assembly/door_assembly_hatch
@@ -87,7 +89,7 @@
 
 /obj/structure/door_assembly/door_assembly_mhatch
 	base_name = "maintenance hatch"
-	icon = 'icons/obj/doors/basic/single/external/door.dmi'
+	icon = 'icons/obj/doors/basic/single/hatch/door.dmi'
 	airlock_type = /obj/machinery/door/airlock/maintenance_hatch
 
 /obj/structure/door_assembly/door_assembly_highsecurity
@@ -315,6 +317,74 @@
 		..()
 	update_state()
 
+/obj/structure/door_assembly/mouse_drop_receive(atom/dropped, mob/user, params)
+	// Logic allowing people to squeeze through airlock assemblies.
+
+	if(use_check(user) || !Adjacent(user))
+		return ..()
+
+	if(!src.anchored)
+		to_chat(user, SPAN_WARNING("\The [src] isn't secured to the floor yet, you can't squeeze through it."))
+		return ..()
+
+	var/list/species_too_big = list(SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARFORM, SPECIES_IPC_G1, SPECIES_IPC_G2)
+	var/list/species_fast = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_TAJARA_MSAI)
+	var/list/species_slow = list(SPECIES_UNATHI, SPECIES_HUMAN_OFFWORLD, SPECIES_IPC_XION, SPECIES_VAURCA_WARRIOR)
+
+	var/speed_multiplier = 1.0
+	if (istype(user, /mob/living/carbon/human))
+		var/species = user.get_species()
+		if(species in species_too_big)
+			visible_message(SPAN_NOTICE("\The [user] tries to squeeze through \the [src]! That's never going to fit..."))
+			return ..()
+		else if(species in species_fast)
+			speed_multiplier = 0.5
+		else if(species in species_slow)
+			speed_multiplier = 1.5
+
+	visible_message(SPAN_NOTICE("\The [user] tries to squeeze through \the [src]!"))
+
+	// Check if user is standing directly infront of the airlock facing the open assembly, not diagonal or besides the assembly.
+	if((src.dir == NORTH || src.dir == SOUTH) && !((src.loc.y == user.loc.y + 1 || src.loc.y == user.loc.y -1) && user.loc.x == src.loc.x))
+		return ..()
+	else if((src.dir == EAST || src.dir == WEST) && !((src.loc.x == user.loc.x + 1 || src.loc.x == user.loc.x - 1) && user.loc.y == src.loc.y))
+		return ..()
+
+	// Get position on the opposite side of the airlock from the user.
+	var/dx = src.loc.x - user.loc.x
+	var/dy = src.loc.y - user.loc.y
+	// normalize to a single-tile step
+	dx = dx > 0 ? 1 : (dx < 0 ? -1 : 0)
+	dy = dy > 0 ? 1 : (dy < 0 ? -1 : 0)
+	var/turf/T = locate(src.loc.x + dx, src.loc.y + dy, src.z)
+
+	// Check if the location is empty to step upon.
+	if(!T || !turf_clear(T))
+		to_chat(user, SPAN_WARNING("However, there is no room to step out on the other side!"))
+		return ..()
+
+	var/turf/old_loc = locate(user.loc.x, user.loc.y, user.loc.z)
+	src.add_fingerprint(user)
+
+	user.resting = TRUE
+	if(do_after(user, (3 * speed_multiplier) SECONDS, src, DO_UNIQUE, (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_FULLY))) // Squeeze in
+		user.forceMove(src.loc) // Ignore density check
+		sleep((2 * speed_multiplier) SECOND) // Crawl delay
+		if(src.loc != user.loc) // Check if user was moved out of the assembly during the process, if so, abort
+			user.resting = FALSE
+			return ..()
+		if(prob(10 * speed_multiplier)) // Climb out
+			visible_message(SPAN_WARNING("[user] gets tangled in the \the [src] for a moment..."))
+			if(!do_after(user, (5 * speed_multiplier) SECONDS, src, DO_UNIQUE, (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_FULLY)))
+				user.forceMove(old_loc)
+				user.resting = FALSE
+				return ..()
+		user.Move(T) // Get out behind assembly
+		visible_message(SPAN_NOTICE("[user] climbed through the \the [src]!"))
+	user.resting = FALSE
+
+	..()
+
 /obj/structure/door_assembly/proc/CanChainsaw(var/obj/item/material/twohanded/chainsaw/ChainSawVar)
 	return (ChainSawVar.powered)
 
@@ -323,10 +393,13 @@
 	switch (state)
 		if(STATE_UNWIRED)
 			name = anchored ? "secured " : "unsecured "
+			icon_state = anchored ? "construction_anchored" : "construction_new"
 		if(STATE_WIRED)
 			name = "wired "
+			icon_state = "construction_wired"
 		if(STATE_ELECTRONICS_INSTALLED)
 			name = "near-finished "
+			icon_state = "construction_electronics"
 	name += "[glass == TRUE ? "window " : ""][glass ? "glass airlock" : base_name] assembly"
 	if(created_name)
 		name += " ([created_name])"
