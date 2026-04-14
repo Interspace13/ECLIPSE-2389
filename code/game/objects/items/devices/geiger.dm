@@ -18,7 +18,7 @@
 /obj/item/geiger/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	var/msg = "[scanning ? "ambient" : "stored"] Radiation level: <b>[radiation_count ? radiation_count : "0"] IU/s</b>."
-	if(radiation_count > RAD_LEVEL_LOW)
+	if(radiation_count > RAD_LEVEL_VERY_LOW)
 		. += SPAN_WARNING("[msg]")
 	else
 		. += SPAN_NOTICE("[msg]")
@@ -63,11 +63,11 @@
 
 	switch(radiation_count)
 		if(null) icon_state = "geiger_on_1"
-		if(-INFINITY to RAD_LEVEL_LOW)
+		if(-INFINITY to RAD_LEVEL_VERY_LOW)
 			icon_state = "geiger_on_1"
 			geiger_volume = 0
 			sound_token.SetVolume(geiger_volume)
-		if(RAD_LEVEL_LOW + 0.01 to RAD_LEVEL_MODERATE)
+		if(RAD_LEVEL_VERY_LOW + 0.01 to RAD_LEVEL_MODERATE)
 			icon_state = "geiger_on_2"
 			geiger_volume = 10
 			sound_token.SetVolume(geiger_volume)
@@ -75,11 +75,11 @@
 			icon_state = "geiger_on_3"
 			geiger_volume = 25
 			sound_token.SetVolume(geiger_volume)
-		if(RAD_LEVEL_HIGH + 1 to RAD_LEVEL_VERY_HIGH)
+		if(RAD_LEVEL_HIGH + 1 to RAD_LEVEL_EXTREME)
 			icon_state = "geiger_on_4"
 			geiger_volume = 40
 			sound_token.SetVolume(geiger_volume)
-		if(RAD_LEVEL_VERY_HIGH + 1 to INFINITY)
+		if(RAD_LEVEL_EXTREME + 1 to INFINITY)
 			icon_state = "geiger_on_5"
 			geiger_volume = 60
 			sound_token.SetVolume(geiger_volume)

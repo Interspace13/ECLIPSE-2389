@@ -88,7 +88,7 @@
 /**
  * Called when radiation affects a /mob/living.
  *
- * * severity - The amount of radiation being applied. Anything over RAD_LEVEL_LOW will deal [severity] dispersed damage and run rad_act to everything in it.
+ * * severity - The amount of radiation being applied. Anything over RAD_LEVEL_VERY_LOW will deal [severity] dispersed damage and run rad_act to everything in it.
  *
  * Returns boolean
  */

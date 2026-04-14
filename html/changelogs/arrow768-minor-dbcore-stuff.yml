@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: CatsinHD
+author: arrow768
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,17 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added Kalkii Dynhvah's custom item."
+- server: "Changed the synthsprites to use the new DBCore"
+- server: "Changed the MalfAI to use the new DBCore"
+- server: "Changed the Alien Whitelists to use the new DBCore"
+- server: "Changed the Requests Console to use the new DBCore"
+- server: "Changed the Contracts Uplink to use the new DBCore"
+- server: "Changed the Admin Ranks to use the new DBCore"
+- server: "Changed the Job Bans to use the new DBCore"
+- server: "Changed the Tickets to use the new DBCore"
+- server: "Changed the Create Command Report to use the new DBCore"
+- server: "Changed the WebInterface interconnect to use the new DBCore"
+- server: "Changed the CCIA Recorder to use the new DBCore"
+- server: "Changed the IPCTags to use the new DBCore"
+- server: "Changed the Main Menu Poll-Check to use the new DBCore"
+- server: "Changed the Client-Procs to use the new DBCore"
