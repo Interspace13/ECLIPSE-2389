@@ -1,14 +1,11 @@
-# Aurorastation
-![Aurora Logo](https://wiki.aurorastation.org/images/6/6b/Main_page_banner1.png)
+# ECLIPSE
 
-**[Website](https://aurorastation.org/)**
-
-**[Code](https://github.com/Aurorastation/Aurora.3)**
+A work in progress. Forked from Aurorastation.
 
 ---
 
 ### LICENSE
-Aurorastation is licensed under the GNU Affero General Public License version 3, which can be found in full in LICENSE.
+Eclipse is licensed under the GNU Affero General Public License version 3, which can be found in full in LICENSE.
 
 Commits with a git authorship date prior to `1420675200 +0000` (2015/01/08 00:00) are licensed under the GNU General Public License version 3, which can be found in full in LICENSE-GPL3.txt.
 
