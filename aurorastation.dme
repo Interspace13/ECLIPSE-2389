@@ -4512,6 +4512,11 @@
 #include "maps\sccv_horizon\code\sccv_horizon_shuttles.dm"
 #include "maps\sccv_horizon\code\sccv_horizon_structures.dm"
 #include "maps\sccv_horizon\code\sccv_horizon_unittest.dm"
+#include "maps\shinohara\code\shinohara.dm"
+#include "maps\shinohara\code\shinohara_holodeck.dm"
+#include "maps\shinohara\code\shinohara_horizon_shuttles.dm"
+#include "maps\shinohara\code\shinohara_lifts.dm"
+#include "maps\shinohara\code\shinohara_overmap.dm"
 #include "maps\templates\distress\distress_equipment.dm"
 #include "maps\templates\orbital\orbital_templates.dm"
 // END_INCLUDE
