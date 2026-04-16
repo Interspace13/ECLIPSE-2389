@@ -1,7 +1,7 @@
 /mob/living/carbon/human/instantiate_hud(datum/hud/HUD, ui_style, ui_color, ui_alpha)
 	HUD.human_hud(ui_style, ui_color, ui_alpha, src)
 
-/datum/hud/proc/human_hud(var/ui_style='icons/mob/screen/white.dmi', var/ui_color = "#ffffff", var/ui_alpha = 255, var/mob/living/carbon/human/target)
+/datum/hud/proc/human_hud(var/ui_style='icons/mob/screen/dark.dmi', var/ui_color = "#ffffff", var/ui_alpha = 255, var/mob/living/carbon/human/target)
 	var/datum/hud_data/hud_data
 	if(!istype(target))
 		hud_data = new()
@@ -18,6 +18,23 @@
 	var/list/hud_elements = list()
 	var/atom/movable/screen/using
 	var/atom/movable/screen/inventory/inv_box
+
+	/*
+	using = new /atom/movable/screen() //hud hud hud hud
+	using.icon = 'icons/mob/screen/custom/interhud.dmi'
+	using.icon_state = "zionhud"
+	using.screen_loc = "WEST-3,SOUTH"
+	adding += using
+
+	using = new /atom/movable/screen() //Right hud bar
+	using.icon = ui_style
+	using.icon_state = "filler"
+	using.screen_loc = "EAST+1,SOUTH to EAST+1,NORTH"
+	adding += using*/
+
+	using = new /atom/movable/screen/eclipse/button_background()
+	using.hud = src
+	adding += using
 
 	// Draw the various inventory equipment slots.
 	var/has_hidden_gear

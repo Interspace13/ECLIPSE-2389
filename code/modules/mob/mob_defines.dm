@@ -45,6 +45,7 @@
 	var/atom/movable/screen/pressure = null
 	var/atom/movable/screen/damageoverlay = null
 	var/atom/movable/screen/pain = null
+	var/atom/movable/screen/noise = null
 	var/atom/movable/screen/gun/item/item_use_icon = null
 	var/atom/movable/screen/gun/radio/radio_use_icon = null
 	var/atom/movable/screen/gun/move/gun_move_icon = null
