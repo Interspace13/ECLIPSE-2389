@@ -1,49 +1,49 @@
-/area/hallway/primary/fourthdeck/fore
-	name = "\improper Fourth Deck Fore Hallway"
+/area/shinohara/hallway/primary/deck2/fore
+	name = "\improper Deck 2 Fore Hallway"
 	icon_state = "hallF"
 
-/area/hallway/primary/fourthdeck/center
-	name = "\improper Fourth Deck Central Hallway"
+/area/shinohara/hallway/primary/deck2/center
+	name = "\improper Deck 2 Central Hallway"
 	icon_state = "hallC3"
 
-/area/hallway/primary/fourthdeck/aft
-	name = "\improper Fourth Deck Aft Hallway"
+/area/shinohara/hallway/primary/deck2/aft
+	name = "\improper Deck 2 Aft Hallway"
 	icon_state = "hallA"
 
-/area/maintenance/fourthdeck
-	name = "Fourth Deck Maintenance"
+/area/shinohara/maintenance/deck2
+	name = "Deck 2 Maintenance"
 	icon_state = "maintcentral"
 
-/area/maintenance/fourthdeck/aftport
-	name = "Fourth Deck Aft Port Maintenance"
+/area/shinohara/maintenance/deck2/aftport
+	name = "Deck 2 Aft Port Maintenance"
 	icon_state = "amaint"
 
-/area/maintenance/fourthdeck/aftstarboard
-	name = "Fourth Deck Aft Starboard Maintenance"
+/area/shinohara/maintenance/deck2/aftstarboard
+	name = "Deck 2 Aft Starboard Maintenance"
 	icon_state = "amaint"
 
-/area/maintenance/fourthdeck/foreport
-	name = "Fourth Deck Fore Port Maintenance"
+/area/shinohara/maintenance/deck2/foreport
+	name = "Deck 2 Fore Port Maintenance"
 	icon_state = "fpmaint"
 
-/area/maintenance/fourthdeck/forestarboard
-	name = "Fourth Deck Fore Starboard Maintenance"
+/area/shinohara/maintenance/deck2/forestarboard
+	name = "Deck 2 Fore Starboard Maintenance"
 	icon_state = "fsmaint"
 
-/area/maintenance/fourthdeck/starboard
-	name = "Fourth Deck Starboard Maintenance"
+/area/shinohara/maintenance/deck2/starboard
+	name = "Deck 2 Starboard Maintenance"
 	icon_state = "smaint"
 
-/area/maintenance/fourthdeck/port
-	name = "Fourth Deck Port Maintenance"
+/area/shinohara/maintenance/deck2/port
+	name = "Deck 2 Port Maintenance"
 	icon_state = "pmaint"
 
-/area/teleporter/fourthdeck
-	name = "\improper Fourth Deck Teleporter"
+/area/shinohara/teleporter/deck2
+	name = "\improper Deck 2 Teleporter"
 	icon_state = "teleporter"
 
-/area/maintenance/substation/fourthdeck
-	name = "Fourth Deck Substation"
+/area/shinohara/maintenance/substation/deck2
+	name = "Deck 2 Substation"
 
-/area/crew_quarters/safe_room/fourthdeck
-	name = "\improper Fourth Deck Safe Room"
+/area/shinohara/crew_quarters/safe_room/deck2
+	name = "\improper Deck 2 Safe Room"

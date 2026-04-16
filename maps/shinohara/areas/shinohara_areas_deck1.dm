@@ -1,26 +1,26 @@
-/area/hallway/primary/fifthdeck/fore
-	name = "\improper Fifth Deck Fore Hallway"
+/area/shinohara/hallway/primary/deck1/fore
+	name = "\improper Deck 1 Fore Hallway"
 	icon_state = "hallF"
 
-/area/hallway/primary/fifthdeck/aft
-	name = "\improper Fifth Deck Aft Hallway"
+/area/shinohara/hallway/primary/deck1/aft
+	name = "\improper Deck 1 Aft Hallway"
 	icon_state = "hallA"
 
-/area/maintenance/fifthdeck
-	name = "Fifth Deck Maintenance"
+/area/shinohara/maintenance/deck1
+	name = "Deck 1 Maintenance"
 	icon_state = "maintcentral"
 
-/area/maintenance/fifthdeck/aftport
-	name = "Fifth Deck Aft Port Maintenance"
+/area/shinohara/maintenance/deck1/aftport
+	name = "Deck 1 Aft Port Maintenance"
 	icon_state = "apmaint"
 
-/area/maintenance/fifthdeck/aftstarboard
-	name = "Fifth Deck Aft Starboard Maintenance"
+/area/shinohara/maintenance/deck1/aftstarboard
+	name = "Deck 1 Aft Starboard Maintenance"
 	icon_state = "asmaint"
 
-/area/maintenance/fifthdeck/fore
-	name = "Fifth Deck Fore Maintenance"
+/area/shinohara/maintenance/deck1/fore
+	name = "Deck 1 Fore Maintenance"
 	icon_state = "fmaint"
 
-/area/maintenance/substation/fifthdeck
-	name = "Fifth Deck Substation"
+/area/shinohara/maintenance/substation/deck1
+	name = "Deck 1 Substation"

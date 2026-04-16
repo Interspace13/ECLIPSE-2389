@@ -11,7 +11,6 @@
 
 	icon = 'icons/obj/doors/basic/double/generic/door.dmi'
 	icon_state = "preview"
-	frame_color_file = 'icons/obj/doors/basic/double/generic/frame_color.dmi'
 	color_file = 'icons/obj/doors/basic/double/generic/color.dmi'
 	color_fill_file = 'icons/obj/doors/basic/double/generic/fill_color.dmi'
 	glass_file = 'icons/obj/doors/basic/double/generic/fill_glass.dmi'
@@ -61,7 +60,6 @@
 
 	icon = 'icons/obj/doors/basic/double/generic/flipped/door.dmi'
 	icon_state = "preview"
-	frame_color_file = 'icons/obj/doors/basic/double/generic/flipped/frame_color.dmi'
 	color_file = 'icons/obj/doors/basic/double/generic/flipped/color.dmi'
 	color_fill_file = 'icons/obj/doors/basic/double/generic/flipped/fill_color.dmi'
 	glass_file = 'icons/obj/doors/basic/double/generic/flipped/fill_glass.dmi'

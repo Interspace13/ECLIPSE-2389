@@ -1,63 +1,63 @@
-/area/hallway/primary/thirddeck/fore
-	name = "\improper Third Deck Fore Hallway"
+/area/shinohara/hallway/primary/deck3/fore
+	name = "\improper Deck 3 Fore Hallway"
 	icon_state = "hallF"
 
-/area/hallway/primary/thirddeck/center
-	name = "\improper Third Deck Central Hallway"
+/area/shinohara/hallway/primary/deck3/center
+	name = "\improper Deck 3 Central Hallway"
 	icon_state = "hallC3"
 
-/area/hallway/primary/thirddeck/aft
-	name = "\improper Third Deck Aft Hallway"
+/area/shinohara/hallway/primary/deck3/aft
+	name = "\improper Deck 3 Aft Hallway"
 	icon_state = "hallA"
 
-/area/maintenance/thirddeck
-	name = "Third Deck Maintenance"
+/area/shinohara/maintenance/deck3
+	name = "Deck 3 Maintenance"
 	icon_state = "maintcentral"
 
-/area/maintenance/thirddeck/foreport
-	name = "Third Deck Fore Port Maintenance"
+/area/shinohara/maintenance/deck3/foreport
+	name = "Deck 3 Fore Port Maintenance"
 	icon_state = "fpmaint"
 
-/area/maintenance/thirddeck/forestarboard
-	name = "Third Deck Fore Starboard Maintenance"
+/area/shinohara/maintenance/deck3/forestarboard
+	name = "Deck 3 Fore Starboard Maintenance"
 	icon_state = "fsmaint"
 
-/area/maintenance/thirddeck/starboard
-	name = "Third Deck Starboard Maintenance"
+/area/shinohara/maintenance/deck3/starboard
+	name = "Deck 3 Starboard Maintenance"
 	icon_state = "smaint"
 
-/area/maintenance/thirddeck/port
-	name = "Third Deck Port Maintenance"
+/area/shinohara/maintenance/deck3/port
+	name = "Deck 3 Port Maintenance"
 	icon_state = "pmaint"
 
-/area/maintenance/thirddeck/aftstarboard
-	name = "Third Deck Aft Starboard Maintenance"
+/area/shinohara/maintenance/deck3/aftstarboard
+	name = "Deck 3 Aft Starboard Maintenance"
 	icon_state = "asmaint"
 
-/area/maintenance/thirddeck/aftport
-	name = "Third Deck Aft Port Maintenance"
+/area/shinohara/maintenance/deck3/aftport
+	name = "Deck 3 Aft Port Maintenance"
 	icon_state = "apmaint"
 
-/area/teleporter/thirddeck
-	name = "\improper Third Deck Teleporter"
+/area/shinohara/teleporter/deck3
+	name = "\improper Deck 3 Teleporter"
 	icon_state = "teleporter"
 
-/area/maintenance/substation/thirddeck
-	name = "Third Deck Substation"
+/area/shinohara/maintenance/substation/deck3
+	name = "Deck 3 Substation"
 
-/area/crew_quarters/safe_room
-	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+/area/shinohara/crew_quarters/safe_room
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
-/area/crew_quarters/safe_room/thirddeck
-	name = "\improper Third Deck Safe Room"
+/area/shinohara/crew_quarters/safe_room/deck3
+	name = "\improper Deck 3 Safe Room"
 
-/area/crew_quarters/public_office
+/area/shinohara/crew_quarters/public_office
 	name = "public_office"
 	icon_state = "crew_quarters"
 
-/area/crew_quarters/laundry
+/area/shinohara/crew_quarters/laundry
 	name = "\improper Laundry Room"
 	icon_state = "Sleep"
 
-/area/crew_quarters/recreation
+/area/shinohara/crew_quarters/recreation
 	name = "\improper Recreation"

@@ -1,49 +1,49 @@
-/area/maintenance/firstdeck
-	name = "First Deck Maintenance"
+/area/shinohara/maintenance/deck5
+	name = "Deck 5 Maintenance"
 	icon_state = "maintcentral"
 
-/area/maintenance/firstdeck/aftstarboard
-	name = "First Deck Aft Starboard Maintenance"
+/area/shinohara/maintenance/deck5/aftstarboard
+	name = "Deck 5 Aft Starboard Maintenance"
 	icon_state = "asmaint"
 
-/area/maintenance/firstdeck/aftport
-	name = "First Deck Aft Port Maintenance"
+/area/shinohara/maintenance/deck5/aftport
+	name = "Deck 5 Aft Port Maintenance"
 	icon_state = "apmaint"
 
-/area/maintenance/firstdeck/forestarboard
-	name = "First Deck Fore Starboard Maintenance"
+/area/shinohara/maintenance/deck5/forestarboard
+	name = "Deck 5 Fore Starboard Maintenance"
 	icon_state = "fsmaint"
 
-/area/maintenance/firstdeck/foreport
-	name = "First Deck Fore Port Maintenance"
+/area/shinohara/maintenance/deck5/foreport
+	name = "Deck 5 Fore Port Maintenance"
 	icon_state = "fpmaint"
 
-/area/maintenance/firstdeck/centralstarboard
-	name = "First Deck Starboard Maintenance"
+/area/shinohara/maintenance/deck5/centralstarboard
+	name = "Deck 5 Starboard Maintenance"
 	icon_state = "smaint"
 
-/area/maintenance/firstdeck/centralport
-	name = "First Deck Port Maintenance"
+/area/shinohara/maintenance/deck5/centralport
+	name = "Deck 5 Port Maintenance"
 	icon_state = "pmaint"
 
-/area/teleporter/firstdeck
-	name = "\improper First Deck Teleporter"
+/area/shinohara/teleporter/deck5
+	name = "\improper Deck 5 Teleporter"
 	icon_state = "teleporter"
 
-/area/hallway/primary/firstdeck/fore
-	name = "\improper First Deck Fore Hallway"
+/area/shinohara/hallway/primary/deck5/fore
+	name = "\improper Deck 5 Fore Hallway"
 	icon_state = "hallF"
 
-/area/hallway/primary/firstdeck/center
-	name = "\improper First Deck Central Hallway"
+/area/shinohara/hallway/primary/deck5/center
+	name = "\improper Deck 5 Central Hallway"
 	icon_state = "hallC1"
 
-/area/hallway/primary/firstdeck/aft
-	name = "\improper First Deck Aft Hallway"
+/area/shinohara/hallway/primary/deck5/aft
+	name = "\improper Deck 5 Aft Hallway"
 	icon_state = "hallA"
 
-/area/crew_quarters/safe_room/firstdeck
-	name = "\improper First Deck Safe Room"
+/area/shinohara/crew_quarters/safe_room/deck5
+	name = "\improper Deck 5 Safe Room"
 
-/area/maintenance/substation/firstdeck // First Deck (Z-4)
-	name = "First Deck Substation"
+/area/shinohara/maintenance/substation/deck5 // (Z-4)
+	name = "Deck 5 Substation"

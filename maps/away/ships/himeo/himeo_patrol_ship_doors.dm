@@ -1,36 +1,29 @@
 #define COLOR_HIMEO_NAVY "#313d73"
 
 /obj/machinery/door/airlock/himeo_patrol
-	door_frame_color = COLOR_RAIDER
 	door_color = COLOR_HIMEO_NAVY
 	req_access = list(ACCESS_HIMEO_PATROL_SHIP)
 
 /obj/machinery/door/airlock/glass/himeo_patrol
-	door_frame_color = COLOR_RAIDER
 	door_color = COLOR_HIMEO_NAVY
 	req_access = list(ACCESS_HIMEO_PATROL_SHIP)
 
 /obj/machinery/door/airlock/highsecurity/himeo_patrol
-	door_frame_color = COLOR_RAIDER
 	req_access = list(ACCESS_HIMEO_PATROL_SHIP)
 
 /obj/machinery/door/airlock/external/himeo_patrol
-	door_frame_color = COLOR_RAIDER
 	door_color = COLOR_DARK_RED
 	req_access = list(ACCESS_HIMEO_PATROL_SHIP)
 
 /obj/machinery/door/airlock/hatch/himeo_patrol
-	door_frame_color = COLOR_RAIDER
 	req_access = list(ACCESS_HIMEO_PATROL_SHIP)
 
 /obj/machinery/door/airlock/multi_tile/glass/himeo_patrol
-	door_frame_color = COLOR_RAIDER
 	door_color = COLOR_RAIDER
 	req_access = list(ACCESS_HIMEO_PATROL_SHIP)
 	name = "Glass Airlock"
 
 /obj/machinery/door/airlock/multi_tile/flipped/glass/himeo_patrol
-	door_frame_color = COLOR_RAIDER
 	door_color = COLOR_RAIDER
 	req_access = list(ACCESS_HIMEO_PATROL_SHIP)
 	name = "Glass Airlock"
