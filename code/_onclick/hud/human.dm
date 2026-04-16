@@ -19,7 +19,7 @@
 	var/atom/movable/screen/using
 	var/atom/movable/screen/inventory/inv_box
 
-
+	/*
 	using = new /atom/movable/screen() //hud hud hud hud
 	using.icon = 'icons/mob/screen/custom/interhud.dmi'
 	using.icon_state = "zionhud"
@@ -30,6 +30,10 @@
 	using.icon = ui_style
 	using.icon_state = "filler"
 	using.screen_loc = "EAST+1,SOUTH to EAST+1,NORTH"
+	adding += using*/
+
+	using = new /atom/movable/screen/eclipse/button_background()
+	using.hud = src
 	adding += using
 
 	// Draw the various inventory equipment slots.
