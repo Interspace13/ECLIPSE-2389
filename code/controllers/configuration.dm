@@ -395,7 +395,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/list/api_rate_limit_whitelist = list()
 
 	// Master Controller settings.
-	var/fastboot = FALSE	// If true, take some shortcuts during boot to speed it up for testing. Probably should not be used on production servers.
+	var/fastboot = TRUE	// If true, take some shortcuts during boot to speed it up for testing. Probably should not be used on production servers.
 
 	//IP Intel vars
 	var/ipintel_email

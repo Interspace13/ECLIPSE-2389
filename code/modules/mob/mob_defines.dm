@@ -45,6 +45,7 @@
 	var/atom/movable/screen/pressure = null
 	var/atom/movable/screen/damageoverlay = null
 	var/atom/movable/screen/pain = null
+	var/atom/movable/screen/noise = null
 	var/atom/movable/screen/gun/item/item_use_icon = null
 	var/atom/movable/screen/gun/radio/radio_use_icon = null
 	var/atom/movable/screen/gun/move/gun_move_icon = null
@@ -126,6 +127,7 @@
 	var/list/speak_emote = list("says") // Verbs used when speaking. Defaults to 'say' if speak_emote is null.
 	var/emote_type = 1		// Define emote default type, 1 for seen emotes, 2 for heard emotes
 	var/facing_dir = null   // Used for the ancient art of moonwalking.
+	var/using_alt_hud = 0 //For the lunahud.
 
 	var/obj/machinery/hologram/holopad/holo = null
 

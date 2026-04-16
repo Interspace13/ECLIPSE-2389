@@ -11,8 +11,7 @@
  */
 /world
 	/* Aurora snowflake to avoid the window stretching when ran locally before the map is softloaded */
-	maxx = WORLD_MIN_SIZE
-	maxy = WORLD_MIN_SIZE
+
 	/* End of aurora snowflake */
 
 	mob = /mob/abstract/new_player
