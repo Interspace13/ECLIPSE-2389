@@ -8,29 +8,22 @@
 	color = COLOR_GADPATHUR_BLACK
 
 /obj/machinery/door/airlock/gadpathur
-	door_frame_color = COLOR_GADPATHUR_BLACK
 	door_color = COLOR_GADPATHUR_BROWN
 
 /obj/machinery/door/airlock/glass/gadpathur
-	door_frame_color = COLOR_GADPATHUR_BLACK
 	door_color = COLOR_GADPATHUR_BROWN
 
 /obj/machinery/door/airlock/highsecurity/gadpathur
-	door_frame_color = COLOR_GADPATHUR_BLACK
 
 /obj/machinery/door/airlock/external/gadpathur
-	door_frame_color = COLOR_GADPATHUR_BLACK
 	door_color = COLOR_GADPATHUR_RED
 
 /obj/machinery/door/airlock/hatch/gadpathur
-	door_frame_color = COLOR_GADPATHUR_BLACK
 
 /obj/machinery/door/airlock/multi_tile/glass/gadpathur
-	door_frame_color = COLOR_GADPATHUR_BLACK
 	door_color = COLOR_GADPATHUR_BLACK
 
 /obj/machinery/door/airlock/multi_tile/flipped/glass/gadpathur
-	door_frame_color = COLOR_GADPATHUR_BLACK
 	door_color = COLOR_GADPATHUR_BLACK
 
 //Special doors
@@ -64,7 +57,6 @@
 	req_one_access = list(ACCESS_GADPATHUR_NAVY_OFFICER)
 
 /obj/machinery/door/airlock/freezer/gadpathur/morgue
-	door_frame_color = COLOR_GADPATHUR_BLACK
 	name = "morgue"
 	req_one_access = list(ACCESS_GADPATHUR_NAVY_OFFICER, ACCESS_GADPATHUR_NAVY, ACCESS_COALITION_NAVY)
 
@@ -145,7 +137,6 @@
 	stripe_color = COLOR_GADPATHUR_GOLD
 
 /obj/machinery/door/airlock/external/gadpathur/shuttle
-	door_frame_color = "#ac8b78"
 	door_color = COLOR_GADPATHUR_RED
 
 #undef COLOR_GADPATHUR_BROWN

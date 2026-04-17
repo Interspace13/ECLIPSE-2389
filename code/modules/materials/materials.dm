@@ -437,11 +437,11 @@
 	value = 4
 	conductivity = 11
 	protectiveness = 10 // 33%
-	wall_icon = 'icons/turf/smooth/composite_plating.dmi'
+	wall_icon = 'icons/turf/smooth/composite_metal.dmi'
 	table_icon = 'icons/obj/structure/tables/steel_table.dmi'
 	icon_base = "steel"
 	icon_colour = COLOR_GRAY40
-	wall_colour = COLOR_GRAY20
+	wall_colour = COLOR_GRAY30
 	golem = SPECIES_GOLEM_STEEL
 	hitsound = 'sound/weapons/smash.ogg'
 	weapon_hitsound = 'sound/weapons/metalhit.ogg'
@@ -484,7 +484,7 @@
 	melting_point = 6000
 	wall_icon = 'icons/turf/smooth/composite_reinf.dmi'
 	icon_colour = "#545c68"
-	wall_colour = COLOR_GRAY20
+	wall_colour = COLOR_GRAY30
 	explosion_resistance = 25
 	hardness = 80
 	weight = 23

@@ -30,8 +30,6 @@
 	explosion_resistance = 10
 	autoclose = TRUE
 	normalspeed = TRUE
-	pixel_x = -16
-	pixel_y = -16
 	pass_flags_self = PASSDOORS
 	/// Boolean. Whether or not the AI control mechanism is disabled.
 	var/ai_control_disabled = FALSE
@@ -111,8 +109,6 @@
 	/// Soundfile. The sound played when the door is locked/bolted.
 	var/bolts_dropping = 'sound/machines/boltsdown.ogg'
 
-	var/frame_color_file = 'icons/obj/doors/basic/single/generic/frame_color.dmi'
-
 	var/color_file = 'icons/obj/doors/basic/single/generic/color.dmi'
 	var/color_fill_file = 'icons/obj/doors/basic/single/generic/fill_color.dmi'
 
@@ -138,9 +134,7 @@
 	/// Bitflag (Any of `AIRLOCK_PAINTABLE_*`). Determines what parts of the airlock can be recolored with paint.
 	var/paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	/// Color. The color of the main door body.
-	var/door_color = "#909299"
-	/// Frame color. The color of the door frame connecting it to walls if applicable.
-	var/door_frame_color = COLOR_GRAY20
+	var/door_color = COLOR_GRAY30
 	/// Color. The color of the stripe detail.
 	var/stripe_color = null
 	/// Color. The color of the symbol detail.
@@ -317,28 +311,27 @@
 	icon_state = "preview"
 	assembly_type = /obj/structure/door_assembly/door_assembly_ext
 	paintable = AIRLOCK_PAINTABLE_MAIN
-	door_frame_color = "#81838b"//Meant to connect to external scc spaceship walls like the horizon hull
 	door_color = "#813c3c"
 	hashatch = FALSE
 	features_powerloss_manual_override = FALSE
-	fill_file = 'icons/obj/doors/basic/single/external/fill_steel.dmi'
 	color_file = 'icons/obj/doors/basic/single/external/color.dmi'
 	color_fill_file = 'icons/obj/doors/basic/single/external/fill_color.dmi'
+	glass_file = 'icons/obj/doors/basic/single/external/fill_glass.dmi'
+	fill_file = 'icons/obj/doors/basic/single/external/fill_steel.dmi'
+	bolts_file = 'icons/obj/doors/basic/single/external/lights_bolts.dmi'
+	deny_file = 'icons/obj/doors/basic/single/external/lights_deny.dmi'
+	lights_file = 'icons/obj/doors/basic/single/external/lights_green.dmi'
+	emag_file = 'icons/obj/doors/basic/single/external/emag.dmi'
 
 /obj/machinery/door/airlock/external/khaki
-	door_frame_color = "#ac8b78"
 
 /obj/machinery/door/airlock/external/merc
-	door_frame_color = "#8b7d86"
 
 /obj/machinery/door/airlock/external/red
-	door_frame_color = "#c24f4f"
 
 /obj/machinery/door/airlock/external/blue
-	door_frame_color = "#6176a1"
 
 /obj/machinery/door/airlock/external/purple
-	door_frame_color = "#7846b1"
 
 /obj/machinery/door/airlock/glass
 	name = "glass airlock"
@@ -349,8 +342,7 @@
 	explosion_resistance = 5
 	opacity = FALSE
 	panel_visible_while_open = TRUE
-	door_color = COLOR_GRAY20
-	door_frame_color = COLOR_GRAY20
+	door_color = COLOR_GRAY40
 	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
@@ -406,7 +398,6 @@
 	stripe_color = "#ab812B"
 
 /obj/machinery/door/airlock/generic/maintenance/external//for connecting to the horizons hull, duh
-	door_frame_color = "#81838b"//Meant to connect to external scc spaceship walls like the horizon hull
 
 /obj/machinery/door/airlock/external
 	name = "external airlock"
@@ -526,8 +517,7 @@
 	name = "vault airlock"
 	airlock_type = "Vault"
 	icon = 'icons/obj/doors/basic/single/secure/door.dmi'
-	color_file = 'icons/obj/doors/basic/single/secure/color.dmi'
-	color_fill_file = 'icons/obj/doors/basic/single/secure/fill_color.dmi'
+	fill_file = 'icons/obj/doors/basic/single/secure/fill_steel.dmi'
 	icon_state = "preview"
 	door_color = COLOR_GRAY40
 	explosion_resistance = 20
@@ -559,11 +549,15 @@
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	icon = 'icons/obj/doors/basic/single/hatch/door.dmi'
 	fill_file = 'icons/obj/doors/basic/single/hatch/fill_steel.dmi'
-	color_file = 'icons/obj/doors/basic/single/hatch/color.dmi'
-	color_fill_file = 'icons/obj/doors/basic/single/hatch/fill_color.dmi'
 	stripe_file = 'icons/obj/doors/basic/single/hatch/stripe.dmi'
-	stripe_fill_file = 'icons/obj/doors/basic/single/hatch/stripe.dmi'
-	door_color = "#4e5170"
+	stripe_fill_file = 'icons/obj/doors/basic/single/hatch/fill_stripe.dmi'
+	bolts_file = 'icons/obj/doors/basic/single/hatch/lights_bolts.dmi'
+	deny_file = 'icons/obj/doors/basic/single/hatch/lights_deny.dmi'
+	lights_file = 'icons/obj/doors/basic/single/hatch/lights_green.dmi'
+	panel_file = 'icons/obj/doors/basic/single/hatch/panel.dmi'
+	welded_file = 'icons/obj/doors/basic/single/hatch/welded.dmi'
+	emag_file = 'icons/obj/doors/basic/single/hatch/emag.dmi'
+	door_color = null
 	stripe_color = "#ffc443"
 	assembly_type = /obj/structure/door_assembly/door_assembly_hatch
 	features_powerloss_manual_override = FALSE
@@ -578,11 +572,15 @@
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	icon = 'icons/obj/doors/basic/single/hatch/door.dmi'
 	fill_file = 'icons/obj/doors/basic/single/hatch/fill_steel.dmi'
-	color_file = 'icons/obj/doors/basic/single/hatch/color.dmi'
-	color_fill_file = 'icons/obj/doors/basic/single/hatch/fill_color.dmi'
 	stripe_file = 'icons/obj/doors/basic/single/hatch/stripe.dmi'
-	stripe_fill_file = 'icons/obj/doors/basic/single/hatch/stripe.dmi'
-	door_color = "#4d4d4d"
+	stripe_fill_file = 'icons/obj/doors/basic/single/hatch/fill_stripe.dmi'
+	bolts_file = 'icons/obj/doors/basic/single/hatch/lights_bolts.dmi'
+	deny_file = 'icons/obj/doors/basic/single/hatch/lights_deny.dmi'
+	lights_file = 'icons/obj/doors/basic/single/hatch/lights_green.dmi'
+	panel_file = 'icons/obj/doors/basic/single/hatch/panel.dmi'
+	welded_file = 'icons/obj/doors/basic/single/hatch/welded.dmi'
+	emag_file = 'icons/obj/doors/basic/single/hatch/emag.dmi'
+	door_color = null
 	stripe_color = "#a88029"
 	open_sound_powered = 'sound/machines/airlock/hatchopen.ogg'
 	close_sound_powered = 'sound/machines/airlock/hatchclose.ogg'
@@ -700,28 +698,23 @@
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#364664"
 	stripe_color = "#ff4343"
-	door_frame_color = "#8d8078"
 
 /obj/machinery/door/airlock/merc
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#534663"
 	stripe_color = "#fac826"
-	door_frame_color = "#8b7d86"
 
 /obj/machinery/door/airlock/red
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#364664"
-	door_frame_color = "#c24f4f"
 
 /obj/machinery/door/airlock/purple
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#596170"
-	door_frame_color = "#7846b1"
 
 /obj/machinery/door/airlock/blue
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#63584a"
-	door_frame_color = "#6176a1"
 
 /obj/machinery/door/airlock/gold
 	name = "Gold Airlock"
@@ -752,8 +745,6 @@
 /obj/machinery/door/airlock/highsecurity
 	name = "secure airlock"
 	icon = 'icons/obj/doors/basic/single/secure/door.dmi'
-	color_file = 'icons/obj/doors/basic/single/secure/color.dmi'
-	color_fill_file = 'icons/obj/doors/basic/single/secure/fill_color.dmi'
 	icon_state = "preview"
 	door_color = COLOR_WALL_GUNMETAL
 	explosion_resistance = 20
@@ -778,7 +769,6 @@
 /obj/machinery/door/airlock/diona
 	name = "biomass airlock"
 	door_color = "#564A27"
-	door_frame_color = "#7E6A40"
 	explosion_resistance = 20
 	secured_wires = TRUE
 	maxhealth = 600
@@ -1035,7 +1025,6 @@ About the new airlock wires panel:
 
 /obj/machinery/door/airlock/proc/set_airlock_overlays(state, force_compile)
 	var/icon/color_overlay
-	var/icon/frame_color_overlay
 	var/icon/filling_overlay
 	var/icon/stripe_overlay
 	var/icon/stripe_filling_overlay
@@ -1048,13 +1037,6 @@ About the new airlock wires panel:
 
 	set_light(0)
 
-	if(door_frame_color && !(door_frame_color == "none"))//frame
-		var/ikey = "[airlock_type]-[door_frame_color]-framecolor"
-		frame_color_overlay = SSicon_cache.airlock_icon_cache["[ikey]"]
-		if(!frame_color_overlay)
-			frame_color_overlay = new(frame_color_file)
-			frame_color_overlay.Blend(door_frame_color, ICON_MULTIPLY)
-			SSicon_cache.airlock_icon_cache["[ikey]"] = frame_color_overlay
 	if(door_color && !(door_color == "none"))//door itself
 		var/ikey = "[airlock_type]-[door_color]-doorcolor"
 		color_overlay = SSicon_cache.airlock_icon_cache["[ikey]"]
@@ -1135,7 +1117,6 @@ About the new airlock wires panel:
 
 	ClearOverlays()
 
-	AddOverlays(frame_color_overlay)
 	AddOverlays(color_overlay)
 	AddOverlays(panel_overlay)
 	AddOverlays(filling_overlay)

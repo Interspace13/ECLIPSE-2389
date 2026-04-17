@@ -12,8 +12,6 @@
 	w_class = WEIGHT_CLASS_HUGE
 	build_amt = 4
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
-	pixel_x = -16
-	pixel_y = -16
 	var/state = STATE_UNWIRED
 	var/base_name = "airlock"
 	var/obj/item/airlock_electronics/electronics
