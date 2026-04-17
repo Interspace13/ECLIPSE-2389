@@ -3,9 +3,6 @@
 
 	blocks_emissive = EMISSIVE_BLOCK_NONE
 
-	// Tail Style
-	var/tail_style = null
-
 	//Hair colour and style
 	var/r_hair = 0
 	var/g_hair = 0
@@ -118,6 +115,39 @@
 	var/is_noisy = FALSE		// if TRUE, movement should make sound.
 	var/bodyfall_sound = SFX_BODYFALL
 	var/footsound = SFX_FOOTSTEP_BLANK
+
+	// Horray Furries!
+	var/datum/sprite_accessory/ears/ear_style = null
+	var/r_ears = 30
+	var/g_ears = 30
+	var/b_ears = 30
+	var/r_ears2 = 30
+	var/g_ears2 = 30
+	var/b_ears2 = 30
+	var/r_ears3 = 30
+	var/g_ears3 = 30
+	var/b_ears3 = 30
+	var/a_ears = 255 //applied to the ears
+	var/a_ears2 = 255 //applied to the horns
+
+	/// secondary ears sprite accessory reference
+	var/datum/sprite_accessory/ears/ear_secondary_style
+	/// secondary ears color channels; can be null, or a list of #aabbcc hexcolors
+	var/list/ear_secondary_colors
+
+	var/datum/sprite_accessory/tail/tail_style = null
+	var/r_tail = 30
+	var/g_tail = 30
+	var/b_tail = 30
+	var/r_tail2 = 30
+	var/g_tail2 = 30
+	var/b_tail2 = 30
+	var/r_tail3 = 30
+	var/g_tail3 = 30
+	var/b_tail3 = 30
+	var/a_tail = 255 //applied to the entire tail
+
+	var/wagging = 0 //UGH.
 
 	var/last_x = 0
 	var/last_y = 0

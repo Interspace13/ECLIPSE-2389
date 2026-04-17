@@ -90,6 +90,10 @@ GLOBAL_LIST_EMPTY(body_marking_styles_list)
 GLOBAL_LIST_EMPTY(chargen_disabilities_list)
 /// List of valid player genders in the loadout.
 GLOBAL_LIST_INIT(valid_player_genders, list(MALE, FEMALE, NEUTER, PLURAL))
+/// Furry customs
+GLOBAL_LIST_EMPTY(ear_styles_list)	// Stores /datum/sprite_accessory/ears indexed by type
+GLOBAL_LIST_EMPTY(tail_styles_list)	// Stores /datum/sprite_accessory/tail indexed by type
+GLOBAL_LIST_EMPTY(wing_styles_list)	// Stores /datum/sprite_accessory/wing indexed by type
 
 /// List of possible backpack shapes for the loadout.
 GLOBAL_LIST_INIT(backbaglist, list("Nothing", "Backpack", "Satchel", "Leather Satchel", "Duffel Bag", "Messenger Bag", "Rucksack", "Pocketbook", "Chest Pouch"))
@@ -215,6 +219,24 @@ GLOBAL_LIST_EMPTY(all_particles)
 	for(var/T in paths)
 		var/datum/job/J = new T
 		GLOB.joblist[J.title] = J
+
+	//Custom Ears
+		paths = subtypesof(/datum/sprite_accessory/ears)
+	for(var/path in paths)
+		var/obj/item/clothing/head/instance = new path()
+		GLOB.ear_styles_list[path] = instance
+
+	// Custom Tails
+	paths = subtypesof(/datum/sprite_accessory/tail)
+	for(var/path in paths)
+		var/datum/sprite_accessory/tail/instance = new path()
+		GLOB.tail_styles_list[path] = instance
+
+	// Custom Wings
+	paths = subtypesof(/datum/sprite_accessory/wing)
+	for(var/path in paths)
+		var/datum/sprite_accessory/wing/instance = new path()
+		GLOB.wing_styles_list[path] = instance
 
 	//Languages and species.
 	paths = subtypesof(/datum/language)

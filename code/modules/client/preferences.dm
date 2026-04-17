@@ -233,6 +233,10 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		save_preferences()
 		save_character()
 
+/datum/preferences/proc/getAllSpecies()
+	var/datum/species/mob_species = GLOB.all_species[species]
+	return mob_species
+
 /datum/preferences/proc/getMinAge()
 	var/datum/species/mob_species = GLOB.all_species[species]
 	return mob_species.age_min
