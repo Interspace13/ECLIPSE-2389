@@ -6,6 +6,75 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 
 /datum/preferences
 	var/equip_preview_mob = EQUIP_PREVIEW_ALL
+	var/animations_toggle = FALSE
+
+	var/ear_style		// Type of selected ear style
+
+	/// The typepath of the character's selected secondary ears.
+	var/ear_secondary_style
+	/// The color channels for the character's selected secondary ears
+	///
+	/// * This is a lazy list. Its length, when populated, should but cannot be assumed
+	///   to be the number of color channels supported by the secondary ear style.
+	var/list/ear_secondary_colors = list()
+/*
+	var/tail_style		// Type of selected tail style defined in preferences.dm
+*/
+	var/wing_style		// Type of selected wing style
+
+	var/datum/browser/markings_subwindow = null
+
+// Sanitize ear/wing/tail styles
+/datum/preferences/proc/sanitize_body_styles()
+
+	// Grandfather in anyone loading paths from a save.
+	if(ispath(ear_style, /datum/sprite_accessory))
+		var/datum/sprite_accessory/instance = GLOB.ear_styles_list[ear_style]
+		if(istype(instance))
+			ear_style = instance.name
+	if(ispath(wing_style, /datum/sprite_accessory))
+		var/datum/sprite_accessory/instance = GLOB.wing_styles_list[wing_style]
+		if(istype(instance))
+			wing_style = instance.name
+	if(ispath(tail_style, /datum/sprite_accessory))
+		var/datum/sprite_accessory/instance = GLOB.tail_styles_list[tail_style]
+		if(istype(instance))
+			tail_style = instance.name
+
+	// Sanitize for non-existent keys.
+	if(ear_style && !(ear_style in get_available_styles(GLOB.ear_styles_list)))
+		ear_style = null
+	if(ear_secondary_style && !(ear_secondary_style in get_available_styles(GLOB.ear_styles_list)))
+		ear_secondary_style = null
+	if(wing_style && !(wing_style in get_available_styles(GLOB.wing_styles_list)))
+		wing_style = null
+	if(tail_style && !(tail_style in get_available_styles(GLOB.tail_styles_list)))
+		tail_style = null
+
+/datum/preferences/proc/get_available_styles(var/style_list)
+	. = list("Normal" = null)
+	var/datum/preferences/pref
+	var/datum/species/mob_species = GLOB.all_species[pref.species]
+	for(var/path in style_list)
+		var/datum/sprite_accessory/instance = style_list[path]
+		if(!istype(instance))
+			continue
+		if(instance.species_allowed && (!mob_species || !(mob_species in instance.species_allowed)))
+			continue
+		if(!instance.can_be_selected)
+			continue
+		.[instance.name] = instance
+
+/datum/preferences/proc/mass_edit_marking_list(var/marking, var/change_on = TRUE, var/change_color = TRUE, var/marking_value = null, var/on = TRUE, var/color = "#000000")
+	var/datum/sprite_accessory/marking/mark_datum = GLOB.body_marking_styles_list[marking]
+	var/list/new_marking = marking_value||mark_datum.body_parts
+	for (var/NM in new_marking)
+		if (marking_value && !islist(new_marking[NM])) continue
+		new_marking[NM] = list("on" = (!change_on && marking_value) ? marking_value[NM]["on"] : on, "color" = (!change_color && marking_value) ? marking_value[NM]["color"] : color)
+	if (change_color)
+		new_marking["color"] = color
+	return new_marking
+
 
 /datum/category_item/player_setup_item/general/body
 	name = "Body"
