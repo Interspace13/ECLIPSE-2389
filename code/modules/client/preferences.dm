@@ -350,11 +350,11 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		else
 			to_chat(user, SPAN_DANGER("The forum URL is not set in the server configuration."))
 			return
-	return 1
+	return TRUE
 
 /datum/preferences/Topic(href, list/href_list)
 	if(..())
-		return 1
+		return TRUE
 
 	if(href_list["save"])
 		save_character()
@@ -368,7 +368,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 				open_load_dialog_sql(usr)
 			else
 				open_load_dialog_file(usr)
-			return 1
+			return TRUE
 	else if(href_list["changeslot"])
 		load_character(text2num(href_list["changeslot"]))
 		close_load_dialog(usr)
@@ -381,19 +381,21 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		close_load_dialog(usr)
 	else if(href_list["delete"])
 		if (!GLOB.config.sql_saves)
-			return 0
+			return FALSE
 		if (alert(usr, "You will be unable to re-create a character with the same name! Are you sure you want to permanently [real_name]? The slot can not be restored.", "Permanently Delete Character", "No", "Yes") == "Yes")
 			if(alert(usr, "Are you sure you want to PERMANENTLY delete your character?","Confirm Permanent Deletion","Yes","No") == "Yes")
 				delete_character_sql(usr.client)
 	else if(href_list["close"])
 		// User closed preferences window, cleanup anything we need to.
 		clear_character_previews()
-		return 1
+		return TRUE
+	else if(handle_keybind(usr, href_list))
+		return TRUE
 	else
 		return
 
 	ShowChoices(usr)
-	return 1
+	return TRUE
 
 /datum/preferences/proc/copy_to(mob/living/carbon/human/character, icon_updates = 1)
 	// Sanitizing rather than saving as someone might still be editing when copy_to occurs.

@@ -2,6 +2,7 @@ export type Channel =
   | 'Say'
   | 'Radio'
   | 'Me'
+  | 'Whisper'
   | 'OOC'
   | 'LOOC'
   | 'Mentor'
@@ -19,13 +20,20 @@ export class ChannelIterator {
     'Say',
     'Radio',
     'Me',
+    'Whisper',
     'OOC',
     'LOOC',
     'Mentor',
     'Admin',
   ];
   private readonly blacklist: Channel[] = ['Mentor', 'Admin'];
-  private readonly quiet: Channel[] = ['OOC', 'LOOC', 'Mentor', 'Admin'];
+  private readonly quiet: Channel[] = [
+    'Whisper',
+    'OOC',
+    'LOOC',
+    'Mentor',
+    'Admin',
+  ];
 
   public next(): Channel {
     if (this.blacklist.includes(this.channels[this.index])) {
