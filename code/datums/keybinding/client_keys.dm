@@ -70,4 +70,4 @@
 	full_name = "Whisper"
 	description = "Opens the whisper input."
 	bind_flags = KB_HUMAN
-	clientside = "Whisper"
+	clientside = ".Whisper"
