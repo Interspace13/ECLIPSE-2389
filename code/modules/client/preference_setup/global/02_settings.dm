@@ -9,6 +9,7 @@
 	S["sfx_toggles"]        >> pref.sfx_toggles
 	S["toggles_secondary"] >> pref.toggles_secondary
 	S["lobby_music_vol"] >> pref.lobby_music_vol
+	S["keyb_overrides"] >> pref.kb_overrides
 
 /datum/category_item/player_setup_item/player_global/settings/save_preferences(var/savefile/S)
 	S["lastchangelog"]    << pref.lastchangelog
@@ -17,6 +18,7 @@
 	S["sfx_toggles"]        << pref.sfx_toggles
 	S["toggles_secondary"] << pref.toggles_secondary
 	S["lobby_music_vol"] << pref.lobby_music_vol
+	S["keyb_overrides"] << pref.kb_overrides
 
 /datum/category_item/player_setup_item/player_global/settings/gather_load_query()
 	return list(
@@ -27,7 +29,8 @@
 				"toggles",
 				"sfx_toggles",
 				"toggles_secondary",
-				"lobby_music_vol"
+				"lobby_music_vol",
+				"keyb_overrides"
 			),
 			"args" = list("ckey")
 		)
@@ -46,6 +49,7 @@
 			"ckey" = 1,
 			"toggles_secondary",
 			"lobby_music_vol",
+			"keyb_overrides",
 		)
 	)
 
@@ -57,7 +61,8 @@
 		"toggles" = pref.toggles,
 		"sfx_toggles" = pref.sfx_toggles,
 		"toggles_secondary" = pref.toggles_secondary,
-		"lobby_music_vol" = pref.lobby_music_vol
+		"lobby_music_vol" = pref.lobby_music_vol,
+		"keyb_overrides" = (LAZYLEN(pref.kb_overrides) ? list2params(pref.kb_overrides) : null)
 	)
 
 /datum/category_item/player_setup_item/player_global/settings/sanitize_preferences(var/sql_load = 0)
@@ -71,6 +76,9 @@
 	pref.sfx_toggles      = sanitize_integer(text2num(pref.sfx_toggles), 0, BITFIELDMAX, initial(pref.toggles))
 	pref.toggles_secondary  = sanitize_integer(text2num(pref.toggles_secondary), 0, BITFIELDMAX, initial(pref.toggles_secondary))
 	pref.lobby_music_vol = sanitize_integer(text2num(pref.lobby_music_vol), 0, BITFIELDMAX, initial(pref.lobby_music_vol))
+	if(sql_load && istext(pref.kb_overrides))
+		pref.kb_overrides = params2list(pref.kb_overrides)
+	pref.sanitize_keybinds()
 
 /datum/category_item/player_setup_item/player_global/settings/content(mob/user)
 	var/list/dat = list(
@@ -84,7 +92,8 @@
 		"<b>Hide Item Tooltips:</b> <a href='byond://?src=[REF(src)];paratoggle=[HIDE_ITEM_TOOLTIPS]'><b>[(pref.toggles_secondary & HIDE_ITEM_TOOLTIPS) ? "Yes" : "No"]</b></a><br>",
 		"<b>Progress Bars:</b> <a href='byond://?src=[REF(src)];paratoggle=[PROGRESS_BARS]'><b>[(pref.toggles_secondary & PROGRESS_BARS) ? "Yes" : "No"]</b></a><br>",
 		"<b>Floating Messages:</b> <a href='byond://?src=[REF(src)];paratoggle=[FLOATING_MESSAGES]'><b>[(pref.toggles_secondary & FLOATING_MESSAGES) ? "Yes" : "No"]</b></a><br>",
-		"<b>Hotkey Mode Default:</b> <a href='byond://?src=[REF(src)];paratoggle=[HOTKEY_DEFAULT]'><b>[(pref.toggles_secondary & HOTKEY_DEFAULT) ? "On" : "Off"]</b></a><br>"
+		"<b>Hotkey Mode Default:</b> <a href='byond://?src=[REF(src)];paratoggle=[HOTKEY_DEFAULT]'><b>[(pref.toggles_secondary & HOTKEY_DEFAULT) ? "On" : "Off"]</b></a><br>",
+		"<b>Keybinds:</b> <a href='byond://?src=[REF(src)];open_keybinds=1'>Change Keybinds</a><br>"
 	)
 
 	. = dat.Join()
@@ -106,6 +115,10 @@
 		var/flag = text2num(href_list["paratoggle"])
 		pref.toggles_secondary ^= flag
 		return TOPIC_REFRESH
+
+	if(href_list["open_keybinds"])
+		pref.show_keybinds(user)
+		return TOPIC_HANDLED
 
 	return ..()
 
