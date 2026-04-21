@@ -730,6 +730,8 @@
 		t = replacetext(t, "<img src = hplogolarge.png>", "\[logo_hp_large\]")
 		t = replacetext(t, "<img src = hplogo.png>", "\[logo_hp\]")
 		t = replacetext(t, "<img src = hplogo_small.png>", "\[logo_hp_small\]")
+		t = replacetext(t, "<img src = phrlogo.png>", "\[logo_phr\]")
+		t = replacetext(t, "<img src = phrlogo_small.png>", "\[logo_phr_small\]")
 		t = replacetext(t, "<img src = beflag.png>", "\[flag_be\]")
 		t = replacetext(t, "<img src = elyraflag.png>", "\[flag_elyra\]")
 		t = replacetext(t, "<img src = solflag.png>", "\[flag_sol\]")
