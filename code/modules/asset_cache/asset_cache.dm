@@ -446,7 +446,8 @@ GLOBAL_LIST_EMPTY(asset_datums)
 		"faction_INDEP.png" = 'html/images/factions/unaffiliatedlogo.png',
 		"faction_PMCG.png" = 'html/images/factions/pmcglogo.png',
 		"faction_Orion.png" = 'html/images/factions/orionlogo.png',
-		"faction_SCC.png" = 'html/images/factions/scclogo.png'
+		"faction_SCC.png" = 'html/images/factions/scclogo.png',
+		"faction_PHR.png" = 'html/images/factions/phrlogo.png'
 	)
 	cross_round_cachable = TRUE
 
@@ -510,6 +511,8 @@ GLOBAL_LIST_EMPTY(asset_datums)
 		"hplogolarge.png" = 'html/images/hplogolarge.png',
 		"hplogo.png" = 'html/images/factions/hephlogo.png',
 		"hplogo_small.png" = 'html/images/factions/hephlogo_small.png',
+		"phrlogo.png" = 'html/images/factions/phrlogo.png',
+		"phrlogo_small.png" = 'html/images/factions/phrlogo.png',
 		"beflag.png" = 'html/images/beflag.png',
 		"beflag_small.png" = 'html/images/beflag_small.png',
 		"elyraflag.png" = 'html/images/elyraflag.png',
