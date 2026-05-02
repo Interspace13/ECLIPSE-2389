@@ -519,9 +519,6 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 /client/Del()
 	if(!gc_destroyed)
 		gc_destroyed = world.time
-		if (!QDELING(src))
-			stack_trace("Client does not purport to be QDELING, this is going to cause bugs in other places!")
-
 		Destroy()
 	return ..()
 
@@ -759,6 +756,14 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 
 	prefs.toggles_secondary ^= ACCENT_TAG_TEXT
 	prefs.save_preferences()
+
+/client/verb/change_keybinds()
+	set name = "Change Keybinds"
+	set category = "Preferences.Game"
+
+	if(!prefs)
+		return
+	prefs.show_keybinds(mob)
 
 /client/verb/toggle_fullscreen()
 	set name = "Toggle Fullscreen"

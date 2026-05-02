@@ -95,6 +95,7 @@
 		winset(src, null, "mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true")
 	else
 		winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true")
+	client.apply_keybinds()
 	MOB_STOP_THINKING(src)
 
 	clear_important_client_contents()

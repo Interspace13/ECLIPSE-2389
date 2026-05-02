@@ -44,6 +44,11 @@
 		if(OOC_CHANNEL)
 			client.ooc(entry)
 			return TRUE
+		if(WHISPER_CHANNEL)
+			var/mob/living/L = client.mob
+			if(istype(L))
+				L.whisper_verb(entry)
+			return TRUE
 	return FALSE
 
 /**
@@ -82,8 +87,8 @@
 		return TRUE
 	if(type == "force")
 		var/target_channel = payload["channel"]
-		if(target_channel == ME_CHANNEL || target_channel == OOC_CHANNEL)
-			target_channel = SAY_CHANNEL // No ooc leaks
+		if(target_channel == ME_CHANNEL || target_channel == OOC_CHANNEL || target_channel == WHISPER_CHANNEL)
+			target_channel = SAY_CHANNEL // No ooc/whisper leaks
 		delegate_speech(alter_entry(payload), target_channel)
 		return TRUE
 	return FALSE
